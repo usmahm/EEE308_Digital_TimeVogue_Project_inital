@@ -1,43 +1,56 @@
 |DigitalClock
-KEY_0 => ~NO_FANOUT~
-KEY_1 => ~NO_FANOUT~
-SW_9 => ~NO_FANOUT~
-CLK_FPGA => ~NO_FANOUT~
-HEX_5[0] << seven_seg:hour_tens_seg.seven[0]
-HEX_5[1] << seven_seg:hour_tens_seg.seven[1]
-HEX_5[2] << seven_seg:hour_tens_seg.seven[2]
-HEX_5[3] << seven_seg:hour_tens_seg.seven[3]
-HEX_5[4] << seven_seg:hour_tens_seg.seven[4]
-HEX_5[5] << seven_seg:hour_tens_seg.seven[5]
-HEX_5[6] << seven_seg:hour_tens_seg.seven[6]
-HEX_4[0] << seven_seg:hour_unit_seg.seven[0]
-HEX_4[1] << seven_seg:hour_unit_seg.seven[1]
-HEX_4[2] << seven_seg:hour_unit_seg.seven[2]
-HEX_4[3] << seven_seg:hour_unit_seg.seven[3]
-HEX_4[4] << seven_seg:hour_unit_seg.seven[4]
-HEX_4[5] << seven_seg:hour_unit_seg.seven[5]
-HEX_4[6] << seven_seg:hour_unit_seg.seven[6]
-HEX_3[0] << <VCC>
-HEX_3[1] << <VCC>
-HEX_3[2] << <VCC>
-HEX_3[3] << <VCC>
-HEX_3[4] << <GND>
-HEX_3[5] << <GND>
-HEX_3[6] << <VCC>
-HEX_2[0] << seven_seg:min_tens_seg.seven[0]
-HEX_2[1] << seven_seg:min_tens_seg.seven[1]
-HEX_2[2] << seven_seg:min_tens_seg.seven[2]
-HEX_2[3] << seven_seg:min_tens_seg.seven[3]
-HEX_2[4] << seven_seg:min_tens_seg.seven[4]
-HEX_2[5] << seven_seg:min_tens_seg.seven[5]
-HEX_2[6] << seven_seg:min_tens_seg.seven[6]
-HEX_1[0] << seven_seg:min_unit_seg.seven[0]
-HEX_1[1] << seven_seg:min_unit_seg.seven[1]
-HEX_1[2] << seven_seg:min_unit_seg.seven[2]
-HEX_1[3] << seven_seg:min_unit_seg.seven[3]
-HEX_1[4] << seven_seg:min_unit_seg.seven[4]
-HEX_1[5] << seven_seg:min_unit_seg.seven[5]
-HEX_1[6] << seven_seg:min_unit_seg.seven[6]
+KEY_0 => increment_minute.DATAA
+KEY_0 => process_0.IN0
+KEY_1 => increment_hour.DATAA
+KEY_1 => increment_minute.OUTPUTSELECT
+KEY_1 => process_0.IN1
+SW_9 => seconds.OUTPUTSELECT
+SW_9 => seconds.OUTPUTSELECT
+SW_9 => seconds.OUTPUTSELECT
+SW_9 => seconds.OUTPUTSELECT
+SW_9 => seconds.OUTPUTSELECT
+SW_9 => seconds.OUTPUTSELECT
+SW_9 => seconds.OUTPUTSELECT
+SW_9 => second_indicator:s_ind.is_on
+SW_9 => increment_minute.ENA
+SW_9 => increment_hour.ENA
+SW_9 => update_count.ENA
+CLK_FPGA => fifty_mhz_1hz_2hz:one_hz.CLK_FPGA_IN
+HEX_5[0] <= seven_seg:hour_tens_seg.seven[0]
+HEX_5[1] <= seven_seg:hour_tens_seg.seven[1]
+HEX_5[2] <= seven_seg:hour_tens_seg.seven[2]
+HEX_5[3] <= seven_seg:hour_tens_seg.seven[3]
+HEX_5[4] <= seven_seg:hour_tens_seg.seven[4]
+HEX_5[5] <= seven_seg:hour_tens_seg.seven[5]
+HEX_5[6] <= seven_seg:hour_tens_seg.seven[6]
+HEX_4[0] <= seven_seg:hour_unit_seg.seven[0]
+HEX_4[1] <= seven_seg:hour_unit_seg.seven[1]
+HEX_4[2] <= seven_seg:hour_unit_seg.seven[2]
+HEX_4[3] <= seven_seg:hour_unit_seg.seven[3]
+HEX_4[4] <= seven_seg:hour_unit_seg.seven[4]
+HEX_4[5] <= seven_seg:hour_unit_seg.seven[5]
+HEX_4[6] <= seven_seg:hour_unit_seg.seven[6]
+HEX_3[0] <= second_indicator:s_ind.blinker[0]
+HEX_3[1] <= second_indicator:s_ind.blinker[1]
+HEX_3[2] <= second_indicator:s_ind.blinker[2]
+HEX_3[3] <= second_indicator:s_ind.blinker[3]
+HEX_3[4] <= second_indicator:s_ind.blinker[4]
+HEX_3[5] <= second_indicator:s_ind.blinker[5]
+HEX_3[6] <= second_indicator:s_ind.blinker[6]
+HEX_2[0] <= seven_seg:min_tens_seg.seven[0]
+HEX_2[1] <= seven_seg:min_tens_seg.seven[1]
+HEX_2[2] <= seven_seg:min_tens_seg.seven[2]
+HEX_2[3] <= seven_seg:min_tens_seg.seven[3]
+HEX_2[4] <= seven_seg:min_tens_seg.seven[4]
+HEX_2[5] <= seven_seg:min_tens_seg.seven[5]
+HEX_2[6] <= seven_seg:min_tens_seg.seven[6]
+HEX_1[0] <= seven_seg:min_unit_seg.seven[0]
+HEX_1[1] <= seven_seg:min_unit_seg.seven[1]
+HEX_1[2] <= seven_seg:min_unit_seg.seven[2]
+HEX_1[3] <= seven_seg:min_unit_seg.seven[3]
+HEX_1[4] <= seven_seg:min_unit_seg.seven[4]
+HEX_1[5] <= seven_seg:min_unit_seg.seven[5]
+HEX_1[6] <= seven_seg:min_unit_seg.seven[6]
 
 
 |DigitalClock|seven_seg:hour_tens_seg
@@ -190,5 +203,178 @@ seven[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
 seven[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
 seven[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
 seven[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DigitalClock|time_incrementer:t_incrementer
+minute_clk => minute_controller:min_controller.min_clk
+new_min_unit[0] <> minute_controller:min_controller.min_unit[0]
+new_min_unit[1] <> minute_controller:min_controller.min_unit[1]
+new_min_unit[2] <> minute_controller:min_controller.min_unit[2]
+new_min_unit[3] <> minute_controller:min_controller.min_unit[3]
+new_min_tens[0] <> minute_controller:min_controller.min_tens[0]
+new_min_tens[1] <> minute_controller:min_controller.min_tens[1]
+new_min_tens[2] <> minute_controller:min_controller.min_tens[2]
+new_min_tens[3] <> minute_controller:min_controller.min_tens[3]
+new_hour_tens[0] <> hour_controller:hr_controller.hr_tens[0]
+new_hour_tens[1] <> hour_controller:hr_controller.hr_tens[1]
+new_hour_tens[2] <> hour_controller:hr_controller.hr_tens[2]
+new_hour_tens[3] <> hour_controller:hr_controller.hr_tens[3]
+new_hour_unit[0] <> hour_controller:hr_controller.hr_unit[0]
+new_hour_unit[1] <> hour_controller:hr_controller.hr_unit[1]
+new_hour_unit[2] <> hour_controller:hr_controller.hr_unit[2]
+new_hour_unit[3] <> hour_controller:hr_controller.hr_unit[3]
+
+
+|DigitalClock|time_incrementer:t_incrementer|hour_controller:hr_controller
+increment_hour_in => hr_tens[0]~reg0.CLK
+increment_hour_in => hr_tens[1]~reg0.CLK
+increment_hour_in => hr_tens[2]~reg0.CLK
+increment_hour_in => hr_tens[3]~reg0.CLK
+increment_hour_in => hr_unit[0]~reg0.CLK
+increment_hour_in => hr_unit[1]~reg0.CLK
+increment_hour_in => hr_unit[2]~reg0.CLK
+increment_hour_in => hr_unit[3]~reg0.CLK
+hr_tens[0] <> hr_tens[0]~reg0
+hr_tens[1] <> hr_tens[1]~reg0
+hr_tens[2] <> hr_tens[2]~reg0
+hr_tens[3] <> hr_tens[3]~reg0
+hr_unit[0] <> hr_unit[0]~reg0
+hr_unit[1] <> hr_unit[1]~reg0
+hr_unit[2] <> hr_unit[2]~reg0
+hr_unit[3] <> hr_unit[3]~reg0
+
+
+|DigitalClock|time_incrementer:t_incrementer|minute_controller:min_controller
+min_clk => min_tens[0]~reg0.CLK
+min_clk => min_tens[1]~reg0.CLK
+min_clk => min_tens[2]~reg0.CLK
+min_clk => min_tens[3]~reg0.CLK
+min_clk => min_unit[0]~reg0.CLK
+min_clk => min_unit[1]~reg0.CLK
+min_clk => min_unit[2]~reg0.CLK
+min_clk => min_unit[3]~reg0.CLK
+min_clk => incr_hour~reg0.CLK
+min_tens[0] <> min_tens[0]~reg0
+min_tens[1] <> min_tens[1]~reg0
+min_tens[2] <> min_tens[2]~reg0
+min_tens[3] <> min_tens[3]~reg0
+min_unit[0] <> min_unit[0]~reg0
+min_unit[1] <> min_unit[1]~reg0
+min_unit[2] <> min_unit[2]~reg0
+min_unit[3] <> min_unit[3]~reg0
+incr_hour <= incr_hour~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DigitalClock|fifty_mhz_1hz_2hz:one_hz
+CLK_FPGA_IN => two_hz_clk_out~reg0.CLK
+CLK_FPGA_IN => one_hz_clk_out~reg0.CLK
+CLK_FPGA_IN => fpga_cycle_count_2[0].CLK
+CLK_FPGA_IN => fpga_cycle_count_2[1].CLK
+CLK_FPGA_IN => fpga_cycle_count_2[2].CLK
+CLK_FPGA_IN => fpga_cycle_count_2[3].CLK
+CLK_FPGA_IN => fpga_cycle_count_2[4].CLK
+CLK_FPGA_IN => fpga_cycle_count_2[5].CLK
+CLK_FPGA_IN => fpga_cycle_count_2[6].CLK
+CLK_FPGA_IN => fpga_cycle_count_2[7].CLK
+CLK_FPGA_IN => fpga_cycle_count_2[8].CLK
+CLK_FPGA_IN => fpga_cycle_count_2[9].CLK
+CLK_FPGA_IN => fpga_cycle_count_2[10].CLK
+CLK_FPGA_IN => fpga_cycle_count_2[11].CLK
+CLK_FPGA_IN => fpga_cycle_count_2[12].CLK
+CLK_FPGA_IN => fpga_cycle_count_2[13].CLK
+CLK_FPGA_IN => fpga_cycle_count_2[14].CLK
+CLK_FPGA_IN => fpga_cycle_count_2[15].CLK
+CLK_FPGA_IN => fpga_cycle_count_2[16].CLK
+CLK_FPGA_IN => fpga_cycle_count_2[17].CLK
+CLK_FPGA_IN => fpga_cycle_count_2[18].CLK
+CLK_FPGA_IN => fpga_cycle_count_2[19].CLK
+CLK_FPGA_IN => fpga_cycle_count_2[20].CLK
+CLK_FPGA_IN => fpga_cycle_count_2[21].CLK
+CLK_FPGA_IN => fpga_cycle_count_2[22].CLK
+CLK_FPGA_IN => fpga_cycle_count_2[23].CLK
+CLK_FPGA_IN => fpga_cycle_count_2[24].CLK
+CLK_FPGA_IN => fpga_cycle_count_2[25].CLK
+CLK_FPGA_IN => fpga_cycle_count_2[26].CLK
+CLK_FPGA_IN => fpga_cycle_count[0].CLK
+CLK_FPGA_IN => fpga_cycle_count[1].CLK
+CLK_FPGA_IN => fpga_cycle_count[2].CLK
+CLK_FPGA_IN => fpga_cycle_count[3].CLK
+CLK_FPGA_IN => fpga_cycle_count[4].CLK
+CLK_FPGA_IN => fpga_cycle_count[5].CLK
+CLK_FPGA_IN => fpga_cycle_count[6].CLK
+CLK_FPGA_IN => fpga_cycle_count[7].CLK
+CLK_FPGA_IN => fpga_cycle_count[8].CLK
+CLK_FPGA_IN => fpga_cycle_count[9].CLK
+CLK_FPGA_IN => fpga_cycle_count[10].CLK
+CLK_FPGA_IN => fpga_cycle_count[11].CLK
+CLK_FPGA_IN => fpga_cycle_count[12].CLK
+CLK_FPGA_IN => fpga_cycle_count[13].CLK
+CLK_FPGA_IN => fpga_cycle_count[14].CLK
+CLK_FPGA_IN => fpga_cycle_count[15].CLK
+CLK_FPGA_IN => fpga_cycle_count[16].CLK
+CLK_FPGA_IN => fpga_cycle_count[17].CLK
+CLK_FPGA_IN => fpga_cycle_count[18].CLK
+CLK_FPGA_IN => fpga_cycle_count[19].CLK
+CLK_FPGA_IN => fpga_cycle_count[20].CLK
+CLK_FPGA_IN => fpga_cycle_count[21].CLK
+CLK_FPGA_IN => fpga_cycle_count[22].CLK
+CLK_FPGA_IN => fpga_cycle_count[23].CLK
+CLK_FPGA_IN => fpga_cycle_count[24].CLK
+CLK_FPGA_IN => fpga_cycle_count[25].CLK
+CLK_FPGA_IN => fpga_cycle_count[26].CLK
+one_hz_clk_out <= one_hz_clk_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+two_hz_clk_out <= two_hz_clk_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DigitalClock|second_indicator:s_ind
+clk => point.CLK
+is_on => point.OUTPUTSELECT
+blinker[0] <= <VCC>
+blinker[1] <= <VCC>
+blinker[2] <= <VCC>
+blinker[3] <= <VCC>
+blinker[4] <= <VCC>
+blinker[5] <= <VCC>
+blinker[6] <= point.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DigitalClock|hour_controller:hr_controller
+increment_hour_in => hr_tens[0]~reg0.CLK
+increment_hour_in => hr_tens[1]~reg0.CLK
+increment_hour_in => hr_tens[2]~reg0.CLK
+increment_hour_in => hr_tens[3]~reg0.CLK
+increment_hour_in => hr_unit[0]~reg0.CLK
+increment_hour_in => hr_unit[1]~reg0.CLK
+increment_hour_in => hr_unit[2]~reg0.CLK
+increment_hour_in => hr_unit[3]~reg0.CLK
+hr_tens[0] <> hr_tens[0]~reg0
+hr_tens[1] <> hr_tens[1]~reg0
+hr_tens[2] <> hr_tens[2]~reg0
+hr_tens[3] <> hr_tens[3]~reg0
+hr_unit[0] <> hr_unit[0]~reg0
+hr_unit[1] <> hr_unit[1]~reg0
+hr_unit[2] <> hr_unit[2]~reg0
+hr_unit[3] <> hr_unit[3]~reg0
+
+
+|DigitalClock|minute_controller:min_controller
+min_clk => min_tens[0]~reg0.CLK
+min_clk => min_tens[1]~reg0.CLK
+min_clk => min_tens[2]~reg0.CLK
+min_clk => min_tens[3]~reg0.CLK
+min_clk => min_unit[0]~reg0.CLK
+min_clk => min_unit[1]~reg0.CLK
+min_clk => min_unit[2]~reg0.CLK
+min_clk => min_unit[3]~reg0.CLK
+min_clk => incr_hour~reg0.CLK
+min_tens[0] <> min_tens[0]~reg0
+min_tens[1] <> min_tens[1]~reg0
+min_tens[2] <> min_tens[2]~reg0
+min_tens[3] <> min_tens[3]~reg0
+min_unit[0] <> min_unit[0]~reg0
+min_unit[1] <> min_unit[1]~reg0
+min_unit[2] <> min_unit[2]~reg0
+min_unit[3] <> min_unit[3]~reg0
+incr_hour <= incr_hour~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 

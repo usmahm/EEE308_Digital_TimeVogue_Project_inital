@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DigitalClock
-Sat Aug 26 20:14:58 2023
+Sun Aug 27 02:35:28 2023
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -10,17 +10,8 @@ Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Source Files Read
-  6. Analysis & Synthesis Resource Usage Summary
-  7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Port Connectivity Checks: "seven_seg:min_unit_seg"
- 10. Port Connectivity Checks: "seven_seg:min_tens_seg"
- 11. Port Connectivity Checks: "seven_seg:hour_unit_seg"
- 12. Port Connectivity Checks: "seven_seg:hour_tens_seg"
- 13. Post-Synthesis Netlist Statistics for Top Partition
- 14. Elapsed Time Per Partition
- 15. Analysis & Synthesis Messages
+  5. Port Connectivity Checks: "minute_controller:min_controller"
+  6. Analysis & Synthesis Messages
 
 
 
@@ -47,22 +38,22 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Aug 26 20:14:58 2023          ;
+; Analysis & Synthesis Status        ; Failed - Sun Aug 27 02:35:28 2023              ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; DigitalClock                                   ;
 ; Top-level Entity Name              ; DigitalClock                                   ;
 ; Family                             ; MAX 10                                         ;
-; Total logic elements               ; 0                                              ;
-;     Total combinational functions  ; 0                                              ;
-;     Dedicated logic registers      ; 0                                              ;
-; Total registers                    ; 0                                              ;
-; Total pins                         ; 39                                             ;
-; Total virtual pins                 ; 0                                              ;
-; Total memory bits                  ; 0                                              ;
-; Embedded Multiplier 9-bit elements ; 0                                              ;
-; Total PLLs                         ; 0                                              ;
-; UFM blocks                         ; 0                                              ;
-; ADC blocks                         ; 0                                              ;
+; Total logic elements               ; N/A until Partition Merge                      ;
+;     Total combinational functions  ; N/A until Partition Merge                      ;
+;     Dedicated logic registers      ; N/A until Partition Merge                      ;
+; Total registers                    ; N/A until Partition Merge                      ;
+; Total pins                         ; N/A until Partition Merge                      ;
+; Total virtual pins                 ; N/A until Partition Merge                      ;
+; Total memory bits                  ; N/A until Partition Merge                      ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                      ;
+; Total PLLs                         ; N/A until Partition Merge                      ;
+; UFM blocks                         ; N/A until Partition Merge                      ;
+; ADC blocks                         ; N/A until Partition Merge                      ;
 +------------------------------------+------------------------------------------------+
 
 
@@ -168,134 +159,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                             ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                      ; Library ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------------+---------+
-; DigitalClock.vhd                 ; yes             ; User VHDL File  ; C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd ;         ;
-; seven_seg.vhd                    ; yes             ; User VHDL File  ; C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/seven_seg.vhd    ;         ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------------+---------+
-
-
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-;                                             ;       ;
-; Total combinational functions               ; 0     ;
-; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 0     ;
-;     -- 3 input functions                    ; 0     ;
-;     -- <=2 input functions                  ; 0     ;
-;                                             ;       ;
-; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 0     ;
-;     -- arithmetic mode                      ; 0     ;
-;                                             ;       ;
-; Total registers                             ; 0     ;
-;     -- Dedicated logic registers            ; 0     ;
-;     -- I/O registers                        ; 0     ;
-;                                             ;       ;
-; I/O pins                                    ; 39    ;
-;                                             ;       ;
-; Embedded Multiplier 9-bit elements          ; 0     ;
-;                                             ;       ;
-; Maximum fan-out node                        ; KEY_0 ;
-; Maximum fan-out                             ; 1     ;
-; Total fan-out                               ; 39    ;
-; Average fan-out                             ; 0.50  ;
-+---------------------------------------------+-------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                 ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+--------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name  ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+--------------+--------------+
-; |DigitalClock              ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 39   ; 0            ; 0          ; |DigitalClock       ; DigitalClock ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+--------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+------------------------------------------------------+
-; General Register Statistics                          ;
-+----------------------------------------------+-------+
-; Statistic                                    ; Value ;
-+----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
-; Number of registers using Preset             ; 0     ;
-+----------------------------------------------+-------+
-
-
-+----------------------------------------------------+
-; Port Connectivity Checks: "seven_seg:min_unit_seg" ;
-+--------------+-------+----------+------------------+
-; Port         ; Type  ; Severity ; Details          ;
-+--------------+-------+----------+------------------+
-; number[3..1] ; Input ; Info     ; Stuck at GND     ;
-; number[0]    ; Input ; Info     ; Stuck at VCC     ;
-+--------------+-------+----------+------------------+
-
-
-+----------------------------------------------------+
-; Port Connectivity Checks: "seven_seg:min_tens_seg" ;
-+--------+-------+----------+------------------------+
-; Port   ; Type  ; Severity ; Details                ;
-+--------+-------+----------+------------------------+
-; number ; Input ; Info     ; Stuck at GND           ;
-+--------+-------+----------+------------------------+
-
-
-+-----------------------------------------------------+
-; Port Connectivity Checks: "seven_seg:hour_unit_seg" ;
-+--------------+-------+----------+-------------------+
-; Port         ; Type  ; Severity ; Details           ;
-+--------------+-------+----------+-------------------+
-; number[1..0] ; Input ; Info     ; Stuck at GND      ;
-; number[3]    ; Input ; Info     ; Stuck at GND      ;
-; number[2]    ; Input ; Info     ; Stuck at VCC      ;
-+--------------+-------+----------+-------------------+
-
-
-+-----------------------------------------------------+
-; Port Connectivity Checks: "seven_seg:hour_tens_seg" ;
-+--------------+-------+----------+-------------------+
-; Port         ; Type  ; Severity ; Details           ;
-+--------------+-------+----------+-------------------+
-; number[1..0] ; Input ; Info     ; Stuck at VCC      ;
-; number[3..2] ; Input ; Info     ; Stuck at GND      ;
-+--------------+-------+----------+-------------------+
-
-
-+-----------------------------------------------------+
-; Post-Synthesis Netlist Statistics for Top Partition ;
-+-----------------------+-----------------------------+
-; Type                  ; Count                       ;
-+-----------------------+-----------------------------+
-; boundary_port         ; 39                          ;
-; cycloneiii_lcell_comb ; 2                           ;
-;     normal            ; 2                           ;
-;         0 data inputs ; 2                           ;
-;                       ;                             ;
-; Max LUT depth         ; 0.00                        ;
-; Average LUT depth     ; 0.00                        ;
-+-----------------------+-----------------------------+
-
-
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:00     ;
-+----------------+--------------+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "minute_controller:min_controller"                                                        ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; incr_hour ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------+
@@ -304,72 +174,139 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Sat Aug 26 20:14:40 2023
+    Info: Processing started: Sun Aug 27 02:35:15 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DigitalClock -c DigitalClock
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file fifty_mhz_1hz_2hz.vhd
+    Info (12022): Found design unit 1: fifty_mhz_1hz_2hz-converter File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/fifty_mhz_1hz_2hz.vhd Line: 11
+    Info (12023): Found entity 1: fifty_mhz_1hz_2hz File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/fifty_mhz_1hz_2hz.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file time_incrementer.vhd
+    Info (12022): Found design unit 1: time_incrementer-logic File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_incrementer.vhd Line: 12
+    Info (12023): Found entity 1: time_incrementer File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_incrementer.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file digitalclock.vhd
     Info (12022): Found design unit 1: DigitalClock-logic File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 12
     Info (12023): Found entity 1: DigitalClock File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file seven_seg.vhd
     Info (12022): Found design unit 1: seven_seg-decode File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/seven_seg.vhd Line: 9
     Info (12023): Found entity 1: seven_seg File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/seven_seg.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file second_indicator.vhd
+    Info (12022): Found design unit 1: second_indicator-controller File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/second_indicator.vhd Line: 12
+    Info (12023): Found entity 1: second_indicator File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/second_indicator.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file hour_controller.vhd
+    Info (12022): Found design unit 1: hour_controller-controller File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 12
+    Info (12023): Found entity 1: hour_controller File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file minute_controller.vhd
+    Info (12022): Found design unit 1: minute_controller-controller File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 15
+    Info (12023): Found entity 1: minute_controller File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 7
 Info (12127): Elaborating entity "DigitalClock" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at DigitalClock.vhd(20): object "incMinute" assigned a value but never read File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 20
-Warning (10036): Verilog HDL or VHDL warning at DigitalClock.vhd(20): object "incHour" assigned a value but never read File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 20
-Warning (10036): Verilog HDL or VHDL warning at DigitalClock.vhd(22): object "s_blinker" assigned a value but never read File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 22
-Warning (10542): VHDL Variable Declaration warning at DigitalClock.vhd(37): used initial value expression for variable "point" because variable was never assigned a value File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 37
-Info (12128): Elaborating entity "seven_seg" for hierarchy "seven_seg:hour_tens_seg" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 27
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "HEX_5[0]" is stuck at GND File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_5[1]" is stuck at GND File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_5[2]" is stuck at GND File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_5[3]" is stuck at GND File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_5[4]" is stuck at VCC File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_5[5]" is stuck at VCC File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_5[6]" is stuck at GND File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_4[0]" is stuck at VCC File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_4[1]" is stuck at GND File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_4[2]" is stuck at GND File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_4[3]" is stuck at VCC File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_4[4]" is stuck at VCC File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_4[5]" is stuck at GND File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_4[6]" is stuck at GND File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_3[0]" is stuck at VCC File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_3[1]" is stuck at VCC File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_3[2]" is stuck at VCC File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_3[3]" is stuck at VCC File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_3[4]" is stuck at GND File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_3[5]" is stuck at GND File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_3[6]" is stuck at VCC File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_2[0]" is stuck at GND File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_2[1]" is stuck at GND File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_2[2]" is stuck at GND File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_2[3]" is stuck at GND File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_2[4]" is stuck at GND File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_2[5]" is stuck at GND File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_2[6]" is stuck at VCC File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_1[0]" is stuck at VCC File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_1[1]" is stuck at GND File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_1[2]" is stuck at GND File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_1[3]" is stuck at VCC File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_1[4]" is stuck at VCC File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_1[5]" is stuck at VCC File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-    Warning (13410): Pin "HEX_1[6]" is stuck at VCC File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
-Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 4 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "KEY_0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 7
-    Warning (15610): No output dependent on input pin "KEY_1" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 7
-    Warning (15610): No output dependent on input pin "SW_9" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 7
-    Warning (15610): No output dependent on input pin "CLK_FPGA" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 7
-Info (21057): Implemented 39 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 4 input pins
-    Info (21059): Implemented 35 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 46 warnings
-    Info: Peak virtual memory: 4811 megabytes
-    Info: Processing ended: Sat Aug 26 20:14:58 2023
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:32
+Warning (10036): Verilog HDL or VHDL warning at DigitalClock.vhd(67): object "ignore" assigned a value but never read File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 67
+Info (12128): Elaborating entity "seven_seg" for hierarchy "seven_seg:hour_tens_seg" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 72
+Info (12128): Elaborating entity "time_incrementer" for hierarchy "time_incrementer:t_incrementer" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 77
+Info (12128): Elaborating entity "hour_controller" for hierarchy "time_incrementer:t_incrementer|hour_controller:hr_controller" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_incrementer.vhd Line: 32
+Info (12128): Elaborating entity "minute_controller" for hierarchy "time_incrementer:t_incrementer|minute_controller:min_controller" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_incrementer.vhd Line: 38
+Info (12128): Elaborating entity "fifty_mhz_1hz_2hz" for hierarchy "fifty_mhz_1hz_2hz:one_hz" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 85
+Info (12128): Elaborating entity "second_indicator" for hierarchy "second_indicator:s_ind" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 91
+Error (12014): Net "minute_tens[3]", which fans out to "minute_tens[3]~direct", cannot be assigned more than one value File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 64
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|new_min_tens[3]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_incrementer.vhd Line: 8
+    Error (12015): Net is fed by "minute_controller:min_controller|min_tens[3]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+    Error (12015): Net is fed by "minute_controller:min_controller|min_tens[3]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|minute_controller:min_controller|min_tens[3]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|minute_controller:min_controller|min_tens[3]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+Error (12014): Net "minute_tens[2]", which fans out to "minute_tens[2]~direct", cannot be assigned more than one value File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 64
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|new_min_tens[2]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_incrementer.vhd Line: 8
+    Error (12015): Net is fed by "minute_controller:min_controller|min_tens[2]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+    Error (12015): Net is fed by "minute_controller:min_controller|min_tens[2]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|minute_controller:min_controller|min_tens[2]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|minute_controller:min_controller|min_tens[2]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+Error (12014): Net "minute_tens[1]", which fans out to "minute_tens[1]~direct", cannot be assigned more than one value File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 64
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|new_min_tens[1]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_incrementer.vhd Line: 8
+    Error (12015): Net is fed by "minute_controller:min_controller|min_tens[1]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+    Error (12015): Net is fed by "minute_controller:min_controller|min_tens[1]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|minute_controller:min_controller|min_tens[1]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|minute_controller:min_controller|min_tens[1]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+Error (12014): Net "minute_tens[0]", which fans out to "minute_tens[0]~direct", cannot be assigned more than one value File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 64
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|new_min_tens[0]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_incrementer.vhd Line: 8
+    Error (12015): Net is fed by "minute_controller:min_controller|min_tens[0]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+    Error (12015): Net is fed by "minute_controller:min_controller|min_tens[0]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|minute_controller:min_controller|min_tens[0]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|minute_controller:min_controller|min_tens[0]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+Error (12014): Net "minute_unit[3]", which fans out to "minute_unit[3]~direct", cannot be assigned more than one value File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 64
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|new_min_unit[3]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_incrementer.vhd Line: 8
+    Error (12015): Net is fed by "minute_controller:min_controller|min_unit[3]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+    Error (12015): Net is fed by "minute_controller:min_controller|min_unit[3]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|minute_controller:min_controller|min_unit[3]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|minute_controller:min_controller|min_unit[3]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+Error (12014): Net "minute_unit[2]", which fans out to "minute_unit[2]~direct", cannot be assigned more than one value File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 64
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|new_min_unit[2]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_incrementer.vhd Line: 8
+    Error (12015): Net is fed by "minute_controller:min_controller|min_unit[2]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+    Error (12015): Net is fed by "minute_controller:min_controller|min_unit[2]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|minute_controller:min_controller|min_unit[2]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|minute_controller:min_controller|min_unit[2]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+Error (12014): Net "minute_unit[1]", which fans out to "minute_unit[1]~direct", cannot be assigned more than one value File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 64
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|new_min_unit[1]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_incrementer.vhd Line: 8
+    Error (12015): Net is fed by "minute_controller:min_controller|min_unit[1]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+    Error (12015): Net is fed by "minute_controller:min_controller|min_unit[1]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|minute_controller:min_controller|min_unit[1]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|minute_controller:min_controller|min_unit[1]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+Error (12014): Net "minute_unit[0]", which fans out to "minute_unit[0]~direct", cannot be assigned more than one value File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 64
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|new_min_unit[0]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_incrementer.vhd Line: 8
+    Error (12015): Net is fed by "minute_controller:min_controller|min_unit[0]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+    Error (12015): Net is fed by "minute_controller:min_controller|min_unit[0]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|minute_controller:min_controller|min_unit[0]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|minute_controller:min_controller|min_unit[0]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd Line: 19
+Error (12014): Net "hour_tens[3]", which fans out to "hour_tens[3]~direct", cannot be assigned more than one value File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 64
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|new_hour_tens[3]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_incrementer.vhd Line: 8
+    Error (12015): Net is fed by "hour_controller:hr_controller|hr_tens[3]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+    Error (12015): Net is fed by "hour_controller:hr_controller|hr_tens[3]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|hour_controller:hr_controller|hr_tens[3]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|hour_controller:hr_controller|hr_tens[3]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+Error (12014): Net "hour_tens[2]", which fans out to "hour_tens[2]~direct", cannot be assigned more than one value File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 64
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|new_hour_tens[2]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_incrementer.vhd Line: 8
+    Error (12015): Net is fed by "hour_controller:hr_controller|hr_tens[2]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+    Error (12015): Net is fed by "hour_controller:hr_controller|hr_tens[2]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|hour_controller:hr_controller|hr_tens[2]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|hour_controller:hr_controller|hr_tens[2]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+Error (12014): Net "hour_tens[1]", which fans out to "hour_tens[1]~direct", cannot be assigned more than one value File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 64
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|new_hour_tens[1]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_incrementer.vhd Line: 8
+    Error (12015): Net is fed by "hour_controller:hr_controller|hr_tens[1]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+    Error (12015): Net is fed by "hour_controller:hr_controller|hr_tens[1]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|hour_controller:hr_controller|hr_tens[1]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|hour_controller:hr_controller|hr_tens[1]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+Error (12014): Net "hour_tens[0]", which fans out to "hour_tens[0]~direct", cannot be assigned more than one value File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 64
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|new_hour_tens[0]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_incrementer.vhd Line: 8
+    Error (12015): Net is fed by "hour_controller:hr_controller|hr_tens[0]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+    Error (12015): Net is fed by "hour_controller:hr_controller|hr_tens[0]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|hour_controller:hr_controller|hr_tens[0]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|hour_controller:hr_controller|hr_tens[0]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+Error (12014): Net "hour_unit[3]", which fans out to "hour_unit[3]~direct", cannot be assigned more than one value File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 64
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|new_hour_unit[3]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_incrementer.vhd Line: 8
+    Error (12015): Net is fed by "hour_controller:hr_controller|hr_unit[3]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+    Error (12015): Net is fed by "hour_controller:hr_controller|hr_unit[3]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|hour_controller:hr_controller|hr_unit[3]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|hour_controller:hr_controller|hr_unit[3]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+Error (12014): Net "hour_unit[2]", which fans out to "hour_unit[2]~direct", cannot be assigned more than one value File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 64
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|new_hour_unit[2]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_incrementer.vhd Line: 8
+    Error (12015): Net is fed by "hour_controller:hr_controller|hr_unit[2]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+    Error (12015): Net is fed by "hour_controller:hr_controller|hr_unit[2]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|hour_controller:hr_controller|hr_unit[2]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|hour_controller:hr_controller|hr_unit[2]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+Error (12014): Net "hour_unit[1]", which fans out to "hour_unit[1]~direct", cannot be assigned more than one value File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 64
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|new_hour_unit[1]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_incrementer.vhd Line: 8
+    Error (12015): Net is fed by "hour_controller:hr_controller|hr_unit[1]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+    Error (12015): Net is fed by "hour_controller:hr_controller|hr_unit[1]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|hour_controller:hr_controller|hr_unit[1]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|hour_controller:hr_controller|hr_unit[1]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+Error (12014): Net "hour_unit[0]", which fans out to "hour_unit[0]~direct", cannot be assigned more than one value File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 64
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|new_hour_unit[0]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_incrementer.vhd Line: 8
+    Error (12015): Net is fed by "hour_controller:hr_controller|hr_unit[0]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+    Error (12015): Net is fed by "hour_controller:hr_controller|hr_unit[0]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|hour_controller:hr_controller|hr_unit[0]" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+    Error (12015): Net is fed by "time_incrementer:t_incrementer|hour_controller:hr_controller|hr_unit[0]~reg0" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd Line: 16
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 96 errors, 2 warnings
+    Error: Peak virtual memory: 4791 megabytes
+    Error: Processing ended: Sun Aug 27 02:35:28 2023
+    Error: Elapsed time: 00:00:13
+    Error: Total CPU time (on all processors): 00:00:29
 
 

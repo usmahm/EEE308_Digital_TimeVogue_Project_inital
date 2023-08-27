@@ -126,6 +126,14 @@
 				{
 					"name" : "CLK_FPGA",
 					"strict" : false
+				},
+				{
+					"name" : "KEY_0",
+					"strict" : false
+				},
+				{
+					"name" : "KEY_1",
+					"strict" : false
 				}
 			]
 		}

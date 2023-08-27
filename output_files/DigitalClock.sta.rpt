@@ -1,5 +1,5 @@
 Timing Analyzer report for DigitalClock
-Sun Aug 27 02:34:48 2023
+Sun Aug 27 08:48:23 2023
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -92,12 +92,12 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
-; Average used               ; 1.03        ;
+; Average used               ; 1.04        ;
 ; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   3.1%      ;
+;     Processor 2            ;   4.3%      ;
 +----------------------------+-------------+
 
 
@@ -109,6 +109,8 @@ https://fpgasoftware.intel.com/eula.
 ; CLK_FPGA                                                                  ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { CLK_FPGA }                                                                  ;
 ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out }                                   ;
 ; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out                                   ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out }                                   ;
+; increment_hour                                                            ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { increment_hour }                                                            ;
+; increment_minute                                                          ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { increment_minute }                                                          ;
 ; time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour } ;
 ; update_count                                                              ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { update_count }                                                              ;
 +---------------------------------------------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------------------------------------------------------------------------+
@@ -119,10 +121,12 @@ https://fpgasoftware.intel.com/eula.
 +------------+-----------------+---------------------------------------------------------------------------+------------------------------------------------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                                                ; Note                                           ;
 +------------+-----------------+---------------------------------------------------------------------------+------------------------------------------------+
-; 207.6 MHz  ; 207.6 MHz       ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ;                                                ;
-; 237.14 MHz ; 237.14 MHz      ; CLK_FPGA                                                                  ;                                                ;
-; 429.55 MHz ; 416.15 MHz      ; time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; limit due to minimum period restriction (tmin) ;
-; 506.59 MHz ; 416.15 MHz      ; update_count                                                              ; limit due to minimum period restriction (tmin) ;
+; 247.83 MHz ; 247.83 MHz      ; CLK_FPGA                                                                  ;                                                ;
+; 314.17 MHz ; 314.17 MHz      ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ;                                                ;
+; 426.8 MHz  ; 416.15 MHz      ; increment_hour                                                            ; limit due to minimum period restriction (tmin) ;
+; 441.11 MHz ; 416.15 MHz      ; time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; limit due to minimum period restriction (tmin) ;
+; 508.65 MHz ; 416.15 MHz      ; update_count                                                              ; limit due to minimum period restriction (tmin) ;
+; 525.49 MHz ; 416.15 MHz      ; increment_minute                                                          ; limit due to minimum period restriction (tmin) ;
 ; 1424.5 MHz ; 416.15 MHz      ; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out                                   ; limit due to minimum period restriction (tmin) ;
 +------------+-----------------+---------------------------------------------------------------------------+------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
@@ -133,10 +137,12 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                     ; Slack  ; End Point TNS ;
 +---------------------------------------------------------------------------+--------+---------------+
-; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; -3.817 ; -16.550       ;
-; CLK_FPGA                                                                  ; -3.217 ; -160.280      ;
-; time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; -1.328 ; -8.802        ;
-; update_count                                                              ; -0.974 ; -5.589        ;
+; CLK_FPGA                                                                  ; -3.035 ; -156.776      ;
+; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; -2.183 ; -14.925       ;
+; increment_hour                                                            ; -1.343 ; -8.753        ;
+; time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; -1.267 ; -8.587        ;
+; update_count                                                              ; -0.966 ; -4.855        ;
+; increment_minute                                                          ; -0.903 ; -4.670        ;
 ; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out                                   ; 0.298  ; 0.000         ;
 +---------------------------------------------------------------------------+--------+---------------+
 
@@ -146,11 +152,13 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                     ; Slack ; End Point TNS ;
 +---------------------------------------------------------------------------+-------+---------------+
-; time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; 0.347 ; 0.000         ;
+; increment_hour                                                            ; 0.348 ; 0.000         ;
+; increment_minute                                                          ; 0.348 ; 0.000         ;
+; time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; 0.348 ; 0.000         ;
 ; update_count                                                              ; 0.348 ; 0.000         ;
 ; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out                                   ; 0.393 ; 0.000         ;
-; CLK_FPGA                                                                  ; 0.609 ; 0.000         ;
-; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; 1.190 ; 0.000         ;
+; CLK_FPGA                                                                  ; 0.529 ; 0.000         ;
+; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; 1.196 ; 0.000         ;
 +---------------------------------------------------------------------------+-------+---------------+
 
 
@@ -171,10 +179,12 @@ No paths to report.
 +---------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                     ; Slack  ; End Point TNS ;
 +---------------------------------------------------------------------------+--------+---------------+
-; CLK_FPGA                                                                  ; -3.000 ; -81.568       ;
+; CLK_FPGA                                                                  ; -3.000 ; -104.016      ;
+; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; -1.403 ; -12.627       ;
 ; update_count                                                              ; -1.403 ; -12.627       ;
+; increment_hour                                                            ; -1.403 ; -11.224       ;
+; increment_minute                                                          ; -1.403 ; -11.224       ;
 ; time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; -1.403 ; -11.224       ;
-; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; -1.403 ; -9.821        ;
 ; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out                                   ; -1.403 ; -1.403        ;
 +---------------------------------------------------------------------------+--------+---------------+
 
@@ -190,10 +200,12 @@ No synchronizer chains to report.
 +------------+-----------------+---------------------------------------------------------------------------+---------------------------------------------------------------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                                                ; Note                                                          ;
 +------------+-----------------+---------------------------------------------------------------------------+---------------------------------------------------------------+
-; 224.92 MHz ; 224.92 MHz      ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ;                                                               ;
-; 256.21 MHz ; 250.0 MHz       ; CLK_FPGA                                                                  ; limit due to minimum period restriction (max I/O toggle rate) ;
-; 465.12 MHz ; 416.15 MHz      ; time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; limit due to minimum period restriction (tmin)                ;
-; 551.57 MHz ; 416.15 MHz      ; update_count                                                              ; limit due to minimum period restriction (tmin)                ;
+; 269.03 MHz ; 250.0 MHz       ; CLK_FPGA                                                                  ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 342.23 MHz ; 342.23 MHz      ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ;                                                               ;
+; 471.03 MHz ; 416.15 MHz      ; increment_hour                                                            ; limit due to minimum period restriction (tmin)                ;
+; 480.08 MHz ; 416.15 MHz      ; time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; limit due to minimum period restriction (tmin)                ;
+; 555.56 MHz ; 416.15 MHz      ; update_count                                                              ; limit due to minimum period restriction (tmin)                ;
+; 571.1 MHz  ; 416.15 MHz      ; increment_minute                                                          ; limit due to minimum period restriction (tmin)                ;
 ; 1567.4 MHz ; 416.15 MHz      ; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out                                   ; limit due to minimum period restriction (tmin)                ;
 +------------+-----------------+---------------------------------------------------------------------------+---------------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
@@ -204,10 +216,12 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                     ; Slack  ; End Point TNS ;
 +---------------------------------------------------------------------------+--------+---------------+
-; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; -3.446 ; -14.569       ;
-; CLK_FPGA                                                                  ; -2.903 ; -143.838      ;
-; time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; -1.150 ; -7.473        ;
-; update_count                                                              ; -0.813 ; -4.432        ;
+; CLK_FPGA                                                                  ; -2.717 ; -139.003      ;
+; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; -1.922 ; -13.057       ;
+; increment_hour                                                            ; -1.123 ; -7.406        ;
+; time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; -1.083 ; -7.276        ;
+; update_count                                                              ; -0.800 ; -3.749        ;
+; increment_minute                                                          ; -0.751 ; -3.691        ;
 ; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out                                   ; 0.362  ; 0.000         ;
 +---------------------------------------------------------------------------+--------+---------------+
 
@@ -217,11 +231,13 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                     ; Slack ; End Point TNS ;
 +---------------------------------------------------------------------------+-------+---------------+
-; time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; 0.312 ; 0.000         ;
+; increment_minute                                                          ; 0.312 ; 0.000         ;
 ; update_count                                                              ; 0.312 ; 0.000         ;
+; increment_hour                                                            ; 0.313 ; 0.000         ;
+; time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; 0.313 ; 0.000         ;
 ; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out                                   ; 0.355 ; 0.000         ;
-; CLK_FPGA                                                                  ; 0.544 ; 0.000         ;
-; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; 1.102 ; 0.000         ;
+; CLK_FPGA                                                                  ; 0.473 ; 0.000         ;
+; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; 1.110 ; 0.000         ;
 +---------------------------------------------------------------------------+-------+---------------+
 
 
@@ -242,10 +258,12 @@ No paths to report.
 +---------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                     ; Slack  ; End Point TNS ;
 +---------------------------------------------------------------------------+--------+---------------+
-; CLK_FPGA                                                                  ; -3.000 ; -81.568       ;
+; CLK_FPGA                                                                  ; -3.000 ; -104.016      ;
+; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; -1.403 ; -12.627       ;
 ; update_count                                                              ; -1.403 ; -12.627       ;
+; increment_hour                                                            ; -1.403 ; -11.224       ;
+; increment_minute                                                          ; -1.403 ; -11.224       ;
 ; time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; -1.403 ; -11.224       ;
-; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; -1.403 ; -9.821        ;
 ; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out                                   ; -1.403 ; -1.403        ;
 +---------------------------------------------------------------------------+--------+---------------+
 
@@ -261,10 +279,12 @@ No synchronizer chains to report.
 +---------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                     ; Slack  ; End Point TNS ;
 +---------------------------------------------------------------------------+--------+---------------+
-; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; -1.036 ; -2.596        ;
-; CLK_FPGA                                                                  ; -0.745 ; -33.080       ;
-; time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; 0.011  ; 0.000         ;
-; update_count                                                              ; 0.126  ; 0.000         ;
+; CLK_FPGA                                                                  ; -0.674 ; -27.928       ;
+; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; -0.313 ; -1.831        ;
+; increment_hour                                                            ; -0.015 ; -0.015        ;
+; time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; 0.045  ; 0.000         ;
+; update_count                                                              ; 0.168  ; 0.000         ;
+; increment_minute                                                          ; 0.200  ; 0.000         ;
 ; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out                                   ; 0.694  ; 0.000         ;
 +---------------------------------------------------------------------------+--------+---------------+
 
@@ -274,11 +294,13 @@ No synchronizer chains to report.
 +---------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                     ; Slack ; End Point TNS ;
 +---------------------------------------------------------------------------+-------+---------------+
-; time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; 0.152 ; 0.000         ;
+; increment_hour                                                            ; 0.152 ; 0.000         ;
+; increment_minute                                                          ; 0.152 ; 0.000         ;
 ; update_count                                                              ; 0.152 ; 0.000         ;
+; time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; 0.153 ; 0.000         ;
 ; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out                                   ; 0.170 ; 0.000         ;
-; CLK_FPGA                                                                  ; 0.230 ; 0.000         ;
-; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; 0.456 ; 0.000         ;
+; CLK_FPGA                                                                  ; 0.192 ; 0.000         ;
+; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; 0.459 ; 0.000         ;
 +---------------------------------------------------------------------------+-------+---------------+
 
 
@@ -299,10 +321,12 @@ No paths to report.
 +---------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                     ; Slack  ; End Point TNS ;
 +---------------------------------------------------------------------------+--------+---------------+
-; CLK_FPGA                                                                  ; -3.000 ; -68.543       ;
+; CLK_FPGA                                                                  ; -3.000 ; -87.343       ;
+; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; -1.000 ; -9.000        ;
 ; update_count                                                              ; -1.000 ; -9.000        ;
+; increment_hour                                                            ; -1.000 ; -8.000        ;
+; increment_minute                                                          ; -1.000 ; -8.000        ;
 ; time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; -1.000 ; -8.000        ;
-; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; -1.000 ; -7.000        ;
 ; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out                                   ; -1.000 ; -1.000        ;
 +---------------------------------------------------------------------------+--------+---------------+
 
@@ -318,18 +342,22 @@ No synchronizer chains to report.
 +----------------------------------------------------------------------------+----------+-------+----------+---------+---------------------+
 ; Clock                                                                      ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +----------------------------------------------------------------------------+----------+-------+----------+---------+---------------------+
-; Worst-case Slack                                                           ; -3.817   ; 0.152 ; N/A      ; N/A     ; -3.000              ;
-;  CLK_FPGA                                                                  ; -3.217   ; 0.230 ; N/A      ; N/A     ; -3.000              ;
-;  fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; -3.817   ; 0.456 ; N/A      ; N/A     ; -1.403              ;
+; Worst-case Slack                                                           ; -3.035   ; 0.152 ; N/A      ; N/A     ; -3.000              ;
+;  CLK_FPGA                                                                  ; -3.035   ; 0.192 ; N/A      ; N/A     ; -3.000              ;
+;  fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; -2.183   ; 0.459 ; N/A      ; N/A     ; -1.403              ;
 ;  fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out                                   ; 0.298    ; 0.170 ; N/A      ; N/A     ; -1.403              ;
-;  time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; -1.328   ; 0.152 ; N/A      ; N/A     ; -1.403              ;
-;  update_count                                                              ; -0.974   ; 0.152 ; N/A      ; N/A     ; -1.403              ;
-; Design-wide TNS                                                            ; -191.221 ; 0.0   ; 0.0      ; 0.0     ; -116.643            ;
-;  CLK_FPGA                                                                  ; -160.280 ; 0.000 ; N/A      ; N/A     ; -81.568             ;
-;  fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; -16.550  ; 0.000 ; N/A      ; N/A     ; -9.821              ;
+;  increment_hour                                                            ; -1.343   ; 0.152 ; N/A      ; N/A     ; -1.403              ;
+;  increment_minute                                                          ; -0.903   ; 0.152 ; N/A      ; N/A     ; -1.403              ;
+;  time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; -1.267   ; 0.153 ; N/A      ; N/A     ; -1.403              ;
+;  update_count                                                              ; -0.966   ; 0.152 ; N/A      ; N/A     ; -1.403              ;
+; Design-wide TNS                                                            ; -198.566 ; 0.0   ; 0.0      ; 0.0     ; -164.345            ;
+;  CLK_FPGA                                                                  ; -156.776 ; 0.000 ; N/A      ; N/A     ; -104.016            ;
+;  fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; -14.925  ; 0.000 ; N/A      ; N/A     ; -12.627             ;
 ;  fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out                                   ; 0.000    ; 0.000 ; N/A      ; N/A     ; -1.403              ;
-;  time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; -8.802   ; 0.000 ; N/A      ; N/A     ; -11.224             ;
-;  update_count                                                              ; -5.589   ; 0.000 ; N/A      ; N/A     ; -12.627             ;
+;  increment_hour                                                            ; -8.753   ; 0.000 ; N/A      ; N/A     ; -11.224             ;
+;  increment_minute                                                          ; -4.670   ; 0.000 ; N/A      ; N/A     ; -11.224             ;
+;  time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; -8.587   ; 0.000 ; N/A      ; N/A     ; -11.224             ;
+;  update_count                                                              ; -4.855   ; 0.000 ; N/A      ; N/A     ; -12.627             ;
 +----------------------------------------------------------------------------+----------+-------+----------+---------+---------------------+
 
 
@@ -382,10 +410,10 @@ No synchronizer chains to report.
 +---------------------+-----------------------+-----------------+-----------------+
 ; Pin                 ; I/O Standard          ; 10-90 Rise Time ; 90-10 Fall Time ;
 +---------------------+-----------------------+-----------------+-----------------+
-; KEY_0               ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
-; KEY_1               ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
 ; SW_9                ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
 ; CLK_FPGA            ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
+; KEY_0               ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
+; KEY_1               ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
 ; ~ALTERA_TMS~        ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
 ; ~ALTERA_TCK~        ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
 ; ~ALTERA_TDI~        ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
@@ -534,9 +562,14 @@ No synchronizer chains to report.
 ; From Clock                                                                ; To Clock                                                                  ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +---------------------------------------------------------------------------+---------------------------------------------------------------------------+----------+----------+----------+----------+
 ; CLK_FPGA                                                                  ; CLK_FPGA                                                                  ; 2016     ; 0        ; 0        ; 0        ;
+; increment_hour                                                            ; CLK_FPGA                                                                  ; 8        ; 0        ; 0        ; 0        ;
+; increment_minute                                                          ; CLK_FPGA                                                                  ; 8        ; 0        ; 0        ; 0        ;
+; time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; CLK_FPGA                                                                  ; 8        ; 0        ; 0        ; 0        ;
+; update_count                                                              ; CLK_FPGA                                                                  ; 8        ; 0        ; 0        ; 0        ;
 ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; 189      ; 0        ; 0        ; 0        ;
-; update_count                                                              ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; 1        ; 1        ; 0        ; 0        ;
 ; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out                                   ; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out                                   ; 1        ; 0        ; 0        ; 0        ;
+; increment_hour                                                            ; increment_hour                                                            ; 118      ; 0        ; 0        ; 0        ;
+; increment_minute                                                          ; increment_minute                                                          ; 56       ; 0        ; 0        ; 0        ;
 ; time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; 118      ; 0        ; 0        ; 0        ;
 ; update_count                                                              ; update_count                                                              ; 60       ; 0        ; 0        ; 0        ;
 +---------------------------------------------------------------------------+---------------------------------------------------------------------------+----------+----------+----------+----------+
@@ -549,9 +582,14 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 ; From Clock                                                                ; To Clock                                                                  ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +---------------------------------------------------------------------------+---------------------------------------------------------------------------+----------+----------+----------+----------+
 ; CLK_FPGA                                                                  ; CLK_FPGA                                                                  ; 2016     ; 0        ; 0        ; 0        ;
+; increment_hour                                                            ; CLK_FPGA                                                                  ; 8        ; 0        ; 0        ; 0        ;
+; increment_minute                                                          ; CLK_FPGA                                                                  ; 8        ; 0        ; 0        ; 0        ;
+; time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; CLK_FPGA                                                                  ; 8        ; 0        ; 0        ; 0        ;
+; update_count                                                              ; CLK_FPGA                                                                  ; 8        ; 0        ; 0        ; 0        ;
 ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; 189      ; 0        ; 0        ; 0        ;
-; update_count                                                              ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; 1        ; 1        ; 0        ; 0        ;
 ; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out                                   ; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out                                   ; 1        ; 0        ; 0        ; 0        ;
+; increment_hour                                                            ; increment_hour                                                            ; 118      ; 0        ; 0        ; 0        ;
+; increment_minute                                                          ; increment_minute                                                          ; 56       ; 0        ; 0        ; 0        ;
 ; time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; 118      ; 0        ; 0        ; 0        ;
 ; update_count                                                              ; update_count                                                              ; 60       ; 0        ; 0        ; 0        ;
 +---------------------------------------------------------------------------+---------------------------------------------------------------------------+----------+----------+----------+----------+
@@ -577,8 +615,8 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 1     ; 1    ;
-; Unconstrained Input Port Paths  ; 8     ; 8    ;
+; Unconstrained Input Ports       ; 3     ; 3    ;
+; Unconstrained Input Port Paths  ; 30    ; 30   ;
 ; Unconstrained Output Ports      ; 29    ; 29   ;
 ; Unconstrained Output Port Paths ; 113   ; 113  ;
 +---------------------------------+-------+------+
@@ -592,6 +630,8 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; CLK_FPGA                                                                  ; CLK_FPGA                                                                  ; Base ; Constrained ;
 ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out                                   ; Base ; Constrained ;
 ; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out                                   ; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out                                   ; Base ; Constrained ;
+; increment_hour                                                            ; increment_hour                                                            ; Base ; Constrained ;
+; increment_minute                                                          ; increment_minute                                                          ; Base ; Constrained ;
 ; time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour ; Base ; Constrained ;
 ; update_count                                                              ; update_count                                                              ; Base ; Constrained ;
 +---------------------------------------------------------------------------+---------------------------------------------------------------------------+------+-------------+
@@ -602,6 +642,8 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +------------+--------------------------------------------------------------------------------------+
 ; Input Port ; Comment                                                                              ;
 +------------+--------------------------------------------------------------------------------------+
+; KEY_0      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; KEY_1      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; SW_9       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +------------+--------------------------------------------------------------------------------------+
 
@@ -648,6 +690,8 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +------------+--------------------------------------------------------------------------------------+
 ; Input Port ; Comment                                                                              ;
 +------------+--------------------------------------------------------------------------------------+
+; KEY_0      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; KEY_1      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 ; SW_9       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +------------+--------------------------------------------------------------------------------------+
 
@@ -695,7 +739,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Sun Aug 27 02:34:46 2023
+    Info: Processing started: Sun Aug 27 08:48:20 2023
 Info: Command: quartus_sta DigitalClock -c DigitalClock
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -707,107 +751,127 @@ Info (332142): No user constrained base clocks found in the design. Calling "der
 Info (332105): Deriving Clocks
     Info (332105): create_clock -period 1.000 -name CLK_FPGA CLK_FPGA
     Info (332105): create_clock -period 1.000 -name fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out
+    Info (332105): create_clock -period 1.000 -name increment_hour increment_hour
     Info (332105): create_clock -period 1.000 -name time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour
     Info (332105): create_clock -period 1.000 -name update_count update_count
     Info (332105): create_clock -period 1.000 -name fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out
+    Info (332105): create_clock -period 1.000 -name increment_minute increment_minute
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -3.817
+Info (332146): Worst-case setup slack is -3.035
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.817             -16.550 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
-    Info (332119):    -3.217            -160.280 CLK_FPGA 
-    Info (332119):    -1.328              -8.802 time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour 
-    Info (332119):    -0.974              -5.589 update_count 
+    Info (332119):    -3.035            -156.776 CLK_FPGA 
+    Info (332119):    -2.183             -14.925 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
+    Info (332119):    -1.343              -8.753 increment_hour 
+    Info (332119):    -1.267              -8.587 time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour 
+    Info (332119):    -0.966              -4.855 update_count 
+    Info (332119):    -0.903              -4.670 increment_minute 
     Info (332119):     0.298               0.000 fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out 
-Info (332146): Worst-case hold slack is 0.347
+Info (332146): Worst-case hold slack is 0.348
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.347               0.000 time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour 
+    Info (332119):     0.348               0.000 increment_hour 
+    Info (332119):     0.348               0.000 increment_minute 
+    Info (332119):     0.348               0.000 time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour 
     Info (332119):     0.348               0.000 update_count 
     Info (332119):     0.393               0.000 fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out 
-    Info (332119):     0.609               0.000 CLK_FPGA 
-    Info (332119):     1.190               0.000 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
+    Info (332119):     0.529               0.000 CLK_FPGA 
+    Info (332119):     1.196               0.000 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -81.568 CLK_FPGA 
+    Info (332119):    -3.000            -104.016 CLK_FPGA 
+    Info (332119):    -1.403             -12.627 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
     Info (332119):    -1.403             -12.627 update_count 
+    Info (332119):    -1.403             -11.224 increment_hour 
+    Info (332119):    -1.403             -11.224 increment_minute 
     Info (332119):    -1.403             -11.224 time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour 
-    Info (332119):    -1.403              -9.821 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
     Info (332119):    -1.403              -1.403 fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out 
 Info: Analyzing Slow 1200mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -3.446
+Info (332146): Worst-case setup slack is -2.717
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.446             -14.569 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
-    Info (332119):    -2.903            -143.838 CLK_FPGA 
-    Info (332119):    -1.150              -7.473 time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour 
-    Info (332119):    -0.813              -4.432 update_count 
+    Info (332119):    -2.717            -139.003 CLK_FPGA 
+    Info (332119):    -1.922             -13.057 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
+    Info (332119):    -1.123              -7.406 increment_hour 
+    Info (332119):    -1.083              -7.276 time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour 
+    Info (332119):    -0.800              -3.749 update_count 
+    Info (332119):    -0.751              -3.691 increment_minute 
     Info (332119):     0.362               0.000 fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out 
 Info (332146): Worst-case hold slack is 0.312
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.312               0.000 time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour 
+    Info (332119):     0.312               0.000 increment_minute 
     Info (332119):     0.312               0.000 update_count 
+    Info (332119):     0.313               0.000 increment_hour 
+    Info (332119):     0.313               0.000 time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour 
     Info (332119):     0.355               0.000 fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out 
-    Info (332119):     0.544               0.000 CLK_FPGA 
-    Info (332119):     1.102               0.000 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
+    Info (332119):     0.473               0.000 CLK_FPGA 
+    Info (332119):     1.110               0.000 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -81.568 CLK_FPGA 
+    Info (332119):    -3.000            -104.016 CLK_FPGA 
+    Info (332119):    -1.403             -12.627 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
     Info (332119):    -1.403             -12.627 update_count 
+    Info (332119):    -1.403             -11.224 increment_hour 
+    Info (332119):    -1.403             -11.224 increment_minute 
     Info (332119):    -1.403             -11.224 time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour 
-    Info (332119):    -1.403              -9.821 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
     Info (332119):    -1.403              -1.403 fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out 
 Info: Analyzing Fast 1200mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -1.036
+Info (332146): Worst-case setup slack is -0.674
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.036              -2.596 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
-    Info (332119):    -0.745             -33.080 CLK_FPGA 
-    Info (332119):     0.011               0.000 time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour 
-    Info (332119):     0.126               0.000 update_count 
+    Info (332119):    -0.674             -27.928 CLK_FPGA 
+    Info (332119):    -0.313              -1.831 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
+    Info (332119):    -0.015              -0.015 increment_hour 
+    Info (332119):     0.045               0.000 time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour 
+    Info (332119):     0.168               0.000 update_count 
+    Info (332119):     0.200               0.000 increment_minute 
     Info (332119):     0.694               0.000 fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out 
 Info (332146): Worst-case hold slack is 0.152
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.152               0.000 time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour 
+    Info (332119):     0.152               0.000 increment_hour 
+    Info (332119):     0.152               0.000 increment_minute 
     Info (332119):     0.152               0.000 update_count 
+    Info (332119):     0.153               0.000 time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour 
     Info (332119):     0.170               0.000 fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out 
-    Info (332119):     0.230               0.000 CLK_FPGA 
-    Info (332119):     0.456               0.000 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
+    Info (332119):     0.192               0.000 CLK_FPGA 
+    Info (332119):     0.459               0.000 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -68.543 CLK_FPGA 
+    Info (332119):    -3.000             -87.343 CLK_FPGA 
+    Info (332119):    -1.000              -9.000 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
     Info (332119):    -1.000              -9.000 update_count 
+    Info (332119):    -1.000              -8.000 increment_hour 
+    Info (332119):    -1.000              -8.000 increment_minute 
     Info (332119):    -1.000              -8.000 time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour 
-    Info (332119):    -1.000              -7.000 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
     Info (332119):    -1.000              -1.000 fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
     Info: Peak virtual memory: 4815 megabytes
-    Info: Processing ended: Sun Aug 27 02:34:48 2023
-    Info: Elapsed time: 00:00:02
+    Info: Processing ended: Sun Aug 27 08:48:23 2023
+    Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:03
 
 

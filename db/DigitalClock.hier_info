@@ -12,10 +12,14 @@ SW_9 => seconds.OUTPUTSELECT
 SW_9 => seconds.OUTPUTSELECT
 SW_9 => seconds.OUTPUTSELECT
 SW_9 => second_indicator:s_ind.is_on
+SW_9 => mux_select:min_select.selector
+SW_9 => mux_select:hour_select.selector
 SW_9 => increment_minute.ENA
 SW_9 => increment_hour.ENA
 SW_9 => update_count.ENA
 CLK_FPGA => fifty_mhz_1hz_2hz:one_hz.CLK_FPGA_IN
+CLK_FPGA => mux_select:min_select.CLK_FPGA_IN
+CLK_FPGA => mux_select:hour_select.CLK_FPGA_IN
 HEX_5[0] <= seven_seg:hour_tens_seg.seven[0]
 HEX_5[1] <= seven_seg:hour_tens_seg.seven[1]
 HEX_5[2] <= seven_seg:hour_tens_seg.seven[2]
@@ -376,5 +380,91 @@ min_unit[1] <> min_unit[1]~reg0
 min_unit[2] <> min_unit[2]~reg0
 min_unit[3] <> min_unit[3]~reg0
 incr_hour <= incr_hour~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DigitalClock|mux_select:min_select
+CLK_FPGA_IN => unit_out[0]~reg0.CLK
+CLK_FPGA_IN => unit_out[1]~reg0.CLK
+CLK_FPGA_IN => unit_out[2]~reg0.CLK
+CLK_FPGA_IN => unit_out[3]~reg0.CLK
+CLK_FPGA_IN => tens_out[0]~reg0.CLK
+CLK_FPGA_IN => tens_out[1]~reg0.CLK
+CLK_FPGA_IN => tens_out[2]~reg0.CLK
+CLK_FPGA_IN => tens_out[3]~reg0.CLK
+selector => tens_out.OUTPUTSELECT
+selector => tens_out.OUTPUTSELECT
+selector => tens_out.OUTPUTSELECT
+selector => tens_out.OUTPUTSELECT
+selector => unit_out.OUTPUTSELECT
+selector => unit_out.OUTPUTSELECT
+selector => unit_out.OUTPUTSELECT
+selector => unit_out.OUTPUTSELECT
+tens_1_in[0] => tens_out.DATAB
+tens_1_in[1] => tens_out.DATAB
+tens_1_in[2] => tens_out.DATAB
+tens_1_in[3] => tens_out.DATAB
+unit_1_in[0] => unit_out.DATAB
+unit_1_in[1] => unit_out.DATAB
+unit_1_in[2] => unit_out.DATAB
+unit_1_in[3] => unit_out.DATAB
+tens_2_in[0] => tens_out.DATAA
+tens_2_in[1] => tens_out.DATAA
+tens_2_in[2] => tens_out.DATAA
+tens_2_in[3] => tens_out.DATAA
+unit_2_in[0] => unit_out.DATAA
+unit_2_in[1] => unit_out.DATAA
+unit_2_in[2] => unit_out.DATAA
+unit_2_in[3] => unit_out.DATAA
+tens_out[0] <= tens_out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+tens_out[1] <= tens_out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+tens_out[2] <= tens_out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+tens_out[3] <= tens_out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+unit_out[0] <= unit_out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+unit_out[1] <= unit_out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+unit_out[2] <= unit_out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+unit_out[3] <= unit_out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DigitalClock|mux_select:hour_select
+CLK_FPGA_IN => unit_out[0]~reg0.CLK
+CLK_FPGA_IN => unit_out[1]~reg0.CLK
+CLK_FPGA_IN => unit_out[2]~reg0.CLK
+CLK_FPGA_IN => unit_out[3]~reg0.CLK
+CLK_FPGA_IN => tens_out[0]~reg0.CLK
+CLK_FPGA_IN => tens_out[1]~reg0.CLK
+CLK_FPGA_IN => tens_out[2]~reg0.CLK
+CLK_FPGA_IN => tens_out[3]~reg0.CLK
+selector => tens_out.OUTPUTSELECT
+selector => tens_out.OUTPUTSELECT
+selector => tens_out.OUTPUTSELECT
+selector => tens_out.OUTPUTSELECT
+selector => unit_out.OUTPUTSELECT
+selector => unit_out.OUTPUTSELECT
+selector => unit_out.OUTPUTSELECT
+selector => unit_out.OUTPUTSELECT
+tens_1_in[0] => tens_out.DATAB
+tens_1_in[1] => tens_out.DATAB
+tens_1_in[2] => tens_out.DATAB
+tens_1_in[3] => tens_out.DATAB
+unit_1_in[0] => unit_out.DATAB
+unit_1_in[1] => unit_out.DATAB
+unit_1_in[2] => unit_out.DATAB
+unit_1_in[3] => unit_out.DATAB
+tens_2_in[0] => tens_out.DATAA
+tens_2_in[1] => tens_out.DATAA
+tens_2_in[2] => tens_out.DATAA
+tens_2_in[3] => tens_out.DATAA
+unit_2_in[0] => unit_out.DATAA
+unit_2_in[1] => unit_out.DATAA
+unit_2_in[2] => unit_out.DATAA
+unit_2_in[3] => unit_out.DATAA
+tens_out[0] <= tens_out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+tens_out[1] <= tens_out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+tens_out[2] <= tens_out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+tens_out[3] <= tens_out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+unit_out[0] <= unit_out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+unit_out[1] <= unit_out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+unit_out[2] <= unit_out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+unit_out[3] <= unit_out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 

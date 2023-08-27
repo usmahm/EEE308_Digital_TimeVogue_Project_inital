@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Sun Aug 27 08:48:01 2023
+Analysis & Synthesis Status : Successful - Sun Aug 27 13:12:07 2023
 Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 Revision Name : DigitalClock
 Top-level Entity Name : DigitalClock
 Family : MAX 10
-Total logic elements : 189
-    Total combinational functions : 189
+Total logic elements : 172
+    Total combinational functions : 159
     Dedicated logic registers : 115
 Total registers : 115
 Total pins : 39

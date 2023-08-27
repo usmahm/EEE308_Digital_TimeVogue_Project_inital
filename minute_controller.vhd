@@ -6,30 +6,31 @@ use ieee.numeric_std.all;
 -- handle incrementing hour. Else, just map to an ignored signal;
 entity minute_controller is
   port(
-    min_clk     : in std_logic;
-    min_tens, min_unit   : inout std_logic_vector(3 downto 0);
-    incr_hour            : out std_logic
+    min_clk                    : in std_logic;
+    min_tens_in, min_unit_in   : in std_logic_vector(3 downto 0);
+    min_tens_out, min_unit_out : out std_logic_vector(min_tens_in'range);
+    incr_hour                  : out std_logic
   );
 end entity;
 
 architecture controller of minute_controller is
 begin
-  process(min_clk)
+  process(min_clk, min_tens_in, min_unit_in)
   begin
     if rising_edge(min_clk) then
       incr_hour <= '0';
       
       -- if minute units is less than 9, increment, else go to 0
-      if min_unit /= "1001" then
-        min_unit <= std_logic_vector(unsigned(min_unit) + 1);
+      if min_unit_in /= "1001" then
+        min_unit_out <= std_logic_vector(unsigned(min_unit_in) + 1);
       else
-        min_unit <= (others => '0');
+        min_unit_out <= (others => '0');
   
         -- keep incrementing minute tens so far it's less than 5, else set to 0
-        if min_tens /= "0101" then
-          min_tens <= std_logic_vector(unsigned(min_tens) + 1);
+        if min_tens_in /= "0101" then
+          min_tens_out <= std_logic_vector(unsigned(min_tens_in) + 1);
         else
-          min_tens <= (others => '0');
+          min_tens_out <= (others => '0');
 
           incr_hour <= '1';
         end if;

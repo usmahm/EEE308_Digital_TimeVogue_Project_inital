@@ -1,12 +1,12 @@
-Fitter Status : Successful - Sun Aug 27 08:48:14 2023
+Fitter Status : Successful - Sun Aug 27 13:12:34 2023
 Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 Revision Name : DigitalClock
 Top-level Entity Name : DigitalClock
 Family : MAX 10
 Device : 10M50DAF484C7G
 Timing Models : Final
-Total logic elements : 198 / 49,760 ( < 1 % )
-    Total combinational functions : 190 / 49,760 ( < 1 % )
+Total logic elements : 197 / 49,760 ( < 1 % )
+    Total combinational functions : 160 / 49,760 ( < 1 % )
     Dedicated logic registers : 115 / 49,760 ( < 1 % )
 Total registers : 115
 Total pins : 39 / 360 ( 11 % )

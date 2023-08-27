@@ -2,69 +2,65 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1200mV 85C Model Setup 'CLK_FPGA'
-Slack : -3.035
-TNS   : -156.776
-
-Type  : Slow 1200mV 85C Model Setup 'fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out'
-Slack : -2.183
-TNS   : -14.925
-
 Type  : Slow 1200mV 85C Model Setup 'increment_hour'
-Slack : -1.343
-TNS   : -8.753
+Slack : -3.289
+TNS   : -22.352
+
+Type  : Slow 1200mV 85C Model Setup 'CLK_FPGA'
+Slack : -2.999
+TNS   : -162.264
 
 Type  : Slow 1200mV 85C Model Setup 'time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour'
-Slack : -1.267
-TNS   : -8.587
+Slack : -2.315
+TNS   : -15.149
+
+Type  : Slow 1200mV 85C Model Setup 'fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out'
+Slack : -2.158
+TNS   : -14.905
 
 Type  : Slow 1200mV 85C Model Setup 'update_count'
-Slack : -0.966
-TNS   : -4.855
+Slack : -2.062
+TNS   : -15.896
 
 Type  : Slow 1200mV 85C Model Setup 'increment_minute'
-Slack : -0.903
-TNS   : -4.670
+Slack : -1.936
+TNS   : -13.697
 
 Type  : Slow 1200mV 85C Model Setup 'fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out'
-Slack : 0.298
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Hold 'increment_hour'
-Slack : 0.348
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Hold 'increment_minute'
-Slack : 0.348
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Hold 'time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour'
-Slack : 0.348
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Hold 'update_count'
-Slack : 0.348
+Slack : 0.248
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out'
-Slack : 0.393
+Slack : 0.363
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'CLK_FPGA'
-Slack : 0.529
+Slack : 0.594
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour'
+Slack : 0.834
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'increment_minute'
+Slack : 1.174
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out'
-Slack : 1.196
+Slack : 1.192
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'increment_hour'
+Slack : 1.325
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'update_count'
+Slack : 1.346
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLK_FPGA'
 Slack : -3.000
 TNS   : -104.016
-
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out'
-Slack : -1.403
-TNS   : -12.627
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'update_count'
 Slack : -1.403
@@ -82,73 +78,73 @@ Type  : Slow 1200mV 85C Model Minimum Pulse Width 'time_incrementer:t_incremente
 Slack : -1.403
 TNS   : -11.224
 
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out'
+Slack : -1.403
+TNS   : -9.821
+
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out'
 Slack : -1.403
-TNS   : -1.403
-
-Type  : Slow 1200mV 0C Model Setup 'CLK_FPGA'
-Slack : -2.717
-TNS   : -139.003
-
-Type  : Slow 1200mV 0C Model Setup 'fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out'
-Slack : -1.922
-TNS   : -13.057
+TNS   : -4.209
 
 Type  : Slow 1200mV 0C Model Setup 'increment_hour'
-Slack : -1.123
-TNS   : -7.406
+Slack : -2.993
+TNS   : -20.198
+
+Type  : Slow 1200mV 0C Model Setup 'CLK_FPGA'
+Slack : -2.711
+TNS   : -144.298
 
 Type  : Slow 1200mV 0C Model Setup 'time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour'
-Slack : -1.083
-TNS   : -7.276
+Slack : -2.064
+TNS   : -13.455
+
+Type  : Slow 1200mV 0C Model Setup 'fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out'
+Slack : -1.887
+TNS   : -13.008
 
 Type  : Slow 1200mV 0C Model Setup 'update_count'
-Slack : -0.800
-TNS   : -3.749
+Slack : -1.838
+TNS   : -14.000
 
 Type  : Slow 1200mV 0C Model Setup 'increment_minute'
-Slack : -0.751
-TNS   : -3.691
+Slack : -1.728
+TNS   : -12.105
 
 Type  : Slow 1200mV 0C Model Setup 'fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out'
-Slack : 0.362
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Hold 'increment_minute'
-Slack : 0.312
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Hold 'update_count'
-Slack : 0.312
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Hold 'increment_hour'
-Slack : 0.313
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Hold 'time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour'
-Slack : 0.313
+Slack : 0.315
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out'
-Slack : 0.355
+Slack : 0.328
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'CLK_FPGA'
-Slack : 0.473
+Slack : 0.517
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour'
+Slack : 0.791
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out'
-Slack : 1.110
+Slack : 1.102
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'increment_minute'
+Slack : 1.103
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'increment_hour'
+Slack : 1.246
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'update_count'
+Slack : 1.258
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLK_FPGA'
 Slack : -3.000
 TNS   : -104.016
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out'
-Slack : -1.403
-TNS   : -12.627
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'update_count'
 Slack : -1.403
@@ -166,73 +162,73 @@ Type  : Slow 1200mV 0C Model Minimum Pulse Width 'time_incrementer:t_incrementer
 Slack : -1.403
 TNS   : -11.224
 
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out'
+Slack : -1.403
+TNS   : -9.821
+
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out'
 Slack : -1.403
-TNS   : -1.403
-
-Type  : Fast 1200mV 0C Model Setup 'CLK_FPGA'
-Slack : -0.674
-TNS   : -27.928
-
-Type  : Fast 1200mV 0C Model Setup 'fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out'
-Slack : -0.313
-TNS   : -1.831
+TNS   : -4.209
 
 Type  : Fast 1200mV 0C Model Setup 'increment_hour'
-Slack : -0.015
-TNS   : -0.015
+Slack : -0.803
+TNS   : -4.807
+
+Type  : Fast 1200mV 0C Model Setup 'CLK_FPGA'
+Slack : -0.719
+TNS   : -31.842
 
 Type  : Fast 1200mV 0C Model Setup 'time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour'
-Slack : 0.045
-TNS   : 0.000
+Slack : -0.323
+TNS   : -1.744
 
 Type  : Fast 1200mV 0C Model Setup 'update_count'
-Slack : 0.168
-TNS   : 0.000
+Slack : -0.304
+TNS   : -1.744
+
+Type  : Fast 1200mV 0C Model Setup 'fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out'
+Slack : -0.288
+TNS   : -1.930
 
 Type  : Fast 1200mV 0C Model Setup 'increment_minute'
-Slack : 0.200
-TNS   : 0.000
+Slack : -0.243
+TNS   : -1.326
 
 Type  : Fast 1200mV 0C Model Setup 'fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out'
-Slack : 0.694
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Hold 'increment_hour'
-Slack : 0.152
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Hold 'increment_minute'
-Slack : 0.152
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Hold 'update_count'
-Slack : 0.152
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Hold 'time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour'
-Slack : 0.153
+Slack : 0.660
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out'
-Slack : 0.170
+Slack : 0.156
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'CLK_FPGA'
-Slack : 0.192
+Slack : 0.188
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'time_incrementer:t_incrementer|minute_controller:min_controller|incr_hour'
+Slack : 0.240
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'increment_minute'
+Slack : 0.435
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out'
 Slack : 0.459
 TNS   : 0.000
 
+Type  : Fast 1200mV 0C Model Hold 'increment_hour'
+Slack : 0.494
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'update_count'
+Slack : 0.513
+TNS   : 0.000
+
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLK_FPGA'
 Slack : -3.000
-TNS   : -87.343
-
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out'
-Slack : -1.000
-TNS   : -9.000
+TNS   : -87.307
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'update_count'
 Slack : -1.000
@@ -250,8 +246,12 @@ Type  : Fast 1200mV 0C Model Minimum Pulse Width 'time_incrementer:t_incrementer
 Slack : -1.000
 TNS   : -8.000
 
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out'
+Slack : -1.000
+TNS   : -7.000
+
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out'
 Slack : -1.000
-TNS   : -1.000
+TNS   : -3.000
 
 ------------------------------------------------------------

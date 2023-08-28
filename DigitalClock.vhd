@@ -37,30 +37,19 @@ architecture logic of DigitalClock is
   -- Controller for incrementing time HH:MM
   component time_incrementer is
     port(
-      clk_selector, minute_clk, btn_min_clk, btn_hour_clk                      : in std_logic;
+      clk_selector, one_hz_clk_in, two_hz_clk_in, btn_min_clk, btn_hour_clk    : in std_logic;
       t_min_unit_in, t_min_tens_in, t_hour_tens_in, t_hour_unit_in             : in std_logic_vector(3 downto 0);
       new_min_unit_out, new_min_tens_out, new_hour_tens_out, new_hour_unit_out : out std_logic_vector(3 downto 0)
     );
-  end component time_incrementer;
-
-  component time_buffer is
-    port(
-      CLK_FPGA_IN                                            : in std_logic;
-      min_unit_in, min_tens_in, hour_unit_in, hour_tens_in   : in std_logic_vector(3 downto 0);
-      min_unit_out, min_tens_out, hour_unit_out, hour_tens_out : out std_logic_vector(hour_tens_in'range)
-    );
   end component;
-  
 
   signal incr_min, incr_hr : std_logic;
-  signal update_count, one_hz_clk, two_hz_clk : std_logic := '0';
+  signal one_hz_clk, two_hz_clk : std_logic := '0';
   signal minute_tens, minute_unit, hour_tens, hour_unit : std_logic_vector(3 downto 0);
 
   signal t_incr_min_tens, t_incr_min_unit, t_incr_hour_tens, t_incr_hour_unit : std_logic_vector(3 downto 0);
 
   signal s_min_tens, s_min_unit, s_hour_tens, s_hour_unit, s_blinker : std_logic_vector(6 downto 0);
-
-  signal increment_hour, increment_minute, ignore : std_logic;
 begin
   incr_min <= KEY_0;
   incr_hr <= KEY_1;
@@ -85,67 +74,19 @@ begin
 
   t_incrementer : time_incrementer port map(
     clk_selector => SW_9,
-    btn_min_clk => increment_minute,
-    btn_hour_clk => increment_hour,
-    minute_clk => update_count,
+    one_hz_clk_in => one_hz_clk,
+    two_hz_clk_in => two_hz_clk,
+    btn_min_clk => incr_min,
+    btn_hour_clk => incr_hr,
     t_min_unit_in => minute_unit,
     t_min_tens_in => minute_tens, 
     t_hour_unit_in => hour_unit,
     t_hour_tens_in => hour_tens, 
-    new_min_unit_out => t_incr_min_unit,
-    new_min_tens_out => t_incr_min_tens,
-    new_hour_unit_out => t_incr_hour_unit,
-    new_hour_tens_out => t_incr_hour_tens
+    new_min_unit_out => minute_unit,
+    new_min_tens_out => minute_tens,
+    new_hour_unit_out => hour_unit,
+    new_hour_tens_out => hour_tens
   );
-
-  t_buffer : time_buffer port map(
-    CLK_FPGA_IN => CLK_FPGA,
-    min_unit_in => t_incr_min_unit ,
-    min_tens_in => t_incr_min_tens,
-    hour_unit_in => t_incr_hour_unit,
-    hour_tens_in => t_incr_hour_tens,
-    min_unit_out => minute_unit,
-    min_tens_out => minute_tens,
-    hour_unit_out => hour_unit,
-    hour_tens_out => hour_tens
-  );
-
-  process(one_hz_clk, SW_9, incr_hr, incr_min)
-    variable seconds : integer range 0 to 100 := 0;
-  begin
-    if rising_edge(one_hz_clk) then
-      if SW_9 = '1' then
-        seconds := seconds + 1;
-        
-        if seconds >= 60 then
-          update_count <= '1';
-          seconds := 0;
-        else
-          update_count <= '0';
-        end if;
-      elsif SW_9 = '0' then
-        seconds := 0;
-      end if;
-    end if;
-
-    if rising_edge(two_hz_clk) then
-      if SW_9 = '0' then
-        increment_hour <= '0';
-        increment_minute <= '0';
-
-        if incr_hr = '0' and incr_min = '0' then
-          -- hour_unit <= (others => '0');
-          -- hour_tens <= (others => '0');
-          -- minute_unit <= (others => '0');
-          -- minute_tens <= (others => '0');
-        elsif incr_hr = '0' then
-          increment_hour <= '1';
-        elsif incr_min = '0' then
-          increment_minute <= '1';
-        end if;
-      end if;
-    end if;
-  end process;
 
   HEX_5 <= s_hour_tens;
   HEX_4 <= s_hour_unit;

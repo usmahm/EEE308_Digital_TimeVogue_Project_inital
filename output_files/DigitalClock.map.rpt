@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DigitalClock
-Mon Aug 28 21:47:27 2023
+Mon Aug 28 23:43:04 2023
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -45,15 +45,15 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Aug 28 21:47:27 2023          ;
+; Analysis & Synthesis Status        ; Successful - Mon Aug 28 23:43:04 2023          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; DigitalClock                                   ;
 ; Top-level Entity Name              ; DigitalClock                                   ;
 ; Family                             ; MAX 10                                         ;
-; Total logic elements               ; 157                                            ;
-;     Total combinational functions  ; 141                                            ;
-;     Dedicated logic registers      ; 99                                             ;
-; Total registers                    ; 99                                             ;
+; Total logic elements               ; 145                                            ;
+;     Total combinational functions  ; 145                                            ;
+;     Dedicated logic registers      ; 83                                             ;
+; Total registers                    ; 83                                             ;
 ; Total pins                         ; 39                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
@@ -179,7 +179,6 @@ https://fpgasoftware.intel.com/eula.
 ; second_indicator.vhd             ; yes             ; User VHDL File  ; C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/second_indicator.vhd  ;         ;
 ; hour_controller.vhd              ; yes             ; User VHDL File  ; C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/hour_controller.vhd   ;         ;
 ; minute_controller.vhd            ; yes             ; User VHDL File  ; C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/minute_controller.vhd ;         ;
-; time_buffer.vhd                  ; yes             ; User VHDL File  ; C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_buffer.vhd       ;         ;
 +----------------------------------+-----------------+-----------------+------------------------------------------------------------------------+---------+
 
 
@@ -188,20 +187,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 157            ;
+; Estimated Total logic elements              ; 145            ;
 ;                                             ;                ;
-; Total combinational functions               ; 141            ;
+; Total combinational functions               ; 145            ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 64             ;
-;     -- 3 input functions                    ; 10             ;
-;     -- <=2 input functions                  ; 67             ;
+;     -- 4 input functions                    ; 66             ;
+;     -- 3 input functions                    ; 9              ;
+;     -- <=2 input functions                  ; 70             ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 83             ;
+;     -- normal mode                          ; 87             ;
 ;     -- arithmetic mode                      ; 58             ;
 ;                                             ;                ;
-; Total registers                             ; 99             ;
-;     -- Dedicated logic registers            ; 99             ;
+; Total registers                             ; 83             ;
+;     -- Dedicated logic registers            ; 83             ;
 ;     -- I/O registers                        ; 0              ;
 ;                                             ;                ;
 ; I/O pins                                    ; 39             ;
@@ -209,9 +208,9 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLK_FPGA~input ;
-; Maximum fan-out                             ; 72             ;
-; Total fan-out                               ; 741            ;
-; Average fan-out                             ; 2.33           ;
+; Maximum fan-out                             ; 56             ;
+; Total fan-out                               ; 715            ;
+; Average fan-out                             ; 2.34           ;
 +---------------------------------------------+----------------+
 
 
@@ -220,29 +219,28 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------+-------------------+--------------+
 ; Compilation Hierarchy Node               ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                           ; Entity Name       ; Library Name ;
 +------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------+-------------------+--------------+
-; |DigitalClock                            ; 141 (17)            ; 99 (9)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 39   ; 0            ; 0          ; |DigitalClock                                                                 ; DigitalClock      ; work         ;
+; |DigitalClock                            ; 145 (0)             ; 83 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 39   ; 0            ; 0          ; |DigitalClock                                                                 ; DigitalClock      ; work         ;
 ;    |fifty_mhz_1hz_2hz:one_hz|            ; 70 (70)             ; 56 (56)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DigitalClock|fifty_mhz_1hz_2hz:one_hz                                        ; fifty_mhz_1hz_2hz ; work         ;
 ;    |second_indicator:s_ind|              ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DigitalClock|second_indicator:s_ind                                          ; second_indicator  ; work         ;
 ;    |seven_seg:hour_tens_seg|             ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DigitalClock|seven_seg:hour_tens_seg                                         ; seven_seg         ; work         ;
 ;    |seven_seg:hour_unit_seg|             ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DigitalClock|seven_seg:hour_unit_seg                                         ; seven_seg         ; work         ;
 ;    |seven_seg:min_tens_seg|              ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DigitalClock|seven_seg:min_tens_seg                                          ; seven_seg         ; work         ;
 ;    |seven_seg:min_unit_seg|              ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DigitalClock|seven_seg:min_unit_seg                                          ; seven_seg         ; work         ;
-;    |time_buffer:t_buffer|                ; 0 (0)               ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DigitalClock|time_buffer:t_buffer                                            ; time_buffer       ; work         ;
-;    |time_incrementer:t_incrementer|      ; 25 (2)              ; 17 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DigitalClock|time_incrementer:t_incrementer                                  ; time_incrementer  ; work         ;
-;       |hour_controller:hr_controller|    ; 12 (12)             ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DigitalClock|time_incrementer:t_incrementer|hour_controller:hr_controller    ; hour_controller   ; work         ;
-;       |minute_controller:min_controller| ; 11 (11)             ; 9 (9)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DigitalClock|time_incrementer:t_incrementer|minute_controller:min_controller ; minute_controller ; work         ;
+;    |time_incrementer:t_incrementer|      ; 46 (19)             ; 26 (9)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DigitalClock|time_incrementer:t_incrementer                                  ; time_incrementer  ; work         ;
+;       |hour_controller:hr_controller|    ; 15 (15)             ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DigitalClock|time_incrementer:t_incrementer|hour_controller:hr_controller    ; hour_controller   ; work         ;
+;       |minute_controller:min_controller| ; 12 (12)             ; 9 (9)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DigitalClock|time_incrementer:t_incrementer|minute_controller:min_controller ; minute_controller ; work         ;
 +------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------+-------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+--------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                             ;
-+---------------------------------------+----------------------------------------+
-; Register name                         ; Reason for Removal                     ;
-+---------------------------------------+----------------------------------------+
-; seconds[6]                            ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 1 ;                                        ;
-+---------------------------------------+----------------------------------------+
++------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                 ;
++-------------------------------------------+----------------------------------------+
+; Register name                             ; Reason for Removal                     ;
++-------------------------------------------+----------------------------------------+
+; time_incrementer:t_incrementer|seconds[6] ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 1     ;                                        ;
++-------------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -250,12 +248,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 99    ;
+; Total registers                              ; 83    ;
 ; Number of registers using Synchronous Clear  ; 54    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 8     ;
+; Number of registers using Clock Enable       ; 3     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -266,7 +264,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------+
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |DigitalClock|time_incrementer:t_incrementer|hour_controller:hr_controller|hr_tens_out[2] ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |DigitalClock|seconds[6]                                                                  ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |DigitalClock|time_incrementer:t_incrementer|seconds[6]                                   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------+
 
 
@@ -276,22 +274,22 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 39                          ;
-; cycloneiii_ff         ; 99                          ;
-;     ENA               ; 8                           ;
+; cycloneiii_ff         ; 83                          ;
+;     ENA               ; 3                           ;
 ;     SCLR              ; 54                          ;
-;     plain             ; 37                          ;
-; cycloneiii_lcell_comb ; 147                         ;
+;     plain             ; 26                          ;
+; cycloneiii_lcell_comb ; 151                         ;
 ;     arith             ; 58                          ;
 ;         2 data inputs ; 58                          ;
-;     normal            ; 89                          ;
+;     normal            ; 93                          ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 10                          ;
-;         2 data inputs ; 3                           ;
-;         3 data inputs ; 10                          ;
-;         4 data inputs ; 64                          ;
+;         2 data inputs ; 6                           ;
+;         3 data inputs ; 9                           ;
+;         4 data inputs ; 66                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 3.60                        ;
-; Average LUT depth     ; 2.38                        ;
+; Average LUT depth     ; 2.54                        ;
 +-----------------------+-----------------------------+
 
 
@@ -300,7 +298,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -310,7 +308,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Mon Aug 28 21:47:14 2023
+    Info: Processing started: Mon Aug 28 23:42:47 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DigitalClock -c DigitalClock
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -345,17 +343,15 @@ Info (12021): Found 2 design units, including 1 entities, in source file time_bu
     Info (12022): Found design unit 1: time_buffer-controller File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_buffer.vhd Line: 12
     Info (12023): Found entity 1: time_buffer File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_buffer.vhd Line: 4
 Info (12127): Elaborating entity "DigitalClock" for the top level hierarchy
-Warning (10492): VHDL Process Statement warning at DigitalClock.vhd(131): signal "two_hz_clk" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 131
-Info (12128): Elaborating entity "seven_seg" for hierarchy "seven_seg:hour_tens_seg" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 69
-Info (12128): Elaborating entity "fifty_mhz_1hz_2hz" for hierarchy "fifty_mhz_1hz_2hz:one_hz" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 74
-Info (12128): Elaborating entity "second_indicator" for hierarchy "second_indicator:s_ind" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 80
-Info (12128): Elaborating entity "time_incrementer" for hierarchy "time_incrementer:t_incrementer" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 86
-Info (12128): Elaborating entity "hour_controller" for hierarchy "time_incrementer:t_incrementer|hour_controller:hr_controller" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_incrementer.vhd Line: 38
-Info (12128): Elaborating entity "minute_controller" for hierarchy "time_incrementer:t_incrementer|minute_controller:min_controller" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_incrementer.vhd Line: 46
-Info (12128): Elaborating entity "time_buffer" for hierarchy "time_buffer:t_buffer" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 101
+Info (12128): Elaborating entity "seven_seg" for hierarchy "seven_seg:hour_tens_seg" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 58
+Info (12128): Elaborating entity "fifty_mhz_1hz_2hz" for hierarchy "fifty_mhz_1hz_2hz:one_hz" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 63
+Info (12128): Elaborating entity "second_indicator" for hierarchy "second_indicator:s_ind" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 69
+Info (12128): Elaborating entity "time_incrementer" for hierarchy "time_incrementer:t_incrementer" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 75
+Info (12128): Elaborating entity "hour_controller" for hierarchy "time_incrementer:t_incrementer|hour_controller:hr_controller" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_incrementer.vhd Line: 42
+Info (12128): Elaborating entity "minute_controller" for hierarchy "time_incrementer:t_incrementer|minute_controller:min_controller" File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_incrementer.vhd Line: 50
 Warning (19016): Clock multiplexers are found and protected
-    Warning (19017): Found clock multiplexer time_incrementer:t_incrementer|min_clk_in File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_incrementer.vhd Line: 33
-    Warning (19017): Found clock multiplexer time_incrementer:t_incrementer|hour_clk_in File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_incrementer.vhd Line: 33
+    Warning (19017): Found clock multiplexer time_incrementer:t_incrementer|min_clk_in File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_incrementer.vhd Line: 35
+    Warning (19017): Found clock multiplexer time_incrementer:t_incrementer|hour_clk_in File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/time_incrementer.vhd Line: 35
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX_3[0]" is stuck at VCC File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
     Warning (13410): Pin "HEX_3[1]" is stuck at VCC File: C:/Users/USER/Desktop/FPGA_Practice/DigitalClock/DigitalClock.vhd Line: 8
@@ -366,14 +362,14 @@ Warning (13024): Output pins are stuck at VCC or GND
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 198 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 186 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 4 input pins
     Info (21059): Implemented 35 output pins
-    Info (21061): Implemented 159 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 12 warnings
+    Info (21061): Implemented 147 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 11 warnings
     Info: Peak virtual memory: 4798 megabytes
-    Info: Processing ended: Mon Aug 28 21:47:27 2023
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:28
+    Info: Processing ended: Mon Aug 28 23:43:04 2023
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:31
 
 

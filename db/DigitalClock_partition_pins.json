@@ -120,11 +120,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "CLK_FPGA",
+					"name" : "SW_9",
 					"strict" : false
 				},
 				{
-					"name" : "SW_9",
+					"name" : "CLK_FPGA",
 					"strict" : false
 				},
 				{

@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 
 entity time_incrementer is
   port(
-    minute_clk                                                               : in std_logic;
+    clk_selector, minute_clk, btn_min_clk, btn_hour_clk                      : in std_logic;
     t_min_unit_in, t_min_tens_in, t_hour_tens_in, t_hour_unit_in             : in std_logic_vector(3 downto 0);
     new_min_unit_out, new_min_tens_out, new_hour_tens_out, new_hour_unit_out : out std_logic_vector(3 downto 0)
   );
@@ -30,10 +30,13 @@ architecture logic of time_incrementer is
     );
   end component;
 
-  signal increment_hour, increment_minute : std_logic;
+  signal hour_clk, min_clk_in, hour_clk_in : std_logic;
 begin
+  min_clk_in <= minute_clk when clk_selector = '1' else btn_min_clk;
+  hour_clk_in <= hour_clk when clk_selector = '1' else btn_hour_clk;
+ 
   hr_controller : hour_controller port map(
-    increment_hour_in => increment_hour,
+    increment_hour_in => hour_clk_in,
     hr_tens_in => t_hour_tens_in,
     hr_unit_in => t_hour_unit_in,
     hr_tens_out => new_hour_tens_out,
@@ -41,11 +44,11 @@ begin
   );
 
   min_controller : minute_controller port map(
-    min_clk => minute_clk,
+    min_clk => min_clk_in,
     min_tens_in => t_min_tens_in,
     min_unit_in => t_min_unit_in,
     min_tens_out => new_min_tens_out,
     min_unit_out => new_min_unit_out,
-    incr_hour => increment_hour
+    incr_hour => hour_clk
   );
 end architecture;

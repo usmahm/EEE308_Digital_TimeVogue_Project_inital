@@ -17,7 +17,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition"
 
--- DATE "08/28/2023 21:33:08"
+-- DATE "08/28/2023 21:47:52"
 
 -- 
 -- Device: Altera 10M50DAF484C7G Package FBGA484
@@ -140,8 +140,8 @@ END DigitalClock;
 -- HEX_1[6]	=>  Location: PIN_B17,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 8mA
 -- CLK_FPGA	=>  Location: PIN_P11,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
 -- SW_9	=>  Location: PIN_F15,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
--- KEY_1	=>  Location: PIN_A7,	 I/O Standard: 3.3 V Schmitt Trigger,	 Current Strength: Default
 -- KEY_0	=>  Location: PIN_B8,	 I/O Standard: 3.3 V Schmitt Trigger,	 Current Strength: Default
+-- KEY_1	=>  Location: PIN_A7,	 I/O Standard: 3.3 V Schmitt Trigger,	 Current Strength: Default
 
 
 ARCHITECTURE structure OF DigitalClock IS
@@ -210,8 +210,6 @@ SIGNAL \HEX_1[5]~output_o\ : std_logic;
 SIGNAL \HEX_1[6]~output_o\ : std_logic;
 SIGNAL \CLK_FPGA~input_o\ : std_logic;
 SIGNAL \CLK_FPGA~inputclkctrl_outclk\ : std_logic;
-SIGNAL \SW_9~input_o\ : std_logic;
-SIGNAL \KEY_1~input_o\ : std_logic;
 SIGNAL \one_hz|fpga_cycle_count[0]~27_combout\ : std_logic;
 SIGNAL \one_hz|fpga_cycle_count[0]~28\ : std_logic;
 SIGNAL \one_hz|fpga_cycle_count[1]~29_combout\ : std_logic;
@@ -261,13 +259,13 @@ SIGNAL \one_hz|fpga_cycle_count[22]~72\ : std_logic;
 SIGNAL \one_hz|fpga_cycle_count[23]~73_combout\ : std_logic;
 SIGNAL \one_hz|fpga_cycle_count[23]~74\ : std_logic;
 SIGNAL \one_hz|fpga_cycle_count[24]~75_combout\ : std_logic;
-SIGNAL \one_hz|LessThan0~6_combout\ : std_logic;
 SIGNAL \one_hz|fpga_cycle_count[24]~76\ : std_logic;
 SIGNAL \one_hz|fpga_cycle_count[25]~77_combout\ : std_logic;
 SIGNAL \one_hz|fpga_cycle_count[25]~78\ : std_logic;
 SIGNAL \one_hz|fpga_cycle_count[26]~79_combout\ : std_logic;
-SIGNAL \one_hz|LessThan0~1_combout\ : std_logic;
+SIGNAL \one_hz|LessThan0~6_combout\ : std_logic;
 SIGNAL \one_hz|LessThan0~0_combout\ : std_logic;
+SIGNAL \one_hz|LessThan0~1_combout\ : std_logic;
 SIGNAL \one_hz|LessThan0~2_combout\ : std_logic;
 SIGNAL \one_hz|LessThan0~4_combout\ : std_logic;
 SIGNAL \one_hz|LessThan0~3_combout\ : std_logic;
@@ -275,87 +273,29 @@ SIGNAL \one_hz|LessThan0~5_combout\ : std_logic;
 SIGNAL \one_hz|LessThan0~7_combout\ : std_logic;
 SIGNAL \one_hz|one_hz_clk_out~q\ : std_logic;
 SIGNAL \one_hz|one_hz_clk_out~clkctrl_outclk\ : std_logic;
+SIGNAL \SW_9~input_o\ : std_logic;
+SIGNAL \seconds~2_combout\ : std_logic;
 SIGNAL \Add0~0_combout\ : std_logic;
-SIGNAL \LessThan0~0_combout\ : std_logic;
-SIGNAL \seconds~6_combout\ : std_logic;
+SIGNAL \seconds~5_combout\ : std_logic;
 SIGNAL \Add0~1\ : std_logic;
 SIGNAL \Add0~2_combout\ : std_logic;
 SIGNAL \seconds~4_combout\ : std_logic;
-SIGNAL \seconds~5_combout\ : std_logic;
 SIGNAL \Add0~3\ : std_logic;
 SIGNAL \Add0~4_combout\ : std_logic;
 SIGNAL \seconds~3_combout\ : std_logic;
 SIGNAL \Add0~5\ : std_logic;
 SIGNAL \Add0~6_combout\ : std_logic;
-SIGNAL \seconds~2_combout\ : std_logic;
+SIGNAL \seconds~1_combout\ : std_logic;
 SIGNAL \Add0~7\ : std_logic;
 SIGNAL \Add0~8_combout\ : std_logic;
-SIGNAL \seconds~1_combout\ : std_logic;
 SIGNAL \Add0~9\ : std_logic;
 SIGNAL \Add0~10_combout\ : std_logic;
+SIGNAL \LessThan0~0_combout\ : std_logic;
 SIGNAL \seconds~0_combout\ : std_logic;
 SIGNAL \Add0~11\ : std_logic;
 SIGNAL \Add0~12_combout\ : std_logic;
 SIGNAL \update_count~0_combout\ : std_logic;
 SIGNAL \update_count~q\ : std_logic;
-SIGNAL \KEY_0~input_o\ : std_logic;
-SIGNAL \t_incrementer|min_clk_in~combout\ : std_logic;
-SIGNAL \t_incrementer|min_clk_in~clkctrl_outclk\ : std_logic;
-SIGNAL \t_incrementer|min_controller|min_unit_out[0]~2_combout\ : std_logic;
-SIGNAL \t_incrementer|min_controller|min_unit_out[0]~feeder_combout\ : std_logic;
-SIGNAL \t_incrementer|min_controller|min_unit_out~1_combout\ : std_logic;
-SIGNAL \t_incrementer|min_controller|min_unit_out[3]~feeder_combout\ : std_logic;
-SIGNAL \t_incrementer|min_controller|min_unit_out~0_combout\ : std_logic;
-SIGNAL \t_incrementer|min_controller|min_unit_out[1]~feeder_combout\ : std_logic;
-SIGNAL \t_incrementer|min_controller|Add0~0_combout\ : std_logic;
-SIGNAL \t_incrementer|min_controller|min_unit_out[2]~feeder_combout\ : std_logic;
-SIGNAL \t_incrementer|min_controller|Equal0~0_combout\ : std_logic;
-SIGNAL \t_incrementer|min_controller|min_tens_out[0]~2_combout\ : std_logic;
-SIGNAL \t_incrementer|min_controller|min_tens_out[0]~feeder_combout\ : std_logic;
-SIGNAL \t_incrementer|min_controller|min_tens_out~0_combout\ : std_logic;
-SIGNAL \t_incrementer|min_controller|min_tens_out[1]~feeder_combout\ : std_logic;
-SIGNAL \t_incrementer|min_controller|Add1~0_combout\ : std_logic;
-SIGNAL \t_incrementer|min_controller|min_tens_out[3]~feeder_combout\ : std_logic;
-SIGNAL \t_incrementer|min_controller|min_tens_out~1_combout\ : std_logic;
-SIGNAL \t_incrementer|min_controller|min_tens_out[2]~feeder_combout\ : std_logic;
-SIGNAL \t_incrementer|min_controller|Equal1~0_combout\ : std_logic;
-SIGNAL \t_incrementer|min_controller|incr_hour~0_combout\ : std_logic;
-SIGNAL \t_incrementer|min_controller|incr_hour~q\ : std_logic;
-SIGNAL \t_incrementer|hour_clk_in~combout\ : std_logic;
-SIGNAL \t_incrementer|hour_clk_in~clkctrl_outclk\ : std_logic;
-SIGNAL \t_incrementer|hr_controller|Add0~0_combout\ : std_logic;
-SIGNAL \t_incrementer|hr_controller|hr_tens_out[2]~feeder_combout\ : std_logic;
-SIGNAL \t_incrementer|hr_controller|hr_tens_out~1_combout\ : std_logic;
-SIGNAL \t_incrementer|hr_controller|hr_unit_out[0]~7_combout\ : std_logic;
-SIGNAL \t_incrementer|hr_controller|hr_unit_out[0]~feeder_combout\ : std_logic;
-SIGNAL \t_incrementer|hr_controller|hr_unit_out~5_combout\ : std_logic;
-SIGNAL \t_incrementer|hr_controller|hr_unit_out[1]~feeder_combout\ : std_logic;
-SIGNAL \t_incrementer|hr_controller|Add1~0_combout\ : std_logic;
-SIGNAL \t_incrementer|hr_controller|hr_unit_out~6_combout\ : std_logic;
-SIGNAL \t_incrementer|hr_controller|hr_unit_out~4_combout\ : std_logic;
-SIGNAL \t_buffer|hour_unit_out[3]~feeder_combout\ : std_logic;
-SIGNAL \t_incrementer|hr_controller|hr_tens_out~2_combout\ : std_logic;
-SIGNAL \t_incrementer|hr_controller|hr_tens_out~3_combout\ : std_logic;
-SIGNAL \t_incrementer|hr_controller|hr_tens_out~4_combout\ : std_logic;
-SIGNAL \t_incrementer|hr_controller|hr_tens_out[1]~feeder_combout\ : std_logic;
-SIGNAL \t_incrementer|hr_controller|hr_tens_out~0_combout\ : std_logic;
-SIGNAL \t_incrementer|hr_controller|hr_tens_out[0]~feeder_combout\ : std_logic;
-SIGNAL \t_incrementer|hr_controller|Add0~1_combout\ : std_logic;
-SIGNAL \t_incrementer|hr_controller|hr_tens_out[3]~feeder_combout\ : std_logic;
-SIGNAL \hour_tens_seg|Mux6~0_combout\ : std_logic;
-SIGNAL \hour_tens_seg|Mux5~0_combout\ : std_logic;
-SIGNAL \hour_tens_seg|Mux4~0_combout\ : std_logic;
-SIGNAL \hour_tens_seg|Mux3~0_combout\ : std_logic;
-SIGNAL \hour_tens_seg|Mux2~0_combout\ : std_logic;
-SIGNAL \hour_tens_seg|Mux1~0_combout\ : std_logic;
-SIGNAL \hour_tens_seg|Mux0~0_combout\ : std_logic;
-SIGNAL \hour_unit_seg|Mux6~0_combout\ : std_logic;
-SIGNAL \hour_unit_seg|Mux5~0_combout\ : std_logic;
-SIGNAL \hour_unit_seg|Mux4~0_combout\ : std_logic;
-SIGNAL \hour_unit_seg|Mux3~0_combout\ : std_logic;
-SIGNAL \hour_unit_seg|Mux2~0_combout\ : std_logic;
-SIGNAL \hour_unit_seg|Mux1~0_combout\ : std_logic;
-SIGNAL \hour_unit_seg|Mux0~0_combout\ : std_logic;
 SIGNAL \one_hz|fpga_cycle_count_2[0]~27_combout\ : std_logic;
 SIGNAL \one_hz|fpga_cycle_count_2[0]~28\ : std_logic;
 SIGNAL \one_hz|fpga_cycle_count_2[1]~29_combout\ : std_logic;
@@ -418,6 +358,68 @@ SIGNAL \one_hz|LessThan1~1_combout\ : std_logic;
 SIGNAL \one_hz|LessThan1~3_combout\ : std_logic;
 SIGNAL \one_hz|LessThan1~7_combout\ : std_logic;
 SIGNAL \one_hz|two_hz_clk_out~q\ : std_logic;
+SIGNAL \KEY_0~input_o\ : std_logic;
+SIGNAL \KEY_1~input_o\ : std_logic;
+SIGNAL \increment_minute~0_combout\ : std_logic;
+SIGNAL \increment_minute~q\ : std_logic;
+SIGNAL \t_incrementer|min_clk_in~combout\ : std_logic;
+SIGNAL \t_incrementer|min_clk_in~clkctrl_outclk\ : std_logic;
+SIGNAL \t_incrementer|min_controller|min_unit_out[0]~2_combout\ : std_logic;
+SIGNAL \t_incrementer|min_controller|min_unit_out[0]~feeder_combout\ : std_logic;
+SIGNAL \t_incrementer|min_controller|Add0~0_combout\ : std_logic;
+SIGNAL \t_incrementer|min_controller|min_unit_out[2]~feeder_combout\ : std_logic;
+SIGNAL \t_incrementer|min_controller|min_unit_out~0_combout\ : std_logic;
+SIGNAL \t_incrementer|min_controller|min_unit_out[1]~feeder_combout\ : std_logic;
+SIGNAL \t_incrementer|min_controller|min_unit_out~1_combout\ : std_logic;
+SIGNAL \t_incrementer|min_controller|min_unit_out[3]~feeder_combout\ : std_logic;
+SIGNAL \t_incrementer|min_controller|Equal0~0_combout\ : std_logic;
+SIGNAL \t_incrementer|min_controller|min_tens_out[0]~2_combout\ : std_logic;
+SIGNAL \t_incrementer|min_controller|min_tens_out[0]~feeder_combout\ : std_logic;
+SIGNAL \t_incrementer|min_controller|min_tens_out~1_combout\ : std_logic;
+SIGNAL \t_incrementer|min_controller|min_tens_out[2]~feeder_combout\ : std_logic;
+SIGNAL \t_incrementer|min_controller|Add1~0_combout\ : std_logic;
+SIGNAL \t_incrementer|min_controller|min_tens_out[3]~feeder_combout\ : std_logic;
+SIGNAL \t_incrementer|min_controller|min_tens_out~0_combout\ : std_logic;
+SIGNAL \t_incrementer|min_controller|min_tens_out[1]~feeder_combout\ : std_logic;
+SIGNAL \t_incrementer|min_controller|Equal1~0_combout\ : std_logic;
+SIGNAL \t_incrementer|min_controller|incr_hour~0_combout\ : std_logic;
+SIGNAL \t_incrementer|min_controller|incr_hour~q\ : std_logic;
+SIGNAL \increment_hour~0_combout\ : std_logic;
+SIGNAL \increment_hour~q\ : std_logic;
+SIGNAL \t_incrementer|hour_clk_in~combout\ : std_logic;
+SIGNAL \t_incrementer|hour_clk_in~clkctrl_outclk\ : std_logic;
+SIGNAL \t_incrementer|hr_controller|Add0~1_combout\ : std_logic;
+SIGNAL \t_incrementer|hr_controller|hr_tens_out[3]~feeder_combout\ : std_logic;
+SIGNAL \t_incrementer|hr_controller|hr_unit_out[0]~7_combout\ : std_logic;
+SIGNAL \t_incrementer|hr_controller|hr_unit_out[0]~feeder_combout\ : std_logic;
+SIGNAL \t_incrementer|hr_controller|hr_tens_out~1_combout\ : std_logic;
+SIGNAL \t_incrementer|hr_controller|hr_unit_out~5_combout\ : std_logic;
+SIGNAL \t_incrementer|hr_controller|hr_unit_out[1]~feeder_combout\ : std_logic;
+SIGNAL \t_incrementer|hr_controller|hr_unit_out~6_combout\ : std_logic;
+SIGNAL \t_incrementer|hr_controller|Add1~0_combout\ : std_logic;
+SIGNAL \t_incrementer|hr_controller|hr_unit_out~4_combout\ : std_logic;
+SIGNAL \t_buffer|hour_unit_out[3]~feeder_combout\ : std_logic;
+SIGNAL \t_incrementer|hr_controller|hr_tens_out~2_combout\ : std_logic;
+SIGNAL \t_incrementer|hr_controller|hr_tens_out~3_combout\ : std_logic;
+SIGNAL \t_incrementer|hr_controller|hr_tens_out~4_combout\ : std_logic;
+SIGNAL \t_incrementer|hr_controller|hr_tens_out~0_combout\ : std_logic;
+SIGNAL \t_incrementer|hr_controller|hr_tens_out[0]~feeder_combout\ : std_logic;
+SIGNAL \t_incrementer|hr_controller|Add0~0_combout\ : std_logic;
+SIGNAL \t_incrementer|hr_controller|hr_tens_out[2]~feeder_combout\ : std_logic;
+SIGNAL \hour_tens_seg|Mux6~0_combout\ : std_logic;
+SIGNAL \hour_tens_seg|Mux5~0_combout\ : std_logic;
+SIGNAL \hour_tens_seg|Mux4~0_combout\ : std_logic;
+SIGNAL \hour_tens_seg|Mux3~0_combout\ : std_logic;
+SIGNAL \hour_tens_seg|Mux2~0_combout\ : std_logic;
+SIGNAL \hour_tens_seg|Mux1~0_combout\ : std_logic;
+SIGNAL \hour_tens_seg|Mux0~0_combout\ : std_logic;
+SIGNAL \hour_unit_seg|Mux6~0_combout\ : std_logic;
+SIGNAL \hour_unit_seg|Mux5~0_combout\ : std_logic;
+SIGNAL \hour_unit_seg|Mux4~0_combout\ : std_logic;
+SIGNAL \hour_unit_seg|Mux3~0_combout\ : std_logic;
+SIGNAL \hour_unit_seg|Mux2~0_combout\ : std_logic;
+SIGNAL \hour_unit_seg|Mux1~0_combout\ : std_logic;
+SIGNAL \hour_unit_seg|Mux0~0_combout\ : std_logic;
 SIGNAL \s_ind|point~0_combout\ : std_logic;
 SIGNAL \s_ind|point~q\ : std_logic;
 SIGNAL \min_tens_seg|Mux6~0_combout\ : std_logic;
@@ -495,7 +497,7 @@ PORT MAP (
 	devclrn => ww_devclrn,
 	devpor => ww_devpor);
 
--- Location: LCCOMB_X44_Y41_N24
+-- Location: LCCOMB_X44_Y44_N20
 \~QUARTUS_CREATED_GND~I\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \~QUARTUS_CREATED_GND~I_combout\ = GND
@@ -953,31 +955,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	outclk => \CLK_FPGA~inputclkctrl_outclk\);
 
--- Location: IOIBUF_X69_Y54_N1
-\SW_9~input\ : fiftyfivenm_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	listen_to_nsleep_signal => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_SW_9,
-	o => \SW_9~input_o\);
-
--- Location: IOIBUF_X49_Y54_N29
-\KEY_1~input\ : fiftyfivenm_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	listen_to_nsleep_signal => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_KEY_1,
-	o => \KEY_1~input_o\);
-
--- Location: LCCOMB_X52_Y52_N6
+-- Location: LCCOMB_X65_Y51_N6
 \one_hz|fpga_cycle_count[0]~27\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count[0]~27_combout\ = \one_hz|fpga_cycle_count\(0) $ (VCC)
@@ -994,7 +972,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count[0]~27_combout\,
 	cout => \one_hz|fpga_cycle_count[0]~28\);
 
--- Location: FF_X52_Y52_N7
+-- Location: FF_X65_Y51_N7
 \one_hz|fpga_cycle_count[0]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1009,7 +987,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count\(0));
 
--- Location: LCCOMB_X52_Y52_N8
+-- Location: LCCOMB_X65_Y51_N8
 \one_hz|fpga_cycle_count[1]~29\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count[1]~29_combout\ = (\one_hz|fpga_cycle_count\(1) & (!\one_hz|fpga_cycle_count[0]~28\)) # (!\one_hz|fpga_cycle_count\(1) & ((\one_hz|fpga_cycle_count[0]~28\) # (GND)))
@@ -1027,7 +1005,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count[1]~29_combout\,
 	cout => \one_hz|fpga_cycle_count[1]~30\);
 
--- Location: FF_X52_Y52_N9
+-- Location: FF_X65_Y51_N9
 \one_hz|fpga_cycle_count[1]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1042,7 +1020,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count\(1));
 
--- Location: LCCOMB_X52_Y52_N10
+-- Location: LCCOMB_X65_Y51_N10
 \one_hz|fpga_cycle_count[2]~31\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count[2]~31_combout\ = (\one_hz|fpga_cycle_count\(2) & (\one_hz|fpga_cycle_count[1]~30\ $ (GND))) # (!\one_hz|fpga_cycle_count\(2) & (!\one_hz|fpga_cycle_count[1]~30\ & VCC))
@@ -1060,7 +1038,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count[2]~31_combout\,
 	cout => \one_hz|fpga_cycle_count[2]~32\);
 
--- Location: FF_X52_Y52_N11
+-- Location: FF_X65_Y51_N11
 \one_hz|fpga_cycle_count[2]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1075,7 +1053,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count\(2));
 
--- Location: LCCOMB_X52_Y52_N12
+-- Location: LCCOMB_X65_Y51_N12
 \one_hz|fpga_cycle_count[3]~33\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count[3]~33_combout\ = (\one_hz|fpga_cycle_count\(3) & (!\one_hz|fpga_cycle_count[2]~32\)) # (!\one_hz|fpga_cycle_count\(3) & ((\one_hz|fpga_cycle_count[2]~32\) # (GND)))
@@ -1093,7 +1071,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count[3]~33_combout\,
 	cout => \one_hz|fpga_cycle_count[3]~34\);
 
--- Location: FF_X52_Y52_N13
+-- Location: FF_X65_Y51_N13
 \one_hz|fpga_cycle_count[3]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1108,7 +1086,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count\(3));
 
--- Location: LCCOMB_X52_Y52_N14
+-- Location: LCCOMB_X65_Y51_N14
 \one_hz|fpga_cycle_count[4]~35\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count[4]~35_combout\ = (\one_hz|fpga_cycle_count\(4) & (\one_hz|fpga_cycle_count[3]~34\ $ (GND))) # (!\one_hz|fpga_cycle_count\(4) & (!\one_hz|fpga_cycle_count[3]~34\ & VCC))
@@ -1126,7 +1104,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count[4]~35_combout\,
 	cout => \one_hz|fpga_cycle_count[4]~36\);
 
--- Location: FF_X52_Y52_N15
+-- Location: FF_X65_Y51_N15
 \one_hz|fpga_cycle_count[4]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1141,7 +1119,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count\(4));
 
--- Location: LCCOMB_X52_Y52_N16
+-- Location: LCCOMB_X65_Y51_N16
 \one_hz|fpga_cycle_count[5]~37\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count[5]~37_combout\ = (\one_hz|fpga_cycle_count\(5) & (!\one_hz|fpga_cycle_count[4]~36\)) # (!\one_hz|fpga_cycle_count\(5) & ((\one_hz|fpga_cycle_count[4]~36\) # (GND)))
@@ -1159,7 +1137,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count[5]~37_combout\,
 	cout => \one_hz|fpga_cycle_count[5]~38\);
 
--- Location: FF_X52_Y52_N17
+-- Location: FF_X65_Y51_N17
 \one_hz|fpga_cycle_count[5]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1174,7 +1152,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count\(5));
 
--- Location: LCCOMB_X52_Y52_N18
+-- Location: LCCOMB_X65_Y51_N18
 \one_hz|fpga_cycle_count[6]~39\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count[6]~39_combout\ = (\one_hz|fpga_cycle_count\(6) & (\one_hz|fpga_cycle_count[5]~38\ $ (GND))) # (!\one_hz|fpga_cycle_count\(6) & (!\one_hz|fpga_cycle_count[5]~38\ & VCC))
@@ -1192,7 +1170,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count[6]~39_combout\,
 	cout => \one_hz|fpga_cycle_count[6]~40\);
 
--- Location: FF_X52_Y52_N19
+-- Location: FF_X65_Y51_N19
 \one_hz|fpga_cycle_count[6]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1207,7 +1185,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count\(6));
 
--- Location: LCCOMB_X52_Y52_N20
+-- Location: LCCOMB_X65_Y51_N20
 \one_hz|fpga_cycle_count[7]~41\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count[7]~41_combout\ = (\one_hz|fpga_cycle_count\(7) & (!\one_hz|fpga_cycle_count[6]~40\)) # (!\one_hz|fpga_cycle_count\(7) & ((\one_hz|fpga_cycle_count[6]~40\) # (GND)))
@@ -1225,7 +1203,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count[7]~41_combout\,
 	cout => \one_hz|fpga_cycle_count[7]~42\);
 
--- Location: FF_X52_Y52_N21
+-- Location: FF_X65_Y51_N21
 \one_hz|fpga_cycle_count[7]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1240,7 +1218,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count\(7));
 
--- Location: LCCOMB_X52_Y52_N22
+-- Location: LCCOMB_X65_Y51_N22
 \one_hz|fpga_cycle_count[8]~43\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count[8]~43_combout\ = (\one_hz|fpga_cycle_count\(8) & (\one_hz|fpga_cycle_count[7]~42\ $ (GND))) # (!\one_hz|fpga_cycle_count\(8) & (!\one_hz|fpga_cycle_count[7]~42\ & VCC))
@@ -1258,7 +1236,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count[8]~43_combout\,
 	cout => \one_hz|fpga_cycle_count[8]~44\);
 
--- Location: FF_X52_Y52_N23
+-- Location: FF_X65_Y51_N23
 \one_hz|fpga_cycle_count[8]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1273,7 +1251,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count\(8));
 
--- Location: LCCOMB_X52_Y52_N24
+-- Location: LCCOMB_X65_Y51_N24
 \one_hz|fpga_cycle_count[9]~45\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count[9]~45_combout\ = (\one_hz|fpga_cycle_count\(9) & (!\one_hz|fpga_cycle_count[8]~44\)) # (!\one_hz|fpga_cycle_count\(9) & ((\one_hz|fpga_cycle_count[8]~44\) # (GND)))
@@ -1291,7 +1269,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count[9]~45_combout\,
 	cout => \one_hz|fpga_cycle_count[9]~46\);
 
--- Location: FF_X52_Y52_N25
+-- Location: FF_X65_Y51_N25
 \one_hz|fpga_cycle_count[9]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1306,7 +1284,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count\(9));
 
--- Location: LCCOMB_X52_Y52_N26
+-- Location: LCCOMB_X65_Y51_N26
 \one_hz|fpga_cycle_count[10]~47\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count[10]~47_combout\ = (\one_hz|fpga_cycle_count\(10) & (\one_hz|fpga_cycle_count[9]~46\ $ (GND))) # (!\one_hz|fpga_cycle_count\(10) & (!\one_hz|fpga_cycle_count[9]~46\ & VCC))
@@ -1314,17 +1292,17 @@ PORT MAP (
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010010100001010",
+	lut_mask => "1100001100001100",
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \one_hz|fpga_cycle_count\(10),
+	datab => \one_hz|fpga_cycle_count\(10),
 	datad => VCC,
 	cin => \one_hz|fpga_cycle_count[9]~46\,
 	combout => \one_hz|fpga_cycle_count[10]~47_combout\,
 	cout => \one_hz|fpga_cycle_count[10]~48\);
 
--- Location: FF_X52_Y52_N27
+-- Location: FF_X65_Y51_N27
 \one_hz|fpga_cycle_count[10]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1339,7 +1317,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count\(10));
 
--- Location: LCCOMB_X52_Y52_N28
+-- Location: LCCOMB_X65_Y51_N28
 \one_hz|fpga_cycle_count[11]~49\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count[11]~49_combout\ = (\one_hz|fpga_cycle_count\(11) & (!\one_hz|fpga_cycle_count[10]~48\)) # (!\one_hz|fpga_cycle_count\(11) & ((\one_hz|fpga_cycle_count[10]~48\) # (GND)))
@@ -1357,7 +1335,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count[11]~49_combout\,
 	cout => \one_hz|fpga_cycle_count[11]~50\);
 
--- Location: FF_X52_Y52_N29
+-- Location: FF_X65_Y51_N29
 \one_hz|fpga_cycle_count[11]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1372,7 +1350,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count\(11));
 
--- Location: LCCOMB_X52_Y52_N30
+-- Location: LCCOMB_X65_Y51_N30
 \one_hz|fpga_cycle_count[12]~51\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count[12]~51_combout\ = (\one_hz|fpga_cycle_count\(12) & (\one_hz|fpga_cycle_count[11]~50\ $ (GND))) # (!\one_hz|fpga_cycle_count\(12) & (!\one_hz|fpga_cycle_count[11]~50\ & VCC))
@@ -1390,7 +1368,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count[12]~51_combout\,
 	cout => \one_hz|fpga_cycle_count[12]~52\);
 
--- Location: FF_X52_Y52_N31
+-- Location: FF_X65_Y51_N31
 \one_hz|fpga_cycle_count[12]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1405,7 +1383,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count\(12));
 
--- Location: LCCOMB_X52_Y51_N0
+-- Location: LCCOMB_X65_Y50_N0
 \one_hz|fpga_cycle_count[13]~53\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count[13]~53_combout\ = (\one_hz|fpga_cycle_count\(13) & (!\one_hz|fpga_cycle_count[12]~52\)) # (!\one_hz|fpga_cycle_count\(13) & ((\one_hz|fpga_cycle_count[12]~52\) # (GND)))
@@ -1423,7 +1401,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count[13]~53_combout\,
 	cout => \one_hz|fpga_cycle_count[13]~54\);
 
--- Location: FF_X52_Y51_N1
+-- Location: FF_X65_Y50_N1
 \one_hz|fpga_cycle_count[13]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1438,7 +1416,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count\(13));
 
--- Location: LCCOMB_X52_Y51_N2
+-- Location: LCCOMB_X65_Y50_N2
 \one_hz|fpga_cycle_count[14]~55\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count[14]~55_combout\ = (\one_hz|fpga_cycle_count\(14) & (\one_hz|fpga_cycle_count[13]~54\ $ (GND))) # (!\one_hz|fpga_cycle_count\(14) & (!\one_hz|fpga_cycle_count[13]~54\ & VCC))
@@ -1456,7 +1434,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count[14]~55_combout\,
 	cout => \one_hz|fpga_cycle_count[14]~56\);
 
--- Location: FF_X52_Y51_N3
+-- Location: FF_X65_Y50_N3
 \one_hz|fpga_cycle_count[14]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1471,7 +1449,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count\(14));
 
--- Location: LCCOMB_X52_Y51_N4
+-- Location: LCCOMB_X65_Y50_N4
 \one_hz|fpga_cycle_count[15]~57\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count[15]~57_combout\ = (\one_hz|fpga_cycle_count\(15) & (!\one_hz|fpga_cycle_count[14]~56\)) # (!\one_hz|fpga_cycle_count\(15) & ((\one_hz|fpga_cycle_count[14]~56\) # (GND)))
@@ -1479,17 +1457,17 @@ PORT MAP (
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0011110000111111",
+	lut_mask => "0101101001011111",
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	datab => \one_hz|fpga_cycle_count\(15),
+	dataa => \one_hz|fpga_cycle_count\(15),
 	datad => VCC,
 	cin => \one_hz|fpga_cycle_count[14]~56\,
 	combout => \one_hz|fpga_cycle_count[15]~57_combout\,
 	cout => \one_hz|fpga_cycle_count[15]~58\);
 
--- Location: FF_X51_Y52_N21
+-- Location: FF_X65_Y50_N5
 \one_hz|fpga_cycle_count[15]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1498,14 +1476,13 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \CLK_FPGA~inputclkctrl_outclk\,
-	asdata => \one_hz|fpga_cycle_count[15]~57_combout\,
+	d => \one_hz|fpga_cycle_count[15]~57_combout\,
 	sclr => \one_hz|LessThan0~7_combout\,
-	sload => VCC,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count\(15));
 
--- Location: LCCOMB_X52_Y51_N6
+-- Location: LCCOMB_X65_Y50_N6
 \one_hz|fpga_cycle_count[16]~59\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count[16]~59_combout\ = (\one_hz|fpga_cycle_count\(16) & (\one_hz|fpga_cycle_count[15]~58\ $ (GND))) # (!\one_hz|fpga_cycle_count\(16) & (!\one_hz|fpga_cycle_count[15]~58\ & VCC))
@@ -1523,7 +1500,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count[16]~59_combout\,
 	cout => \one_hz|fpga_cycle_count[16]~60\);
 
--- Location: FF_X52_Y51_N7
+-- Location: FF_X65_Y50_N7
 \one_hz|fpga_cycle_count[16]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1538,7 +1515,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count\(16));
 
--- Location: LCCOMB_X52_Y51_N8
+-- Location: LCCOMB_X65_Y50_N8
 \one_hz|fpga_cycle_count[17]~61\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count[17]~61_combout\ = (\one_hz|fpga_cycle_count\(17) & (!\one_hz|fpga_cycle_count[16]~60\)) # (!\one_hz|fpga_cycle_count\(17) & ((\one_hz|fpga_cycle_count[16]~60\) # (GND)))
@@ -1556,7 +1533,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count[17]~61_combout\,
 	cout => \one_hz|fpga_cycle_count[17]~62\);
 
--- Location: FF_X52_Y51_N9
+-- Location: FF_X65_Y50_N9
 \one_hz|fpga_cycle_count[17]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1571,7 +1548,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count\(17));
 
--- Location: LCCOMB_X52_Y51_N10
+-- Location: LCCOMB_X65_Y50_N10
 \one_hz|fpga_cycle_count[18]~63\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count[18]~63_combout\ = (\one_hz|fpga_cycle_count\(18) & (\one_hz|fpga_cycle_count[17]~62\ $ (GND))) # (!\one_hz|fpga_cycle_count\(18) & (!\one_hz|fpga_cycle_count[17]~62\ & VCC))
@@ -1589,7 +1566,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count[18]~63_combout\,
 	cout => \one_hz|fpga_cycle_count[18]~64\);
 
--- Location: FF_X52_Y51_N11
+-- Location: FF_X65_Y50_N11
 \one_hz|fpga_cycle_count[18]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1604,7 +1581,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count\(18));
 
--- Location: LCCOMB_X52_Y51_N12
+-- Location: LCCOMB_X65_Y50_N12
 \one_hz|fpga_cycle_count[19]~65\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count[19]~65_combout\ = (\one_hz|fpga_cycle_count\(19) & (!\one_hz|fpga_cycle_count[18]~64\)) # (!\one_hz|fpga_cycle_count\(19) & ((\one_hz|fpga_cycle_count[18]~64\) # (GND)))
@@ -1622,7 +1599,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count[19]~65_combout\,
 	cout => \one_hz|fpga_cycle_count[19]~66\);
 
--- Location: FF_X52_Y51_N13
+-- Location: FF_X65_Y50_N13
 \one_hz|fpga_cycle_count[19]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1637,7 +1614,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count\(19));
 
--- Location: LCCOMB_X52_Y51_N14
+-- Location: LCCOMB_X65_Y50_N14
 \one_hz|fpga_cycle_count[20]~67\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count[20]~67_combout\ = (\one_hz|fpga_cycle_count\(20) & (\one_hz|fpga_cycle_count[19]~66\ $ (GND))) # (!\one_hz|fpga_cycle_count\(20) & (!\one_hz|fpga_cycle_count[19]~66\ & VCC))
@@ -1655,7 +1632,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count[20]~67_combout\,
 	cout => \one_hz|fpga_cycle_count[20]~68\);
 
--- Location: FF_X52_Y51_N15
+-- Location: FF_X65_Y50_N15
 \one_hz|fpga_cycle_count[20]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1670,7 +1647,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count\(20));
 
--- Location: LCCOMB_X52_Y51_N16
+-- Location: LCCOMB_X65_Y50_N16
 \one_hz|fpga_cycle_count[21]~69\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count[21]~69_combout\ = (\one_hz|fpga_cycle_count\(21) & (!\one_hz|fpga_cycle_count[20]~68\)) # (!\one_hz|fpga_cycle_count\(21) & ((\one_hz|fpga_cycle_count[20]~68\) # (GND)))
@@ -1688,7 +1665,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count[21]~69_combout\,
 	cout => \one_hz|fpga_cycle_count[21]~70\);
 
--- Location: FF_X52_Y51_N17
+-- Location: FF_X65_Y50_N17
 \one_hz|fpga_cycle_count[21]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1703,7 +1680,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count\(21));
 
--- Location: LCCOMB_X52_Y51_N18
+-- Location: LCCOMB_X65_Y50_N18
 \one_hz|fpga_cycle_count[22]~71\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count[22]~71_combout\ = (\one_hz|fpga_cycle_count\(22) & (\one_hz|fpga_cycle_count[21]~70\ $ (GND))) # (!\one_hz|fpga_cycle_count\(22) & (!\one_hz|fpga_cycle_count[21]~70\ & VCC))
@@ -1721,7 +1698,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count[22]~71_combout\,
 	cout => \one_hz|fpga_cycle_count[22]~72\);
 
--- Location: FF_X52_Y51_N19
+-- Location: FF_X65_Y50_N19
 \one_hz|fpga_cycle_count[22]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1736,7 +1713,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count\(22));
 
--- Location: LCCOMB_X52_Y51_N20
+-- Location: LCCOMB_X65_Y50_N20
 \one_hz|fpga_cycle_count[23]~73\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count[23]~73_combout\ = (\one_hz|fpga_cycle_count\(23) & (!\one_hz|fpga_cycle_count[22]~72\)) # (!\one_hz|fpga_cycle_count\(23) & ((\one_hz|fpga_cycle_count[22]~72\) # (GND)))
@@ -1754,7 +1731,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count[23]~73_combout\,
 	cout => \one_hz|fpga_cycle_count[23]~74\);
 
--- Location: FF_X52_Y51_N21
+-- Location: FF_X65_Y50_N21
 \one_hz|fpga_cycle_count[23]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1769,7 +1746,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count\(23));
 
--- Location: LCCOMB_X52_Y51_N22
+-- Location: LCCOMB_X65_Y50_N22
 \one_hz|fpga_cycle_count[24]~75\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count[24]~75_combout\ = (\one_hz|fpga_cycle_count\(24) & (\one_hz|fpga_cycle_count[23]~74\ $ (GND))) # (!\one_hz|fpga_cycle_count\(24) & (!\one_hz|fpga_cycle_count[23]~74\ & VCC))
@@ -1787,7 +1764,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count[24]~75_combout\,
 	cout => \one_hz|fpga_cycle_count[24]~76\);
 
--- Location: FF_X52_Y51_N23
+-- Location: FF_X65_Y50_N23
 \one_hz|fpga_cycle_count[24]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1802,23 +1779,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count\(24));
 
--- Location: LCCOMB_X51_Y51_N16
-\one_hz|LessThan0~6\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \one_hz|LessThan0~6_combout\ = (!\one_hz|fpga_cycle_count\(24) & (!\one_hz|fpga_cycle_count\(18) & !\one_hz|fpga_cycle_count\(16)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000000011",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \one_hz|fpga_cycle_count\(24),
-	datac => \one_hz|fpga_cycle_count\(18),
-	datad => \one_hz|fpga_cycle_count\(16),
-	combout => \one_hz|LessThan0~6_combout\);
-
--- Location: LCCOMB_X52_Y51_N24
+-- Location: LCCOMB_X65_Y50_N24
 \one_hz|fpga_cycle_count[25]~77\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count[25]~77_combout\ = (\one_hz|fpga_cycle_count\(25) & (!\one_hz|fpga_cycle_count[24]~76\)) # (!\one_hz|fpga_cycle_count\(25) & ((\one_hz|fpga_cycle_count[24]~76\) # (GND)))
@@ -1836,7 +1797,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count[25]~77_combout\,
 	cout => \one_hz|fpga_cycle_count[25]~78\);
 
--- Location: FF_X52_Y51_N25
+-- Location: FF_X65_Y50_N25
 \one_hz|fpga_cycle_count[25]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1851,7 +1812,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count\(25));
 
--- Location: LCCOMB_X52_Y51_N26
+-- Location: LCCOMB_X65_Y50_N26
 \one_hz|fpga_cycle_count[26]~79\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count[26]~79_combout\ = \one_hz|fpga_cycle_count\(26) $ (!\one_hz|fpga_cycle_count[25]~78\)
@@ -1866,7 +1827,7 @@ PORT MAP (
 	cin => \one_hz|fpga_cycle_count[25]~78\,
 	combout => \one_hz|fpga_cycle_count[26]~79_combout\);
 
--- Location: FF_X52_Y51_N27
+-- Location: FF_X65_Y50_N27
 \one_hz|fpga_cycle_count[26]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -1881,10 +1842,43 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count\(26));
 
--- Location: LCCOMB_X52_Y51_N30
+-- Location: LCCOMB_X64_Y50_N18
+\one_hz|LessThan0~6\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \one_hz|LessThan0~6_combout\ = (!\one_hz|fpga_cycle_count\(16) & (!\one_hz|fpga_cycle_count\(18) & !\one_hz|fpga_cycle_count\(24)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000000101",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \one_hz|fpga_cycle_count\(16),
+	datac => \one_hz|fpga_cycle_count\(18),
+	datad => \one_hz|fpga_cycle_count\(24),
+	combout => \one_hz|LessThan0~6_combout\);
+
+-- Location: LCCOMB_X64_Y50_N0
+\one_hz|LessThan0~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \one_hz|LessThan0~0_combout\ = (((!\one_hz|fpga_cycle_count\(17) & !\one_hz|fpga_cycle_count\(18))) # (!\one_hz|fpga_cycle_count\(20))) # (!\one_hz|fpga_cycle_count\(19))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0001111111111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \one_hz|fpga_cycle_count\(17),
+	datab => \one_hz|fpga_cycle_count\(18),
+	datac => \one_hz|fpga_cycle_count\(19),
+	datad => \one_hz|fpga_cycle_count\(20),
+	combout => \one_hz|LessThan0~0_combout\);
+
+-- Location: LCCOMB_X65_Y50_N28
 \one_hz|LessThan0~1\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \one_hz|LessThan0~1_combout\ = ((!\one_hz|fpga_cycle_count\(23)) # (!\one_hz|fpga_cycle_count\(21))) # (!\one_hz|fpga_cycle_count\(22))
+-- \one_hz|LessThan0~1_combout\ = ((!\one_hz|fpga_cycle_count\(22)) # (!\one_hz|fpga_cycle_count\(23))) # (!\one_hz|fpga_cycle_count\(21))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1892,49 +1886,32 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \one_hz|fpga_cycle_count\(22),
-	datac => \one_hz|fpga_cycle_count\(21),
-	datad => \one_hz|fpga_cycle_count\(23),
+	datab => \one_hz|fpga_cycle_count\(21),
+	datac => \one_hz|fpga_cycle_count\(23),
+	datad => \one_hz|fpga_cycle_count\(22),
 	combout => \one_hz|LessThan0~1_combout\);
 
--- Location: LCCOMB_X52_Y51_N28
-\one_hz|LessThan0~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \one_hz|LessThan0~0_combout\ = (((!\one_hz|fpga_cycle_count\(17) & !\one_hz|fpga_cycle_count\(18))) # (!\one_hz|fpga_cycle_count\(20))) # (!\one_hz|fpga_cycle_count\(19))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0111011101111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \one_hz|fpga_cycle_count\(19),
-	datab => \one_hz|fpga_cycle_count\(20),
-	datac => \one_hz|fpga_cycle_count\(17),
-	datad => \one_hz|fpga_cycle_count\(18),
-	combout => \one_hz|LessThan0~0_combout\);
-
--- Location: LCCOMB_X52_Y52_N4
+-- Location: LCCOMB_X65_Y51_N4
 \one_hz|LessThan0~2\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \one_hz|LessThan0~2_combout\ = ((!\one_hz|fpga_cycle_count\(24) & ((\one_hz|LessThan0~1_combout\) # (\one_hz|LessThan0~0_combout\)))) # (!\one_hz|fpga_cycle_count\(25))
+-- \one_hz|LessThan0~2_combout\ = ((!\one_hz|fpga_cycle_count\(24) & ((\one_hz|LessThan0~0_combout\) # (\one_hz|LessThan0~1_combout\)))) # (!\one_hz|fpga_cycle_count\(25))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0111011101110011",
+	lut_mask => "0111011101110101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \one_hz|fpga_cycle_count\(24),
-	datab => \one_hz|fpga_cycle_count\(25),
-	datac => \one_hz|LessThan0~1_combout\,
-	datad => \one_hz|LessThan0~0_combout\,
+	dataa => \one_hz|fpga_cycle_count\(25),
+	datab => \one_hz|fpga_cycle_count\(24),
+	datac => \one_hz|LessThan0~0_combout\,
+	datad => \one_hz|LessThan0~1_combout\,
 	combout => \one_hz|LessThan0~2_combout\);
 
--- Location: LCCOMB_X52_Y52_N2
+-- Location: LCCOMB_X64_Y51_N16
 \one_hz|LessThan0~4\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \one_hz|LessThan0~4_combout\ = (!\one_hz|fpga_cycle_count\(8) & (!\one_hz|fpga_cycle_count\(7) & (!\one_hz|fpga_cycle_count\(10) & !\one_hz|fpga_cycle_count\(9))))
+-- \one_hz|LessThan0~4_combout\ = (!\one_hz|fpga_cycle_count\(7) & (!\one_hz|fpga_cycle_count\(8) & (!\one_hz|fpga_cycle_count\(10) & !\one_hz|fpga_cycle_count\(9))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1942,16 +1919,16 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \one_hz|fpga_cycle_count\(8),
-	datab => \one_hz|fpga_cycle_count\(7),
+	dataa => \one_hz|fpga_cycle_count\(7),
+	datab => \one_hz|fpga_cycle_count\(8),
 	datac => \one_hz|fpga_cycle_count\(10),
 	datad => \one_hz|fpga_cycle_count\(9),
 	combout => \one_hz|LessThan0~4_combout\);
 
--- Location: LCCOMB_X51_Y52_N18
+-- Location: LCCOMB_X65_Y50_N30
 \one_hz|LessThan0~3\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \one_hz|LessThan0~3_combout\ = (((!\one_hz|fpga_cycle_count\(14)) # (!\one_hz|fpga_cycle_count\(13))) # (!\one_hz|fpga_cycle_count\(15))) # (!\one_hz|fpga_cycle_count\(12))
+-- \one_hz|LessThan0~3_combout\ = (((!\one_hz|fpga_cycle_count\(12)) # (!\one_hz|fpga_cycle_count\(14))) # (!\one_hz|fpga_cycle_count\(13))) # (!\one_hz|fpga_cycle_count\(15))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -1959,46 +1936,46 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \one_hz|fpga_cycle_count\(12),
-	datab => \one_hz|fpga_cycle_count\(15),
-	datac => \one_hz|fpga_cycle_count\(13),
-	datad => \one_hz|fpga_cycle_count\(14),
+	dataa => \one_hz|fpga_cycle_count\(15),
+	datab => \one_hz|fpga_cycle_count\(13),
+	datac => \one_hz|fpga_cycle_count\(14),
+	datad => \one_hz|fpga_cycle_count\(12),
 	combout => \one_hz|LessThan0~3_combout\);
 
--- Location: LCCOMB_X51_Y52_N24
+-- Location: LCCOMB_X65_Y51_N2
 \one_hz|LessThan0~5\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \one_hz|LessThan0~5_combout\ = (\one_hz|LessThan0~3_combout\) # ((\one_hz|LessThan0~4_combout\ & !\one_hz|fpga_cycle_count\(11)))
+-- \one_hz|LessThan0~5_combout\ = (\one_hz|LessThan0~3_combout\) # ((!\one_hz|fpga_cycle_count\(11) & \one_hz|LessThan0~4_combout\))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111100100010",
+	lut_mask => "1111111100110000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \one_hz|LessThan0~4_combout\,
 	datab => \one_hz|fpga_cycle_count\(11),
+	datac => \one_hz|LessThan0~4_combout\,
 	datad => \one_hz|LessThan0~3_combout\,
 	combout => \one_hz|LessThan0~5_combout\);
 
--- Location: LCCOMB_X52_Y52_N0
+-- Location: LCCOMB_X65_Y51_N0
 \one_hz|LessThan0~7\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|LessThan0~7_combout\ = (\one_hz|fpga_cycle_count\(26)) # ((!\one_hz|LessThan0~2_combout\ & ((!\one_hz|LessThan0~5_combout\) # (!\one_hz|LessThan0~6_combout\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1100110111001111",
+	lut_mask => "1010101110101111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \one_hz|LessThan0~6_combout\,
-	datab => \one_hz|fpga_cycle_count\(26),
+	dataa => \one_hz|fpga_cycle_count\(26),
+	datab => \one_hz|LessThan0~6_combout\,
 	datac => \one_hz|LessThan0~2_combout\,
 	datad => \one_hz|LessThan0~5_combout\,
 	combout => \one_hz|LessThan0~7_combout\);
 
--- Location: FF_X52_Y52_N1
+-- Location: FF_X65_Y51_N1
 \one_hz|one_hz_clk_out\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -2025,7 +2002,50 @@ PORT MAP (
 	devpor => ww_devpor,
 	outclk => \one_hz|one_hz_clk_out~clkctrl_outclk\);
 
--- Location: LCCOMB_X57_Y52_N14
+-- Location: IOIBUF_X69_Y54_N1
+\SW_9~input\ : fiftyfivenm_io_ibuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	listen_to_nsleep_signal => "false",
+	simulate_z_as => "z")
+-- pragma translate_on
+PORT MAP (
+	i => ww_SW_9,
+	o => \SW_9~input_o\);
+
+-- Location: LCCOMB_X69_Y52_N4
+\seconds~2\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \seconds~2_combout\ = (\SW_9~input_o\ & (\LessThan0~0_combout\ & (!\Add0~12_combout\ & \Add0~6_combout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000100000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \SW_9~input_o\,
+	datab => \LessThan0~0_combout\,
+	datac => \Add0~12_combout\,
+	datad => \Add0~6_combout\,
+	combout => \seconds~2_combout\);
+
+-- Location: FF_X69_Y52_N5
+\seconds[3]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \one_hz|one_hz_clk_out~clkctrl_outclk\,
+	d => \seconds~2_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => seconds(3));
+
+-- Location: LCCOMB_X69_Y52_N14
 \Add0~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Add0~0_combout\ = seconds(0) $ (VCC)
@@ -2042,27 +2062,10 @@ PORT MAP (
 	combout => \Add0~0_combout\,
 	cout => \Add0~1\);
 
--- Location: LCCOMB_X57_Y52_N0
-\LessThan0~0\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X69_Y52_N6
+\seconds~5\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \LessThan0~0_combout\ = (((!\Add0~6_combout\) # (!\Add0~8_combout\)) # (!\Add0~10_combout\)) # (!\Add0~4_combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0111111111111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \Add0~4_combout\,
-	datab => \Add0~10_combout\,
-	datac => \Add0~8_combout\,
-	datad => \Add0~6_combout\,
-	combout => \LessThan0~0_combout\);
-
--- Location: LCCOMB_X57_Y52_N12
-\seconds~6\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \seconds~6_combout\ = (\Add0~0_combout\ & (\SW_9~input_o\ & (!\Add0~12_combout\ & \LessThan0~0_combout\)))
+-- \seconds~5_combout\ = (\SW_9~input_o\ & (\Add0~0_combout\ & (!\Add0~12_combout\ & \LessThan0~0_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -2070,13 +2073,13 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Add0~0_combout\,
-	datab => \SW_9~input_o\,
+	dataa => \SW_9~input_o\,
+	datab => \Add0~0_combout\,
 	datac => \Add0~12_combout\,
 	datad => \LessThan0~0_combout\,
-	combout => \seconds~6_combout\);
+	combout => \seconds~5_combout\);
 
--- Location: FF_X57_Y52_N13
+-- Location: FF_X69_Y52_N7
 \seconds[0]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -2085,12 +2088,12 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \one_hz|one_hz_clk_out~clkctrl_outclk\,
-	d => \seconds~6_combout\,
+	d => \seconds~5_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => seconds(0));
 
--- Location: LCCOMB_X57_Y52_N16
+-- Location: LCCOMB_X69_Y52_N16
 \Add0~2\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Add0~2_combout\ = (seconds(1) & (!\Add0~1\)) # (!seconds(1) & ((\Add0~1\) # (GND)))
@@ -2108,41 +2111,24 @@ PORT MAP (
 	combout => \Add0~2_combout\,
 	cout => \Add0~3\);
 
--- Location: LCCOMB_X57_Y52_N2
+-- Location: LCCOMB_X69_Y52_N10
 \seconds~4\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \seconds~4_combout\ = (\Add0~8_combout\ & (\Add0~10_combout\ & (\Add0~4_combout\ & \Add0~6_combout\)))
+-- \seconds~4_combout\ = (\SW_9~input_o\ & (\LessThan0~0_combout\ & (!\Add0~12_combout\ & \Add0~2_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1000000000000000",
+	lut_mask => "0000100000000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Add0~8_combout\,
-	datab => \Add0~10_combout\,
-	datac => \Add0~4_combout\,
-	datad => \Add0~6_combout\,
+	dataa => \SW_9~input_o\,
+	datab => \LessThan0~0_combout\,
+	datac => \Add0~12_combout\,
+	datad => \Add0~2_combout\,
 	combout => \seconds~4_combout\);
 
--- Location: LCCOMB_X57_Y52_N6
-\seconds~5\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \seconds~5_combout\ = (\Add0~2_combout\ & (!\Add0~12_combout\ & (\SW_9~input_o\ & !\seconds~4_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \Add0~2_combout\,
-	datab => \Add0~12_combout\,
-	datac => \SW_9~input_o\,
-	datad => \seconds~4_combout\,
-	combout => \seconds~5_combout\);
-
--- Location: FF_X57_Y52_N7
+-- Location: FF_X69_Y52_N11
 \seconds[1]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -2151,12 +2137,12 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \one_hz|one_hz_clk_out~clkctrl_outclk\,
-	d => \seconds~5_combout\,
+	d => \seconds~4_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => seconds(1));
 
--- Location: LCCOMB_X57_Y52_N18
+-- Location: LCCOMB_X69_Y52_N18
 \Add0~4\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Add0~4_combout\ = (seconds(2) & (\Add0~3\ $ (GND))) # (!seconds(2) & (!\Add0~3\ & VCC))
@@ -2174,10 +2160,10 @@ PORT MAP (
 	combout => \Add0~4_combout\,
 	cout => \Add0~5\);
 
--- Location: LCCOMB_X57_Y52_N30
+-- Location: LCCOMB_X69_Y52_N12
 \seconds~3\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \seconds~3_combout\ = (\Add0~4_combout\ & (\SW_9~input_o\ & (!\Add0~12_combout\ & \LessThan0~0_combout\)))
+-- \seconds~3_combout\ = (\SW_9~input_o\ & (\LessThan0~0_combout\ & (!\Add0~12_combout\ & \Add0~4_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -2185,13 +2171,13 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Add0~4_combout\,
-	datab => \SW_9~input_o\,
+	dataa => \SW_9~input_o\,
+	datab => \LessThan0~0_combout\,
 	datac => \Add0~12_combout\,
-	datad => \LessThan0~0_combout\,
+	datad => \Add0~4_combout\,
 	combout => \seconds~3_combout\);
 
--- Location: FF_X57_Y52_N31
+-- Location: FF_X69_Y52_N13
 \seconds[2]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -2205,7 +2191,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => seconds(2));
 
--- Location: LCCOMB_X57_Y52_N20
+-- Location: LCCOMB_X69_Y52_N20
 \Add0~6\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Add0~6_combout\ = (seconds(3) & (!\Add0~5\)) # (!seconds(3) & ((\Add0~5\) # (GND)))
@@ -2223,10 +2209,10 @@ PORT MAP (
 	combout => \Add0~6_combout\,
 	cout => \Add0~7\);
 
--- Location: LCCOMB_X57_Y52_N8
-\seconds~2\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X69_Y52_N8
+\seconds~1\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \seconds~2_combout\ = (\Add0~6_combout\ & (\SW_9~input_o\ & (!\Add0~12_combout\ & \LessThan0~0_combout\)))
+-- \seconds~1_combout\ = (\SW_9~input_o\ & (\LessThan0~0_combout\ & (!\Add0~12_combout\ & \Add0~8_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -2234,14 +2220,14 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \Add0~6_combout\,
-	datab => \SW_9~input_o\,
+	dataa => \SW_9~input_o\,
+	datab => \LessThan0~0_combout\,
 	datac => \Add0~12_combout\,
-	datad => \LessThan0~0_combout\,
-	combout => \seconds~2_combout\);
+	datad => \Add0~8_combout\,
+	combout => \seconds~1_combout\);
 
--- Location: FF_X57_Y52_N9
-\seconds[3]\ : dffeas
+-- Location: FF_X69_Y52_N9
+\seconds[4]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
 	is_wysiwyg => "true",
@@ -2249,12 +2235,12 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \one_hz|one_hz_clk_out~clkctrl_outclk\,
-	d => \seconds~2_combout\,
+	d => \seconds~1_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
-	q => seconds(3));
+	q => seconds(4));
 
--- Location: LCCOMB_X57_Y52_N22
+-- Location: LCCOMB_X69_Y52_N22
 \Add0~8\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Add0~8_combout\ = (seconds(4) & (\Add0~7\ $ (GND))) # (!seconds(4) & (!\Add0~7\ & VCC))
@@ -2272,10 +2258,45 @@ PORT MAP (
 	combout => \Add0~8_combout\,
 	cout => \Add0~9\);
 
--- Location: LCCOMB_X57_Y52_N4
-\seconds~1\ : fiftyfivenm_lcell_comb
+-- Location: LCCOMB_X69_Y52_N24
+\Add0~10\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \seconds~1_combout\ = (\SW_9~input_o\ & (\Add0~8_combout\ & (!\Add0~12_combout\ & \LessThan0~0_combout\)))
+-- \Add0~10_combout\ = (seconds(5) & (!\Add0~9\)) # (!seconds(5) & ((\Add0~9\) # (GND)))
+-- \Add0~11\ = CARRY((!\Add0~9\) # (!seconds(5)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011110000111111",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	datab => seconds(5),
+	datad => VCC,
+	cin => \Add0~9\,
+	combout => \Add0~10_combout\,
+	cout => \Add0~11\);
+
+-- Location: LCCOMB_X69_Y52_N28
+\LessThan0~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \LessThan0~0_combout\ = (((!\Add0~10_combout\) # (!\Add0~8_combout\)) # (!\Add0~4_combout\)) # (!\Add0~6_combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0111111111111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \Add0~6_combout\,
+	datab => \Add0~4_combout\,
+	datac => \Add0~8_combout\,
+	datad => \Add0~10_combout\,
+	combout => \LessThan0~0_combout\);
+
+-- Location: LCCOMB_X69_Y52_N2
+\seconds~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \seconds~0_combout\ = (\SW_9~input_o\ & (\LessThan0~0_combout\ & (!\Add0~12_combout\ & \Add0~10_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -2284,61 +2305,12 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	dataa => \SW_9~input_o\,
-	datab => \Add0~8_combout\,
+	datab => \LessThan0~0_combout\,
 	datac => \Add0~12_combout\,
-	datad => \LessThan0~0_combout\,
-	combout => \seconds~1_combout\);
-
--- Location: FF_X57_Y52_N5
-\seconds[4]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \one_hz|one_hz_clk_out~clkctrl_outclk\,
-	d => \seconds~1_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => seconds(4));
-
--- Location: LCCOMB_X57_Y52_N24
-\Add0~10\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \Add0~10_combout\ = (seconds(5) & (!\Add0~9\)) # (!seconds(5) & ((\Add0~9\) # (GND)))
--- \Add0~11\ = CARRY((!\Add0~9\) # (!seconds(5)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101101001011111",
-	sum_lutc_input => "cin")
--- pragma translate_on
-PORT MAP (
-	dataa => seconds(5),
-	datad => VCC,
-	cin => \Add0~9\,
-	combout => \Add0~10_combout\,
-	cout => \Add0~11\);
-
--- Location: LCCOMB_X57_Y52_N10
-\seconds~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \seconds~0_combout\ = (\Add0~10_combout\ & (\SW_9~input_o\ & (!\Add0~12_combout\ & \LessThan0~0_combout\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000100000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \Add0~10_combout\,
-	datab => \SW_9~input_o\,
-	datac => \Add0~12_combout\,
-	datad => \LessThan0~0_combout\,
+	datad => \Add0~10_combout\,
 	combout => \seconds~0_combout\);
 
--- Location: FF_X57_Y52_N11
+-- Location: FF_X69_Y52_N3
 \seconds[5]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -2352,7 +2324,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => seconds(5));
 
--- Location: LCCOMB_X57_Y52_N26
+-- Location: LCCOMB_X69_Y52_N26
 \Add0~12\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \Add0~12_combout\ = !\Add0~11\
@@ -2366,7 +2338,7 @@ PORT MAP (
 	cin => \Add0~11\,
 	combout => \Add0~12_combout\);
 
--- Location: LCCOMB_X57_Y52_N28
+-- Location: LCCOMB_X69_Y52_N30
 \update_count~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \update_count~0_combout\ = (\SW_9~input_o\ & ((\Add0~12_combout\) # ((!\LessThan0~0_combout\)))) # (!\SW_9~input_o\ & (((\update_count~q\))))
@@ -2383,7 +2355,7 @@ PORT MAP (
 	datad => \LessThan0~0_combout\,
 	combout => \update_count~0_combout\);
 
--- Location: FF_X57_Y52_N29
+-- Location: FF_X69_Y52_N31
 update_count : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -2397,1396 +2369,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \update_count~q\);
 
--- Location: IOIBUF_X46_Y54_N29
-\KEY_0~input\ : fiftyfivenm_io_ibuf
--- pragma translate_off
-GENERIC MAP (
-	bus_hold => "false",
-	listen_to_nsleep_signal => "false",
-	simulate_z_as => "z")
--- pragma translate_on
-PORT MAP (
-	i => ww_KEY_0,
-	o => \KEY_0~input_o\);
-
--- Location: LCCOMB_X57_Y50_N28
-\t_incrementer|min_clk_in\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|min_clk_in~combout\ = LCELL((\SW_9~input_o\ & (\update_count~q\)) # (!\SW_9~input_o\ & ((\KEY_0~input_o\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111001111000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \SW_9~input_o\,
-	datac => \update_count~q\,
-	datad => \KEY_0~input_o\,
-	combout => \t_incrementer|min_clk_in~combout\);
-
--- Location: CLKCTRL_G11
-\t_incrementer|min_clk_in~clkctrl\ : fiftyfivenm_clkctrl
--- pragma translate_off
-GENERIC MAP (
-	clock_type => "global clock",
-	ena_register_mode => "none")
--- pragma translate_on
-PORT MAP (
-	inclk => \t_incrementer|min_clk_in~clkctrl_INCLK_bus\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	outclk => \t_incrementer|min_clk_in~clkctrl_outclk\);
-
--- Location: LCCOMB_X58_Y50_N2
-\t_incrementer|min_controller|min_unit_out[0]~2\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|min_controller|min_unit_out[0]~2_combout\ = !\t_buffer|min_unit_out\(0)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000011111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datad => \t_buffer|min_unit_out\(0),
-	combout => \t_incrementer|min_controller|min_unit_out[0]~2_combout\);
-
--- Location: LCCOMB_X58_Y50_N30
-\t_incrementer|min_controller|min_unit_out[0]~feeder\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|min_controller|min_unit_out[0]~feeder_combout\ = \t_incrementer|min_controller|min_unit_out[0]~2_combout\
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111000011110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datac => \t_incrementer|min_controller|min_unit_out[0]~2_combout\,
-	combout => \t_incrementer|min_controller|min_unit_out[0]~feeder_combout\);
-
--- Location: FF_X58_Y50_N31
-\t_incrementer|min_controller|min_unit_out[0]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \t_incrementer|min_clk_in~clkctrl_outclk\,
-	d => \t_incrementer|min_controller|min_unit_out[0]~feeder_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_incrementer|min_controller|min_unit_out\(0));
-
--- Location: FF_X58_Y50_N29
-\t_buffer|min_unit_out[0]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \CLK_FPGA~inputclkctrl_outclk\,
-	asdata => \t_incrementer|min_controller|min_unit_out\(0),
-	sload => VCC,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_buffer|min_unit_out\(0));
-
--- Location: LCCOMB_X58_Y50_N6
-\t_incrementer|min_controller|min_unit_out~1\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|min_controller|min_unit_out~1_combout\ = (\t_buffer|min_unit_out\(0) & ((\t_buffer|min_unit_out\(1) & (\t_buffer|min_unit_out\(2) $ (\t_buffer|min_unit_out\(3)))) # (!\t_buffer|min_unit_out\(1) & (\t_buffer|min_unit_out\(2) & 
--- \t_buffer|min_unit_out\(3))))) # (!\t_buffer|min_unit_out\(0) & (((\t_buffer|min_unit_out\(3)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0111110110000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|min_unit_out\(0),
-	datab => \t_buffer|min_unit_out\(1),
-	datac => \t_buffer|min_unit_out\(2),
-	datad => \t_buffer|min_unit_out\(3),
-	combout => \t_incrementer|min_controller|min_unit_out~1_combout\);
-
--- Location: LCCOMB_X58_Y50_N8
-\t_incrementer|min_controller|min_unit_out[3]~feeder\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|min_controller|min_unit_out[3]~feeder_combout\ = \t_incrementer|min_controller|min_unit_out~1_combout\
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111100000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datad => \t_incrementer|min_controller|min_unit_out~1_combout\,
-	combout => \t_incrementer|min_controller|min_unit_out[3]~feeder_combout\);
-
--- Location: FF_X58_Y50_N9
-\t_incrementer|min_controller|min_unit_out[3]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \t_incrementer|min_clk_in~clkctrl_outclk\,
-	d => \t_incrementer|min_controller|min_unit_out[3]~feeder_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_incrementer|min_controller|min_unit_out\(3));
-
--- Location: FF_X58_Y50_N17
-\t_buffer|min_unit_out[3]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \CLK_FPGA~inputclkctrl_outclk\,
-	asdata => \t_incrementer|min_controller|min_unit_out\(3),
-	sload => VCC,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_buffer|min_unit_out\(3));
-
--- Location: LCCOMB_X58_Y50_N18
-\t_incrementer|min_controller|min_unit_out~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|min_controller|min_unit_out~0_combout\ = (\t_buffer|min_unit_out\(1) & (((!\t_buffer|min_unit_out\(0))))) # (!\t_buffer|min_unit_out\(1) & (\t_buffer|min_unit_out\(0) & ((\t_buffer|min_unit_out\(2)) # (!\t_buffer|min_unit_out\(3)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011000111001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|min_unit_out\(3),
-	datab => \t_buffer|min_unit_out\(1),
-	datac => \t_buffer|min_unit_out\(2),
-	datad => \t_buffer|min_unit_out\(0),
-	combout => \t_incrementer|min_controller|min_unit_out~0_combout\);
-
--- Location: LCCOMB_X58_Y50_N26
-\t_incrementer|min_controller|min_unit_out[1]~feeder\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|min_controller|min_unit_out[1]~feeder_combout\ = \t_incrementer|min_controller|min_unit_out~0_combout\
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100110011001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \t_incrementer|min_controller|min_unit_out~0_combout\,
-	combout => \t_incrementer|min_controller|min_unit_out[1]~feeder_combout\);
-
--- Location: FF_X58_Y50_N27
-\t_incrementer|min_controller|min_unit_out[1]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \t_incrementer|min_clk_in~clkctrl_outclk\,
-	d => \t_incrementer|min_controller|min_unit_out[1]~feeder_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_incrementer|min_controller|min_unit_out\(1));
-
--- Location: FF_X58_Y50_N13
-\t_buffer|min_unit_out[1]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \CLK_FPGA~inputclkctrl_outclk\,
-	asdata => \t_incrementer|min_controller|min_unit_out\(1),
-	sload => VCC,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_buffer|min_unit_out\(1));
-
--- Location: LCCOMB_X58_Y50_N0
-\t_incrementer|min_controller|Add0~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|min_controller|Add0~0_combout\ = \t_buffer|min_unit_out\(2) $ (((\t_buffer|min_unit_out\(1) & \t_buffer|min_unit_out\(0))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101101010101010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|min_unit_out\(2),
-	datac => \t_buffer|min_unit_out\(1),
-	datad => \t_buffer|min_unit_out\(0),
-	combout => \t_incrementer|min_controller|Add0~0_combout\);
-
--- Location: LCCOMB_X58_Y50_N14
-\t_incrementer|min_controller|min_unit_out[2]~feeder\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|min_controller|min_unit_out[2]~feeder_combout\ = \t_incrementer|min_controller|Add0~0_combout\
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111000011110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datac => \t_incrementer|min_controller|Add0~0_combout\,
-	combout => \t_incrementer|min_controller|min_unit_out[2]~feeder_combout\);
-
--- Location: FF_X58_Y50_N15
-\t_incrementer|min_controller|min_unit_out[2]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \t_incrementer|min_clk_in~clkctrl_outclk\,
-	d => \t_incrementer|min_controller|min_unit_out[2]~feeder_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_incrementer|min_controller|min_unit_out\(2));
-
--- Location: FF_X58_Y50_N25
-\t_buffer|min_unit_out[2]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \CLK_FPGA~inputclkctrl_outclk\,
-	asdata => \t_incrementer|min_controller|min_unit_out\(2),
-	sload => VCC,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_buffer|min_unit_out\(2));
-
--- Location: LCCOMB_X58_Y50_N4
-\t_incrementer|min_controller|Equal0~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|min_controller|Equal0~0_combout\ = (!\t_buffer|min_unit_out\(2) & (\t_buffer|min_unit_out\(3) & (\t_buffer|min_unit_out\(0) & !\t_buffer|min_unit_out\(1))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000001000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|min_unit_out\(2),
-	datab => \t_buffer|min_unit_out\(3),
-	datac => \t_buffer|min_unit_out\(0),
-	datad => \t_buffer|min_unit_out\(1),
-	combout => \t_incrementer|min_controller|Equal0~0_combout\);
-
--- Location: LCCOMB_X56_Y50_N10
-\t_incrementer|min_controller|min_tens_out[0]~2\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|min_controller|min_tens_out[0]~2_combout\ = !\t_buffer|min_tens_out\(0)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000111100001111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datac => \t_buffer|min_tens_out\(0),
-	combout => \t_incrementer|min_controller|min_tens_out[0]~2_combout\);
-
--- Location: LCCOMB_X56_Y50_N4
-\t_incrementer|min_controller|min_tens_out[0]~feeder\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|min_controller|min_tens_out[0]~feeder_combout\ = \t_incrementer|min_controller|min_tens_out[0]~2_combout\
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111100000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datad => \t_incrementer|min_controller|min_tens_out[0]~2_combout\,
-	combout => \t_incrementer|min_controller|min_tens_out[0]~feeder_combout\);
-
--- Location: FF_X56_Y50_N5
-\t_incrementer|min_controller|min_tens_out[0]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \t_incrementer|min_clk_in~clkctrl_outclk\,
-	d => \t_incrementer|min_controller|min_tens_out[0]~feeder_combout\,
-	ena => \t_incrementer|min_controller|Equal0~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_incrementer|min_controller|min_tens_out\(0));
-
--- Location: FF_X56_Y50_N7
-\t_buffer|min_tens_out[0]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \CLK_FPGA~inputclkctrl_outclk\,
-	asdata => \t_incrementer|min_controller|min_tens_out\(0),
-	sload => VCC,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_buffer|min_tens_out\(0));
-
--- Location: LCCOMB_X56_Y50_N2
-\t_incrementer|min_controller|min_tens_out~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|min_controller|min_tens_out~0_combout\ = (\t_buffer|min_tens_out\(0) & (!\t_buffer|min_tens_out\(1) & ((\t_buffer|min_tens_out\(3)) # (!\t_buffer|min_tens_out\(2))))) # (!\t_buffer|min_tens_out\(0) & (((\t_buffer|min_tens_out\(1)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0011100000111100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|min_tens_out\(3),
-	datab => \t_buffer|min_tens_out\(0),
-	datac => \t_buffer|min_tens_out\(1),
-	datad => \t_buffer|min_tens_out\(2),
-	combout => \t_incrementer|min_controller|min_tens_out~0_combout\);
-
--- Location: LCCOMB_X56_Y50_N8
-\t_incrementer|min_controller|min_tens_out[1]~feeder\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|min_controller|min_tens_out[1]~feeder_combout\ = \t_incrementer|min_controller|min_tens_out~0_combout\
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010101010101010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_incrementer|min_controller|min_tens_out~0_combout\,
-	combout => \t_incrementer|min_controller|min_tens_out[1]~feeder_combout\);
-
--- Location: FF_X56_Y50_N9
-\t_incrementer|min_controller|min_tens_out[1]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \t_incrementer|min_clk_in~clkctrl_outclk\,
-	d => \t_incrementer|min_controller|min_tens_out[1]~feeder_combout\,
-	ena => \t_incrementer|min_controller|Equal0~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_incrementer|min_controller|min_tens_out\(1));
-
--- Location: FF_X56_Y50_N1
-\t_buffer|min_tens_out[1]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \CLK_FPGA~inputclkctrl_outclk\,
-	asdata => \t_incrementer|min_controller|min_tens_out\(1),
-	sload => VCC,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_buffer|min_tens_out\(1));
-
--- Location: LCCOMB_X56_Y50_N30
-\t_incrementer|min_controller|Add1~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|min_controller|Add1~0_combout\ = \t_buffer|min_tens_out\(3) $ (((\t_buffer|min_tens_out\(2) & (\t_buffer|min_tens_out\(0) & \t_buffer|min_tens_out\(1)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110110011001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|min_tens_out\(2),
-	datab => \t_buffer|min_tens_out\(3),
-	datac => \t_buffer|min_tens_out\(0),
-	datad => \t_buffer|min_tens_out\(1),
-	combout => \t_incrementer|min_controller|Add1~0_combout\);
-
--- Location: LCCOMB_X56_Y50_N22
-\t_incrementer|min_controller|min_tens_out[3]~feeder\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|min_controller|min_tens_out[3]~feeder_combout\ = \t_incrementer|min_controller|Add1~0_combout\
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111000011110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datac => \t_incrementer|min_controller|Add1~0_combout\,
-	combout => \t_incrementer|min_controller|min_tens_out[3]~feeder_combout\);
-
--- Location: FF_X56_Y50_N23
-\t_incrementer|min_controller|min_tens_out[3]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \t_incrementer|min_clk_in~clkctrl_outclk\,
-	d => \t_incrementer|min_controller|min_tens_out[3]~feeder_combout\,
-	ena => \t_incrementer|min_controller|Equal0~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_incrementer|min_controller|min_tens_out\(3));
-
--- Location: FF_X56_Y50_N17
-\t_buffer|min_tens_out[3]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \CLK_FPGA~inputclkctrl_outclk\,
-	asdata => \t_incrementer|min_controller|min_tens_out\(3),
-	sload => VCC,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_buffer|min_tens_out\(3));
-
--- Location: LCCOMB_X56_Y50_N12
-\t_incrementer|min_controller|min_tens_out~1\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|min_controller|min_tens_out~1_combout\ = (\t_buffer|min_tens_out\(2) & (((\t_buffer|min_tens_out\(3) & !\t_buffer|min_tens_out\(1))) # (!\t_buffer|min_tens_out\(0)))) # (!\t_buffer|min_tens_out\(2) & (((\t_buffer|min_tens_out\(0) & 
--- \t_buffer|min_tens_out\(1)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101101010001010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|min_tens_out\(2),
-	datab => \t_buffer|min_tens_out\(3),
-	datac => \t_buffer|min_tens_out\(0),
-	datad => \t_buffer|min_tens_out\(1),
-	combout => \t_incrementer|min_controller|min_tens_out~1_combout\);
-
--- Location: LCCOMB_X56_Y50_N26
-\t_incrementer|min_controller|min_tens_out[2]~feeder\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|min_controller|min_tens_out[2]~feeder_combout\ = \t_incrementer|min_controller|min_tens_out~1_combout\
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100110011001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \t_incrementer|min_controller|min_tens_out~1_combout\,
-	combout => \t_incrementer|min_controller|min_tens_out[2]~feeder_combout\);
-
--- Location: FF_X56_Y50_N27
-\t_incrementer|min_controller|min_tens_out[2]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \t_incrementer|min_clk_in~clkctrl_outclk\,
-	d => \t_incrementer|min_controller|min_tens_out[2]~feeder_combout\,
-	ena => \t_incrementer|min_controller|Equal0~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_incrementer|min_controller|min_tens_out\(2));
-
--- Location: FF_X56_Y50_N25
-\t_buffer|min_tens_out[2]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \CLK_FPGA~inputclkctrl_outclk\,
-	asdata => \t_incrementer|min_controller|min_tens_out\(2),
-	sload => VCC,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_buffer|min_tens_out\(2));
-
--- Location: LCCOMB_X56_Y50_N18
-\t_incrementer|min_controller|Equal1~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|min_controller|Equal1~0_combout\ = (\t_buffer|min_tens_out\(2) & (!\t_buffer|min_tens_out\(3) & (!\t_buffer|min_tens_out\(1) & \t_buffer|min_tens_out\(0))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000001000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|min_tens_out\(2),
-	datab => \t_buffer|min_tens_out\(3),
-	datac => \t_buffer|min_tens_out\(1),
-	datad => \t_buffer|min_tens_out\(0),
-	combout => \t_incrementer|min_controller|Equal1~0_combout\);
-
--- Location: LCCOMB_X57_Y50_N24
-\t_incrementer|min_controller|incr_hour~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|min_controller|incr_hour~0_combout\ = (\t_incrementer|min_controller|Equal0~0_combout\ & \t_incrementer|min_controller|Equal1~0_combout\)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010000010100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_incrementer|min_controller|Equal0~0_combout\,
-	datac => \t_incrementer|min_controller|Equal1~0_combout\,
-	combout => \t_incrementer|min_controller|incr_hour~0_combout\);
-
--- Location: FF_X57_Y50_N25
-\t_incrementer|min_controller|incr_hour\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \t_incrementer|min_clk_in~combout\,
-	d => \t_incrementer|min_controller|incr_hour~0_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_incrementer|min_controller|incr_hour~q\);
-
--- Location: LCCOMB_X57_Y50_N20
-\t_incrementer|hour_clk_in\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|hour_clk_in~combout\ = LCELL((\SW_9~input_o\ & ((\t_incrementer|min_controller|incr_hour~q\))) # (!\SW_9~input_o\ & (\KEY_1~input_o\)))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111110000110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \SW_9~input_o\,
-	datac => \KEY_1~input_o\,
-	datad => \t_incrementer|min_controller|incr_hour~q\,
-	combout => \t_incrementer|hour_clk_in~combout\);
-
--- Location: CLKCTRL_G13
-\t_incrementer|hour_clk_in~clkctrl\ : fiftyfivenm_clkctrl
--- pragma translate_off
-GENERIC MAP (
-	clock_type => "global clock",
-	ena_register_mode => "none")
--- pragma translate_on
-PORT MAP (
-	inclk => \t_incrementer|hour_clk_in~clkctrl_INCLK_bus\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	outclk => \t_incrementer|hour_clk_in~clkctrl_outclk\);
-
--- Location: LCCOMB_X71_Y38_N20
-\t_incrementer|hr_controller|Add0~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|hr_controller|Add0~0_combout\ = \t_buffer|hour_tens_out\(2) $ (((\t_buffer|hour_tens_out\(0) & \t_buffer|hour_tens_out\(1))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110011011001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|hour_tens_out\(0),
-	datab => \t_buffer|hour_tens_out\(2),
-	datad => \t_buffer|hour_tens_out\(1),
-	combout => \t_incrementer|hr_controller|Add0~0_combout\);
-
--- Location: LCCOMB_X71_Y38_N22
-\t_incrementer|hr_controller|hr_tens_out[2]~feeder\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|hr_controller|hr_tens_out[2]~feeder_combout\ = \t_incrementer|hr_controller|Add0~0_combout\
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111100000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datad => \t_incrementer|hr_controller|Add0~0_combout\,
-	combout => \t_incrementer|hr_controller|hr_tens_out[2]~feeder_combout\);
-
--- Location: LCCOMB_X71_Y38_N24
-\t_incrementer|hr_controller|hr_tens_out~1\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|hr_controller|hr_tens_out~1_combout\ = (\t_buffer|hour_tens_out\(0)) # ((\t_buffer|hour_tens_out\(2)) # ((\t_buffer|hour_tens_out\(3)) # (!\t_buffer|hour_tens_out\(1))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111111101111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|hour_tens_out\(0),
-	datab => \t_buffer|hour_tens_out\(2),
-	datac => \t_buffer|hour_tens_out\(1),
-	datad => \t_buffer|hour_tens_out\(3),
-	combout => \t_incrementer|hr_controller|hr_tens_out~1_combout\);
-
--- Location: LCCOMB_X72_Y38_N28
-\t_incrementer|hr_controller|hr_unit_out[0]~7\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|hr_controller|hr_unit_out[0]~7_combout\ = !\t_buffer|hour_unit_out\(0)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000011111111",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datad => \t_buffer|hour_unit_out\(0),
-	combout => \t_incrementer|hr_controller|hr_unit_out[0]~7_combout\);
-
--- Location: LCCOMB_X72_Y38_N22
-\t_incrementer|hr_controller|hr_unit_out[0]~feeder\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|hr_controller|hr_unit_out[0]~feeder_combout\ = \t_incrementer|hr_controller|hr_unit_out[0]~7_combout\
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111100000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datad => \t_incrementer|hr_controller|hr_unit_out[0]~7_combout\,
-	combout => \t_incrementer|hr_controller|hr_unit_out[0]~feeder_combout\);
-
--- Location: FF_X72_Y38_N23
-\t_incrementer|hr_controller|hr_unit_out[0]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \t_incrementer|hour_clk_in~clkctrl_outclk\,
-	d => \t_incrementer|hr_controller|hr_unit_out[0]~feeder_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_incrementer|hr_controller|hr_unit_out\(0));
-
--- Location: FF_X72_Y38_N3
-\t_buffer|hour_unit_out[0]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \CLK_FPGA~inputclkctrl_outclk\,
-	asdata => \t_incrementer|hr_controller|hr_unit_out\(0),
-	sload => VCC,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_buffer|hour_unit_out\(0));
-
--- Location: LCCOMB_X72_Y38_N30
-\t_incrementer|hr_controller|hr_unit_out~5\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|hr_controller|hr_unit_out~5_combout\ = (\t_buffer|hour_unit_out\(1) & (((!\t_buffer|hour_unit_out\(0))))) # (!\t_buffer|hour_unit_out\(1) & (\t_buffer|hour_unit_out\(0) & ((!\t_incrementer|hr_controller|hr_tens_out~1_combout\) # 
--- (!\t_incrementer|hr_controller|hr_tens_out~2_combout\))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0001001111001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_incrementer|hr_controller|hr_tens_out~2_combout\,
-	datab => \t_buffer|hour_unit_out\(1),
-	datac => \t_incrementer|hr_controller|hr_tens_out~1_combout\,
-	datad => \t_buffer|hour_unit_out\(0),
-	combout => \t_incrementer|hr_controller|hr_unit_out~5_combout\);
-
--- Location: LCCOMB_X72_Y38_N4
-\t_incrementer|hr_controller|hr_unit_out[1]~feeder\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|hr_controller|hr_unit_out[1]~feeder_combout\ = \t_incrementer|hr_controller|hr_unit_out~5_combout\
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111000011110000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datac => \t_incrementer|hr_controller|hr_unit_out~5_combout\,
-	combout => \t_incrementer|hr_controller|hr_unit_out[1]~feeder_combout\);
-
--- Location: FF_X72_Y38_N5
-\t_incrementer|hr_controller|hr_unit_out[1]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \t_incrementer|hour_clk_in~clkctrl_outclk\,
-	d => \t_incrementer|hr_controller|hr_unit_out[1]~feeder_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_incrementer|hr_controller|hr_unit_out\(1));
-
--- Location: FF_X72_Y38_N29
-\t_buffer|hour_unit_out[1]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \CLK_FPGA~inputclkctrl_outclk\,
-	asdata => \t_incrementer|hr_controller|hr_unit_out\(1),
-	sload => VCC,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_buffer|hour_unit_out\(1));
-
--- Location: LCCOMB_X72_Y38_N12
-\t_incrementer|hr_controller|Add1~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|hr_controller|Add1~0_combout\ = (\t_buffer|hour_unit_out\(0) & \t_buffer|hour_unit_out\(1))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010101000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|hour_unit_out\(0),
-	datad => \t_buffer|hour_unit_out\(1),
-	combout => \t_incrementer|hr_controller|Add1~0_combout\);
-
--- Location: LCCOMB_X72_Y38_N26
-\t_incrementer|hr_controller|hr_unit_out~6\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|hr_controller|hr_unit_out~6_combout\ = (!\t_incrementer|hr_controller|hr_tens_out~3_combout\ & (\t_buffer|hour_unit_out\(2) $ (((\t_buffer|hour_unit_out\(0) & \t_buffer|hour_unit_out\(1))))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0001001100100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|hour_unit_out\(0),
-	datab => \t_incrementer|hr_controller|hr_tens_out~3_combout\,
-	datac => \t_buffer|hour_unit_out\(1),
-	datad => \t_buffer|hour_unit_out\(2),
-	combout => \t_incrementer|hr_controller|hr_unit_out~6_combout\);
-
--- Location: FF_X72_Y38_N27
-\t_incrementer|hr_controller|hr_unit_out[2]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \t_incrementer|hour_clk_in~clkctrl_outclk\,
-	d => \t_incrementer|hr_controller|hr_unit_out~6_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_incrementer|hr_controller|hr_unit_out\(2));
-
--- Location: FF_X72_Y38_N13
-\t_buffer|hour_unit_out[2]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \CLK_FPGA~inputclkctrl_outclk\,
-	asdata => \t_incrementer|hr_controller|hr_unit_out\(2),
-	sload => VCC,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_buffer|hour_unit_out\(2));
-
--- Location: LCCOMB_X72_Y38_N20
-\t_incrementer|hr_controller|hr_unit_out~4\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|hr_controller|hr_unit_out~4_combout\ = (!\t_incrementer|hr_controller|hr_tens_out~3_combout\ & (\t_buffer|hour_unit_out\(3) $ (((\t_incrementer|hr_controller|Add1~0_combout\ & \t_buffer|hour_unit_out\(2))))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0001001100100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_incrementer|hr_controller|Add1~0_combout\,
-	datab => \t_incrementer|hr_controller|hr_tens_out~3_combout\,
-	datac => \t_buffer|hour_unit_out\(2),
-	datad => \t_buffer|hour_unit_out\(3),
-	combout => \t_incrementer|hr_controller|hr_unit_out~4_combout\);
-
--- Location: FF_X72_Y38_N21
-\t_incrementer|hr_controller|hr_unit_out[3]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \t_incrementer|hour_clk_in~clkctrl_outclk\,
-	d => \t_incrementer|hr_controller|hr_unit_out~4_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_incrementer|hr_controller|hr_unit_out\(3));
-
--- Location: LCCOMB_X72_Y38_N18
-\t_buffer|hour_unit_out[3]~feeder\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_buffer|hour_unit_out[3]~feeder_combout\ = \t_incrementer|hr_controller|hr_unit_out\(3)
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111100000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datad => \t_incrementer|hr_controller|hr_unit_out\(3),
-	combout => \t_buffer|hour_unit_out[3]~feeder_combout\);
-
--- Location: FF_X72_Y38_N19
-\t_buffer|hour_unit_out[3]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \CLK_FPGA~inputclkctrl_outclk\,
-	d => \t_buffer|hour_unit_out[3]~feeder_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_buffer|hour_unit_out\(3));
-
--- Location: LCCOMB_X72_Y38_N16
-\t_incrementer|hr_controller|hr_tens_out~2\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|hr_controller|hr_tens_out~2_combout\ = (!\t_buffer|hour_unit_out\(2) & (\t_buffer|hour_unit_out\(3) $ (\t_buffer|hour_unit_out\(1))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000011000000110",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|hour_unit_out\(3),
-	datab => \t_buffer|hour_unit_out\(1),
-	datac => \t_buffer|hour_unit_out\(2),
-	combout => \t_incrementer|hr_controller|hr_tens_out~2_combout\);
-
--- Location: LCCOMB_X71_Y38_N16
-\t_incrementer|hr_controller|hr_tens_out~3\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|hr_controller|hr_tens_out~3_combout\ = (\t_incrementer|hr_controller|hr_tens_out~2_combout\ & (\t_buffer|hour_unit_out\(0) & (\t_incrementer|hr_controller|hr_tens_out~1_combout\ $ (\t_buffer|hour_unit_out\(1)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0100100000000000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_incrementer|hr_controller|hr_tens_out~1_combout\,
-	datab => \t_incrementer|hr_controller|hr_tens_out~2_combout\,
-	datac => \t_buffer|hour_unit_out\(1),
-	datad => \t_buffer|hour_unit_out\(0),
-	combout => \t_incrementer|hr_controller|hr_tens_out~3_combout\);
-
--- Location: FF_X71_Y38_N23
-\t_incrementer|hr_controller|hr_tens_out[2]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \t_incrementer|hour_clk_in~clkctrl_outclk\,
-	d => \t_incrementer|hr_controller|hr_tens_out[2]~feeder_combout\,
-	ena => \t_incrementer|hr_controller|hr_tens_out~3_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_incrementer|hr_controller|hr_tens_out\(2));
-
--- Location: FF_X71_Y38_N11
-\t_buffer|hour_tens_out[2]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \CLK_FPGA~inputclkctrl_outclk\,
-	asdata => \t_incrementer|hr_controller|hr_tens_out\(2),
-	sload => VCC,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_buffer|hour_tens_out\(2));
-
--- Location: LCCOMB_X71_Y38_N14
-\t_incrementer|hr_controller|hr_tens_out~4\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|hr_controller|hr_tens_out~4_combout\ = (\t_buffer|hour_tens_out\(1) & (!\t_buffer|hour_tens_out\(0) & ((\t_buffer|hour_tens_out\(2)) # (\t_buffer|hour_tens_out\(3))))) # (!\t_buffer|hour_tens_out\(1) & (((\t_buffer|hour_tens_out\(0)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000111111100000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|hour_tens_out\(2),
-	datab => \t_buffer|hour_tens_out\(3),
-	datac => \t_buffer|hour_tens_out\(1),
-	datad => \t_buffer|hour_tens_out\(0),
-	combout => \t_incrementer|hr_controller|hr_tens_out~4_combout\);
-
--- Location: LCCOMB_X71_Y38_N30
-\t_incrementer|hr_controller|hr_tens_out[1]~feeder\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|hr_controller|hr_tens_out[1]~feeder_combout\ = \t_incrementer|hr_controller|hr_tens_out~4_combout\
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100110011001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \t_incrementer|hr_controller|hr_tens_out~4_combout\,
-	combout => \t_incrementer|hr_controller|hr_tens_out[1]~feeder_combout\);
-
--- Location: FF_X71_Y38_N31
-\t_incrementer|hr_controller|hr_tens_out[1]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \t_incrementer|hour_clk_in~clkctrl_outclk\,
-	d => \t_incrementer|hr_controller|hr_tens_out[1]~feeder_combout\,
-	ena => \t_incrementer|hr_controller|hr_tens_out~3_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_incrementer|hr_controller|hr_tens_out\(1));
-
--- Location: FF_X71_Y38_N7
-\t_buffer|hour_tens_out[1]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \CLK_FPGA~inputclkctrl_outclk\,
-	asdata => \t_incrementer|hr_controller|hr_tens_out\(1),
-	sload => VCC,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_buffer|hour_tens_out\(1));
-
--- Location: LCCOMB_X71_Y38_N2
-\t_incrementer|hr_controller|hr_tens_out~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|hr_controller|hr_tens_out~0_combout\ = (!\t_buffer|hour_tens_out\(0) & (((\t_buffer|hour_tens_out\(2)) # (\t_buffer|hour_tens_out\(3))) # (!\t_buffer|hour_tens_out\(1))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0101010101010001",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|hour_tens_out\(0),
-	datab => \t_buffer|hour_tens_out\(1),
-	datac => \t_buffer|hour_tens_out\(2),
-	datad => \t_buffer|hour_tens_out\(3),
-	combout => \t_incrementer|hr_controller|hr_tens_out~0_combout\);
-
--- Location: LCCOMB_X71_Y38_N4
-\t_incrementer|hr_controller|hr_tens_out[0]~feeder\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|hr_controller|hr_tens_out[0]~feeder_combout\ = \t_incrementer|hr_controller|hr_tens_out~0_combout\
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1100110011001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	datab => \t_incrementer|hr_controller|hr_tens_out~0_combout\,
-	combout => \t_incrementer|hr_controller|hr_tens_out[0]~feeder_combout\);
-
--- Location: FF_X71_Y38_N5
-\t_incrementer|hr_controller|hr_tens_out[0]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \t_incrementer|hour_clk_in~clkctrl_outclk\,
-	d => \t_incrementer|hr_controller|hr_tens_out[0]~feeder_combout\,
-	ena => \t_incrementer|hr_controller|hr_tens_out~3_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_incrementer|hr_controller|hr_tens_out\(0));
-
--- Location: FF_X71_Y38_N29
-\t_buffer|hour_tens_out[0]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \CLK_FPGA~inputclkctrl_outclk\,
-	asdata => \t_incrementer|hr_controller|hr_tens_out\(0),
-	sload => VCC,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_buffer|hour_tens_out\(0));
-
--- Location: LCCOMB_X71_Y38_N0
-\t_incrementer|hr_controller|Add0~1\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|hr_controller|Add0~1_combout\ = \t_buffer|hour_tens_out\(3) $ (((\t_buffer|hour_tens_out\(0) & (\t_buffer|hour_tens_out\(1) & \t_buffer|hour_tens_out\(2)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0110110011001100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|hour_tens_out\(0),
-	datab => \t_buffer|hour_tens_out\(3),
-	datac => \t_buffer|hour_tens_out\(1),
-	datad => \t_buffer|hour_tens_out\(2),
-	combout => \t_incrementer|hr_controller|Add0~1_combout\);
-
--- Location: LCCOMB_X71_Y38_N8
-\t_incrementer|hr_controller|hr_tens_out[3]~feeder\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \t_incrementer|hr_controller|hr_tens_out[3]~feeder_combout\ = \t_incrementer|hr_controller|Add0~1_combout\
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010101010101010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_incrementer|hr_controller|Add0~1_combout\,
-	combout => \t_incrementer|hr_controller|hr_tens_out[3]~feeder_combout\);
-
--- Location: FF_X71_Y38_N9
-\t_incrementer|hr_controller|hr_tens_out[3]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \t_incrementer|hour_clk_in~clkctrl_outclk\,
-	d => \t_incrementer|hr_controller|hr_tens_out[3]~feeder_combout\,
-	ena => \t_incrementer|hr_controller|hr_tens_out~3_combout\,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_incrementer|hr_controller|hr_tens_out\(3));
-
--- Location: FF_X71_Y38_N21
-\t_buffer|hour_tens_out[3]\ : dffeas
--- pragma translate_off
-GENERIC MAP (
-	is_wysiwyg => "true",
-	power_up => "low")
--- pragma translate_on
-PORT MAP (
-	clk => \CLK_FPGA~inputclkctrl_outclk\,
-	asdata => \t_incrementer|hr_controller|hr_tens_out\(3),
-	sload => VCC,
-	devclrn => ww_devclrn,
-	devpor => ww_devpor,
-	q => \t_buffer|hour_tens_out\(3));
-
--- Location: LCCOMB_X71_Y38_N12
-\hour_tens_seg|Mux6~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \hour_tens_seg|Mux6~0_combout\ = (!\t_buffer|hour_tens_out\(3) & (!\t_buffer|hour_tens_out\(1) & (\t_buffer|hour_tens_out\(2) $ (\t_buffer|hour_tens_out\(0)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000000010100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|hour_tens_out\(3),
-	datab => \t_buffer|hour_tens_out\(2),
-	datac => \t_buffer|hour_tens_out\(0),
-	datad => \t_buffer|hour_tens_out\(1),
-	combout => \hour_tens_seg|Mux6~0_combout\);
-
--- Location: LCCOMB_X71_Y38_N26
-\hour_tens_seg|Mux5~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \hour_tens_seg|Mux5~0_combout\ = (\t_buffer|hour_tens_out\(3) & ((\t_buffer|hour_tens_out\(2)) # ((\t_buffer|hour_tens_out\(1))))) # (!\t_buffer|hour_tens_out\(3) & (\t_buffer|hour_tens_out\(2) & (\t_buffer|hour_tens_out\(0) $ 
--- (\t_buffer|hour_tens_out\(1)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010111011001000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|hour_tens_out\(3),
-	datab => \t_buffer|hour_tens_out\(2),
-	datac => \t_buffer|hour_tens_out\(0),
-	datad => \t_buffer|hour_tens_out\(1),
-	combout => \hour_tens_seg|Mux5~0_combout\);
-
--- Location: LCCOMB_X71_Y38_N18
-\hour_tens_seg|Mux4~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \hour_tens_seg|Mux4~0_combout\ = (\t_buffer|hour_tens_out\(2) & (\t_buffer|hour_tens_out\(3))) # (!\t_buffer|hour_tens_out\(2) & (\t_buffer|hour_tens_out\(1) & ((\t_buffer|hour_tens_out\(3)) # (!\t_buffer|hour_tens_out\(0)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1010101110001000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|hour_tens_out\(3),
-	datab => \t_buffer|hour_tens_out\(2),
-	datac => \t_buffer|hour_tens_out\(0),
-	datad => \t_buffer|hour_tens_out\(1),
-	combout => \hour_tens_seg|Mux4~0_combout\);
-
--- Location: LCCOMB_X71_Y38_N28
-\hour_tens_seg|Mux3~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \hour_tens_seg|Mux3~0_combout\ = (\t_buffer|hour_tens_out\(2) & (!\t_buffer|hour_tens_out\(3) & (\t_buffer|hour_tens_out\(0) $ (!\t_buffer|hour_tens_out\(1))))) # (!\t_buffer|hour_tens_out\(2) & (((\t_buffer|hour_tens_out\(0) & 
--- !\t_buffer|hour_tens_out\(1)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0100000000110100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|hour_tens_out\(3),
-	datab => \t_buffer|hour_tens_out\(2),
-	datac => \t_buffer|hour_tens_out\(0),
-	datad => \t_buffer|hour_tens_out\(1),
-	combout => \hour_tens_seg|Mux3~0_combout\);
-
--- Location: LCCOMB_X71_Y38_N6
-\hour_tens_seg|Mux2~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \hour_tens_seg|Mux2~0_combout\ = (\t_buffer|hour_tens_out\(1) & (\t_buffer|hour_tens_out\(0) & (!\t_buffer|hour_tens_out\(3)))) # (!\t_buffer|hour_tens_out\(1) & ((\t_buffer|hour_tens_out\(2) & ((!\t_buffer|hour_tens_out\(3)))) # 
--- (!\t_buffer|hour_tens_out\(2) & (\t_buffer|hour_tens_out\(0)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0010001100101010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|hour_tens_out\(0),
-	datab => \t_buffer|hour_tens_out\(3),
-	datac => \t_buffer|hour_tens_out\(1),
-	datad => \t_buffer|hour_tens_out\(2),
-	combout => \hour_tens_seg|Mux2~0_combout\);
-
--- Location: LCCOMB_X71_Y38_N10
-\hour_tens_seg|Mux1~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \hour_tens_seg|Mux1~0_combout\ = (!\t_buffer|hour_tens_out\(3) & ((\t_buffer|hour_tens_out\(0) & ((\t_buffer|hour_tens_out\(1)) # (!\t_buffer|hour_tens_out\(2)))) # (!\t_buffer|hour_tens_out\(0) & (!\t_buffer|hour_tens_out\(2) & 
--- \t_buffer|hour_tens_out\(1)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0010001100000010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|hour_tens_out\(0),
-	datab => \t_buffer|hour_tens_out\(3),
-	datac => \t_buffer|hour_tens_out\(2),
-	datad => \t_buffer|hour_tens_out\(1),
-	combout => \hour_tens_seg|Mux1~0_combout\);
-
--- Location: LCCOMB_X70_Y38_N24
-\hour_tens_seg|Mux0~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \hour_tens_seg|Mux0~0_combout\ = (\t_buffer|hour_tens_out\(3)) # ((\t_buffer|hour_tens_out\(1) & ((!\t_buffer|hour_tens_out\(2)) # (!\t_buffer|hour_tens_out\(0)))) # (!\t_buffer|hour_tens_out\(1) & ((\t_buffer|hour_tens_out\(2)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1101111111111100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|hour_tens_out\(0),
-	datab => \t_buffer|hour_tens_out\(3),
-	datac => \t_buffer|hour_tens_out\(1),
-	datad => \t_buffer|hour_tens_out\(2),
-	combout => \hour_tens_seg|Mux0~0_combout\);
-
--- Location: LCCOMB_X72_Y38_N2
-\hour_unit_seg|Mux6~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \hour_unit_seg|Mux6~0_combout\ = (!\t_buffer|hour_unit_out\(3) & (!\t_buffer|hour_unit_out\(1) & (\t_buffer|hour_unit_out\(0) $ (\t_buffer|hour_unit_out\(2)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000100010000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|hour_unit_out\(3),
-	datab => \t_buffer|hour_unit_out\(1),
-	datac => \t_buffer|hour_unit_out\(0),
-	datad => \t_buffer|hour_unit_out\(2),
-	combout => \hour_unit_seg|Mux6~0_combout\);
-
--- Location: LCCOMB_X72_Y38_N0
-\hour_unit_seg|Mux5~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \hour_unit_seg|Mux5~0_combout\ = (\t_buffer|hour_unit_out\(2) & ((\t_buffer|hour_unit_out\(3)) # (\t_buffer|hour_unit_out\(0) $ (\t_buffer|hour_unit_out\(1))))) # (!\t_buffer|hour_unit_out\(2) & (((\t_buffer|hour_unit_out\(1) & 
--- \t_buffer|hour_unit_out\(3)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111101000101000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|hour_unit_out\(2),
-	datab => \t_buffer|hour_unit_out\(0),
-	datac => \t_buffer|hour_unit_out\(1),
-	datad => \t_buffer|hour_unit_out\(3),
-	combout => \hour_unit_seg|Mux5~0_combout\);
-
--- Location: LCCOMB_X72_Y38_N6
-\hour_unit_seg|Mux4~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \hour_unit_seg|Mux4~0_combout\ = (\t_buffer|hour_unit_out\(2) & (((\t_buffer|hour_unit_out\(3))))) # (!\t_buffer|hour_unit_out\(2) & (\t_buffer|hour_unit_out\(1) & ((\t_buffer|hour_unit_out\(3)) # (!\t_buffer|hour_unit_out\(0)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111101000010000",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|hour_unit_out\(2),
-	datab => \t_buffer|hour_unit_out\(0),
-	datac => \t_buffer|hour_unit_out\(1),
-	datad => \t_buffer|hour_unit_out\(3),
-	combout => \hour_unit_seg|Mux4~0_combout\);
-
--- Location: LCCOMB_X72_Y38_N8
-\hour_unit_seg|Mux3~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \hour_unit_seg|Mux3~0_combout\ = (\t_buffer|hour_unit_out\(2) & (!\t_buffer|hour_unit_out\(3) & (\t_buffer|hour_unit_out\(0) $ (!\t_buffer|hour_unit_out\(1))))) # (!\t_buffer|hour_unit_out\(2) & (\t_buffer|hour_unit_out\(0) & 
--- (!\t_buffer|hour_unit_out\(1))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000010010000110",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|hour_unit_out\(2),
-	datab => \t_buffer|hour_unit_out\(0),
-	datac => \t_buffer|hour_unit_out\(1),
-	datad => \t_buffer|hour_unit_out\(3),
-	combout => \hour_unit_seg|Mux3~0_combout\);
-
--- Location: LCCOMB_X72_Y38_N14
-\hour_unit_seg|Mux2~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \hour_unit_seg|Mux2~0_combout\ = (\t_buffer|hour_unit_out\(1) & (((\t_buffer|hour_unit_out\(0) & !\t_buffer|hour_unit_out\(3))))) # (!\t_buffer|hour_unit_out\(1) & ((\t_buffer|hour_unit_out\(2) & ((!\t_buffer|hour_unit_out\(3)))) # 
--- (!\t_buffer|hour_unit_out\(2) & (\t_buffer|hour_unit_out\(0)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000010011001110",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|hour_unit_out\(2),
-	datab => \t_buffer|hour_unit_out\(0),
-	datac => \t_buffer|hour_unit_out\(1),
-	datad => \t_buffer|hour_unit_out\(3),
-	combout => \hour_unit_seg|Mux2~0_combout\);
-
--- Location: LCCOMB_X72_Y38_N24
-\hour_unit_seg|Mux1~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \hour_unit_seg|Mux1~0_combout\ = (!\t_buffer|hour_unit_out\(3) & ((\t_buffer|hour_unit_out\(2) & (\t_buffer|hour_unit_out\(0) & \t_buffer|hour_unit_out\(1))) # (!\t_buffer|hour_unit_out\(2) & ((\t_buffer|hour_unit_out\(0)) # 
--- (\t_buffer|hour_unit_out\(1))))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0000000011010100",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|hour_unit_out\(2),
-	datab => \t_buffer|hour_unit_out\(0),
-	datac => \t_buffer|hour_unit_out\(1),
-	datad => \t_buffer|hour_unit_out\(3),
-	combout => \hour_unit_seg|Mux1~0_combout\);
-
--- Location: LCCOMB_X72_Y38_N10
-\hour_unit_seg|Mux0~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \hour_unit_seg|Mux0~0_combout\ = (\t_buffer|hour_unit_out\(3)) # ((\t_buffer|hour_unit_out\(2) & ((!\t_buffer|hour_unit_out\(1)) # (!\t_buffer|hour_unit_out\(0)))) # (!\t_buffer|hour_unit_out\(2) & ((\t_buffer|hour_unit_out\(1)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "1111111101111010",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|hour_unit_out\(2),
-	datab => \t_buffer|hour_unit_out\(0),
-	datac => \t_buffer|hour_unit_out\(1),
-	datad => \t_buffer|hour_unit_out\(3),
-	combout => \hour_unit_seg|Mux0~0_combout\);
-
--- Location: LCCOMB_X57_Y46_N6
+-- Location: LCCOMB_X67_Y48_N6
 \one_hz|fpga_cycle_count_2[0]~27\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count_2[0]~27_combout\ = \one_hz|fpga_cycle_count_2\(0) $ (VCC)
@@ -3803,7 +2386,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count_2[0]~27_combout\,
 	cout => \one_hz|fpga_cycle_count_2[0]~28\);
 
--- Location: FF_X57_Y46_N7
+-- Location: FF_X67_Y48_N7
 \one_hz|fpga_cycle_count_2[0]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3818,7 +2401,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count_2\(0));
 
--- Location: LCCOMB_X57_Y46_N8
+-- Location: LCCOMB_X67_Y48_N8
 \one_hz|fpga_cycle_count_2[1]~29\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count_2[1]~29_combout\ = (\one_hz|fpga_cycle_count_2\(1) & (!\one_hz|fpga_cycle_count_2[0]~28\)) # (!\one_hz|fpga_cycle_count_2\(1) & ((\one_hz|fpga_cycle_count_2[0]~28\) # (GND)))
@@ -3836,7 +2419,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count_2[1]~29_combout\,
 	cout => \one_hz|fpga_cycle_count_2[1]~30\);
 
--- Location: FF_X57_Y46_N9
+-- Location: FF_X67_Y48_N9
 \one_hz|fpga_cycle_count_2[1]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3851,7 +2434,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count_2\(1));
 
--- Location: LCCOMB_X57_Y46_N10
+-- Location: LCCOMB_X67_Y48_N10
 \one_hz|fpga_cycle_count_2[2]~31\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count_2[2]~31_combout\ = (\one_hz|fpga_cycle_count_2\(2) & (\one_hz|fpga_cycle_count_2[1]~30\ $ (GND))) # (!\one_hz|fpga_cycle_count_2\(2) & (!\one_hz|fpga_cycle_count_2[1]~30\ & VCC))
@@ -3869,7 +2452,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count_2[2]~31_combout\,
 	cout => \one_hz|fpga_cycle_count_2[2]~32\);
 
--- Location: FF_X57_Y46_N11
+-- Location: FF_X67_Y48_N11
 \one_hz|fpga_cycle_count_2[2]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3884,7 +2467,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count_2\(2));
 
--- Location: LCCOMB_X57_Y46_N12
+-- Location: LCCOMB_X67_Y48_N12
 \one_hz|fpga_cycle_count_2[3]~33\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count_2[3]~33_combout\ = (\one_hz|fpga_cycle_count_2\(3) & (!\one_hz|fpga_cycle_count_2[2]~32\)) # (!\one_hz|fpga_cycle_count_2\(3) & ((\one_hz|fpga_cycle_count_2[2]~32\) # (GND)))
@@ -3902,7 +2485,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count_2[3]~33_combout\,
 	cout => \one_hz|fpga_cycle_count_2[3]~34\);
 
--- Location: FF_X57_Y46_N13
+-- Location: FF_X67_Y48_N13
 \one_hz|fpga_cycle_count_2[3]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3917,7 +2500,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count_2\(3));
 
--- Location: LCCOMB_X57_Y46_N14
+-- Location: LCCOMB_X67_Y48_N14
 \one_hz|fpga_cycle_count_2[4]~35\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count_2[4]~35_combout\ = (\one_hz|fpga_cycle_count_2\(4) & (\one_hz|fpga_cycle_count_2[3]~34\ $ (GND))) # (!\one_hz|fpga_cycle_count_2\(4) & (!\one_hz|fpga_cycle_count_2[3]~34\ & VCC))
@@ -3935,7 +2518,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count_2[4]~35_combout\,
 	cout => \one_hz|fpga_cycle_count_2[4]~36\);
 
--- Location: FF_X57_Y46_N15
+-- Location: FF_X67_Y48_N15
 \one_hz|fpga_cycle_count_2[4]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3950,7 +2533,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count_2\(4));
 
--- Location: LCCOMB_X57_Y46_N16
+-- Location: LCCOMB_X67_Y48_N16
 \one_hz|fpga_cycle_count_2[5]~37\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count_2[5]~37_combout\ = (\one_hz|fpga_cycle_count_2\(5) & (!\one_hz|fpga_cycle_count_2[4]~36\)) # (!\one_hz|fpga_cycle_count_2\(5) & ((\one_hz|fpga_cycle_count_2[4]~36\) # (GND)))
@@ -3968,7 +2551,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count_2[5]~37_combout\,
 	cout => \one_hz|fpga_cycle_count_2[5]~38\);
 
--- Location: FF_X57_Y46_N17
+-- Location: FF_X67_Y48_N17
 \one_hz|fpga_cycle_count_2[5]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -3983,7 +2566,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count_2\(5));
 
--- Location: LCCOMB_X57_Y46_N18
+-- Location: LCCOMB_X67_Y48_N18
 \one_hz|fpga_cycle_count_2[6]~39\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count_2[6]~39_combout\ = (\one_hz|fpga_cycle_count_2\(6) & (\one_hz|fpga_cycle_count_2[5]~38\ $ (GND))) # (!\one_hz|fpga_cycle_count_2\(6) & (!\one_hz|fpga_cycle_count_2[5]~38\ & VCC))
@@ -4001,7 +2584,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count_2[6]~39_combout\,
 	cout => \one_hz|fpga_cycle_count_2[6]~40\);
 
--- Location: FF_X57_Y46_N19
+-- Location: FF_X67_Y48_N19
 \one_hz|fpga_cycle_count_2[6]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4016,7 +2599,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count_2\(6));
 
--- Location: LCCOMB_X57_Y46_N20
+-- Location: LCCOMB_X67_Y48_N20
 \one_hz|fpga_cycle_count_2[7]~41\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count_2[7]~41_combout\ = (\one_hz|fpga_cycle_count_2\(7) & (!\one_hz|fpga_cycle_count_2[6]~40\)) # (!\one_hz|fpga_cycle_count_2\(7) & ((\one_hz|fpga_cycle_count_2[6]~40\) # (GND)))
@@ -4034,7 +2617,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count_2[7]~41_combout\,
 	cout => \one_hz|fpga_cycle_count_2[7]~42\);
 
--- Location: FF_X57_Y46_N21
+-- Location: FF_X67_Y48_N21
 \one_hz|fpga_cycle_count_2[7]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4049,7 +2632,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count_2\(7));
 
--- Location: LCCOMB_X57_Y46_N22
+-- Location: LCCOMB_X67_Y48_N22
 \one_hz|fpga_cycle_count_2[8]~43\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count_2[8]~43_combout\ = (\one_hz|fpga_cycle_count_2\(8) & (\one_hz|fpga_cycle_count_2[7]~42\ $ (GND))) # (!\one_hz|fpga_cycle_count_2\(8) & (!\one_hz|fpga_cycle_count_2[7]~42\ & VCC))
@@ -4057,17 +2640,17 @@ PORT MAP (
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1100001100001100",
+	lut_mask => "1010010100001010",
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	datab => \one_hz|fpga_cycle_count_2\(8),
+	dataa => \one_hz|fpga_cycle_count_2\(8),
 	datad => VCC,
 	cin => \one_hz|fpga_cycle_count_2[7]~42\,
 	combout => \one_hz|fpga_cycle_count_2[8]~43_combout\,
 	cout => \one_hz|fpga_cycle_count_2[8]~44\);
 
--- Location: FF_X57_Y46_N23
+-- Location: FF_X67_Y48_N23
 \one_hz|fpga_cycle_count_2[8]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4082,7 +2665,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count_2\(8));
 
--- Location: LCCOMB_X57_Y46_N24
+-- Location: LCCOMB_X67_Y48_N24
 \one_hz|fpga_cycle_count_2[9]~45\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count_2[9]~45_combout\ = (\one_hz|fpga_cycle_count_2\(9) & (!\one_hz|fpga_cycle_count_2[8]~44\)) # (!\one_hz|fpga_cycle_count_2\(9) & ((\one_hz|fpga_cycle_count_2[8]~44\) # (GND)))
@@ -4100,7 +2683,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count_2[9]~45_combout\,
 	cout => \one_hz|fpga_cycle_count_2[9]~46\);
 
--- Location: FF_X57_Y46_N25
+-- Location: FF_X67_Y48_N25
 \one_hz|fpga_cycle_count_2[9]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4115,7 +2698,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count_2\(9));
 
--- Location: LCCOMB_X57_Y46_N26
+-- Location: LCCOMB_X67_Y48_N26
 \one_hz|fpga_cycle_count_2[10]~47\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count_2[10]~47_combout\ = (\one_hz|fpga_cycle_count_2\(10) & (\one_hz|fpga_cycle_count_2[9]~46\ $ (GND))) # (!\one_hz|fpga_cycle_count_2\(10) & (!\one_hz|fpga_cycle_count_2[9]~46\ & VCC))
@@ -4133,7 +2716,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count_2[10]~47_combout\,
 	cout => \one_hz|fpga_cycle_count_2[10]~48\);
 
--- Location: FF_X57_Y46_N27
+-- Location: FF_X67_Y48_N27
 \one_hz|fpga_cycle_count_2[10]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4148,7 +2731,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count_2\(10));
 
--- Location: LCCOMB_X57_Y46_N28
+-- Location: LCCOMB_X67_Y48_N28
 \one_hz|fpga_cycle_count_2[11]~49\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count_2[11]~49_combout\ = (\one_hz|fpga_cycle_count_2\(11) & (!\one_hz|fpga_cycle_count_2[10]~48\)) # (!\one_hz|fpga_cycle_count_2\(11) & ((\one_hz|fpga_cycle_count_2[10]~48\) # (GND)))
@@ -4166,7 +2749,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count_2[11]~49_combout\,
 	cout => \one_hz|fpga_cycle_count_2[11]~50\);
 
--- Location: FF_X57_Y46_N29
+-- Location: FF_X67_Y48_N29
 \one_hz|fpga_cycle_count_2[11]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4181,7 +2764,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count_2\(11));
 
--- Location: LCCOMB_X57_Y46_N30
+-- Location: LCCOMB_X67_Y48_N30
 \one_hz|fpga_cycle_count_2[12]~51\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count_2[12]~51_combout\ = (\one_hz|fpga_cycle_count_2\(12) & (\one_hz|fpga_cycle_count_2[11]~50\ $ (GND))) # (!\one_hz|fpga_cycle_count_2\(12) & (!\one_hz|fpga_cycle_count_2[11]~50\ & VCC))
@@ -4199,7 +2782,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count_2[12]~51_combout\,
 	cout => \one_hz|fpga_cycle_count_2[12]~52\);
 
--- Location: FF_X57_Y46_N31
+-- Location: FF_X67_Y48_N31
 \one_hz|fpga_cycle_count_2[12]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4214,7 +2797,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count_2\(12));
 
--- Location: LCCOMB_X57_Y45_N0
+-- Location: LCCOMB_X67_Y47_N0
 \one_hz|fpga_cycle_count_2[13]~53\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count_2[13]~53_combout\ = (\one_hz|fpga_cycle_count_2\(13) & (!\one_hz|fpga_cycle_count_2[12]~52\)) # (!\one_hz|fpga_cycle_count_2\(13) & ((\one_hz|fpga_cycle_count_2[12]~52\) # (GND)))
@@ -4232,7 +2815,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count_2[13]~53_combout\,
 	cout => \one_hz|fpga_cycle_count_2[13]~54\);
 
--- Location: FF_X57_Y45_N1
+-- Location: FF_X67_Y47_N1
 \one_hz|fpga_cycle_count_2[13]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4247,7 +2830,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count_2\(13));
 
--- Location: LCCOMB_X57_Y45_N2
+-- Location: LCCOMB_X67_Y47_N2
 \one_hz|fpga_cycle_count_2[14]~55\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count_2[14]~55_combout\ = (\one_hz|fpga_cycle_count_2\(14) & (\one_hz|fpga_cycle_count_2[13]~54\ $ (GND))) # (!\one_hz|fpga_cycle_count_2\(14) & (!\one_hz|fpga_cycle_count_2[13]~54\ & VCC))
@@ -4265,7 +2848,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count_2[14]~55_combout\,
 	cout => \one_hz|fpga_cycle_count_2[14]~56\);
 
--- Location: FF_X56_Y46_N21
+-- Location: FF_X67_Y47_N3
 \one_hz|fpga_cycle_count_2[14]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4274,14 +2857,13 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \CLK_FPGA~inputclkctrl_outclk\,
-	asdata => \one_hz|fpga_cycle_count_2[14]~55_combout\,
+	d => \one_hz|fpga_cycle_count_2[14]~55_combout\,
 	sclr => \one_hz|LessThan1~7_combout\,
-	sload => VCC,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count_2\(14));
 
--- Location: LCCOMB_X57_Y45_N4
+-- Location: LCCOMB_X67_Y47_N4
 \one_hz|fpga_cycle_count_2[15]~57\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count_2[15]~57_combout\ = (\one_hz|fpga_cycle_count_2\(15) & (!\one_hz|fpga_cycle_count_2[14]~56\)) # (!\one_hz|fpga_cycle_count_2\(15) & ((\one_hz|fpga_cycle_count_2[14]~56\) # (GND)))
@@ -4299,7 +2881,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count_2[15]~57_combout\,
 	cout => \one_hz|fpga_cycle_count_2[15]~58\);
 
--- Location: FF_X57_Y45_N5
+-- Location: FF_X67_Y47_N5
 \one_hz|fpga_cycle_count_2[15]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4314,7 +2896,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count_2\(15));
 
--- Location: LCCOMB_X57_Y45_N6
+-- Location: LCCOMB_X67_Y47_N6
 \one_hz|fpga_cycle_count_2[16]~59\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count_2[16]~59_combout\ = (\one_hz|fpga_cycle_count_2\(16) & (\one_hz|fpga_cycle_count_2[15]~58\ $ (GND))) # (!\one_hz|fpga_cycle_count_2\(16) & (!\one_hz|fpga_cycle_count_2[15]~58\ & VCC))
@@ -4322,17 +2904,17 @@ PORT MAP (
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010010100001010",
+	lut_mask => "1100001100001100",
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \one_hz|fpga_cycle_count_2\(16),
+	datab => \one_hz|fpga_cycle_count_2\(16),
 	datad => VCC,
 	cin => \one_hz|fpga_cycle_count_2[15]~58\,
 	combout => \one_hz|fpga_cycle_count_2[16]~59_combout\,
 	cout => \one_hz|fpga_cycle_count_2[16]~60\);
 
--- Location: FF_X57_Y45_N7
+-- Location: FF_X66_Y48_N21
 \one_hz|fpga_cycle_count_2[16]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4341,13 +2923,14 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \CLK_FPGA~inputclkctrl_outclk\,
-	d => \one_hz|fpga_cycle_count_2[16]~59_combout\,
+	asdata => \one_hz|fpga_cycle_count_2[16]~59_combout\,
 	sclr => \one_hz|LessThan1~7_combout\,
+	sload => VCC,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count_2\(16));
 
--- Location: LCCOMB_X57_Y45_N8
+-- Location: LCCOMB_X67_Y47_N8
 \one_hz|fpga_cycle_count_2[17]~61\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count_2[17]~61_combout\ = (\one_hz|fpga_cycle_count_2\(17) & (!\one_hz|fpga_cycle_count_2[16]~60\)) # (!\one_hz|fpga_cycle_count_2\(17) & ((\one_hz|fpga_cycle_count_2[16]~60\) # (GND)))
@@ -4365,7 +2948,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count_2[17]~61_combout\,
 	cout => \one_hz|fpga_cycle_count_2[17]~62\);
 
--- Location: FF_X57_Y45_N9
+-- Location: FF_X67_Y47_N9
 \one_hz|fpga_cycle_count_2[17]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4380,7 +2963,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count_2\(17));
 
--- Location: LCCOMB_X57_Y45_N10
+-- Location: LCCOMB_X67_Y47_N10
 \one_hz|fpga_cycle_count_2[18]~63\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count_2[18]~63_combout\ = (\one_hz|fpga_cycle_count_2\(18) & (\one_hz|fpga_cycle_count_2[17]~62\ $ (GND))) # (!\one_hz|fpga_cycle_count_2\(18) & (!\one_hz|fpga_cycle_count_2[17]~62\ & VCC))
@@ -4388,17 +2971,17 @@ PORT MAP (
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1010010100001010",
+	lut_mask => "1100001100001100",
 	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => \one_hz|fpga_cycle_count_2\(18),
+	datab => \one_hz|fpga_cycle_count_2\(18),
 	datad => VCC,
 	cin => \one_hz|fpga_cycle_count_2[17]~62\,
 	combout => \one_hz|fpga_cycle_count_2[18]~63_combout\,
 	cout => \one_hz|fpga_cycle_count_2[18]~64\);
 
--- Location: FF_X57_Y45_N11
+-- Location: FF_X66_Y48_N19
 \one_hz|fpga_cycle_count_2[18]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4407,13 +2990,14 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \CLK_FPGA~inputclkctrl_outclk\,
-	d => \one_hz|fpga_cycle_count_2[18]~63_combout\,
+	asdata => \one_hz|fpga_cycle_count_2[18]~63_combout\,
 	sclr => \one_hz|LessThan1~7_combout\,
+	sload => VCC,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count_2\(18));
 
--- Location: LCCOMB_X57_Y45_N12
+-- Location: LCCOMB_X67_Y47_N12
 \one_hz|fpga_cycle_count_2[19]~65\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count_2[19]~65_combout\ = (\one_hz|fpga_cycle_count_2\(19) & (!\one_hz|fpga_cycle_count_2[18]~64\)) # (!\one_hz|fpga_cycle_count_2\(19) & ((\one_hz|fpga_cycle_count_2[18]~64\) # (GND)))
@@ -4431,7 +3015,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count_2[19]~65_combout\,
 	cout => \one_hz|fpga_cycle_count_2[19]~66\);
 
--- Location: FF_X57_Y45_N13
+-- Location: FF_X67_Y47_N13
 \one_hz|fpga_cycle_count_2[19]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4446,7 +3030,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count_2\(19));
 
--- Location: LCCOMB_X57_Y45_N14
+-- Location: LCCOMB_X67_Y47_N14
 \one_hz|fpga_cycle_count_2[20]~67\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count_2[20]~67_combout\ = (\one_hz|fpga_cycle_count_2\(20) & (\one_hz|fpga_cycle_count_2[19]~66\ $ (GND))) # (!\one_hz|fpga_cycle_count_2\(20) & (!\one_hz|fpga_cycle_count_2[19]~66\ & VCC))
@@ -4464,7 +3048,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count_2[20]~67_combout\,
 	cout => \one_hz|fpga_cycle_count_2[20]~68\);
 
--- Location: FF_X57_Y45_N15
+-- Location: FF_X67_Y47_N15
 \one_hz|fpga_cycle_count_2[20]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4479,7 +3063,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count_2\(20));
 
--- Location: LCCOMB_X57_Y45_N16
+-- Location: LCCOMB_X67_Y47_N16
 \one_hz|fpga_cycle_count_2[21]~69\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count_2[21]~69_combout\ = (\one_hz|fpga_cycle_count_2\(21) & (!\one_hz|fpga_cycle_count_2[20]~68\)) # (!\one_hz|fpga_cycle_count_2\(21) & ((\one_hz|fpga_cycle_count_2[20]~68\) # (GND)))
@@ -4497,7 +3081,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count_2[21]~69_combout\,
 	cout => \one_hz|fpga_cycle_count_2[21]~70\);
 
--- Location: FF_X57_Y45_N17
+-- Location: FF_X67_Y47_N17
 \one_hz|fpga_cycle_count_2[21]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4512,7 +3096,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count_2\(21));
 
--- Location: LCCOMB_X57_Y45_N18
+-- Location: LCCOMB_X67_Y47_N18
 \one_hz|fpga_cycle_count_2[22]~71\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count_2[22]~71_combout\ = (\one_hz|fpga_cycle_count_2\(22) & (\one_hz|fpga_cycle_count_2[21]~70\ $ (GND))) # (!\one_hz|fpga_cycle_count_2\(22) & (!\one_hz|fpga_cycle_count_2[21]~70\ & VCC))
@@ -4530,7 +3114,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count_2[22]~71_combout\,
 	cout => \one_hz|fpga_cycle_count_2[22]~72\);
 
--- Location: FF_X57_Y45_N19
+-- Location: FF_X67_Y47_N19
 \one_hz|fpga_cycle_count_2[22]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4545,7 +3129,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count_2\(22));
 
--- Location: LCCOMB_X57_Y45_N20
+-- Location: LCCOMB_X67_Y47_N20
 \one_hz|fpga_cycle_count_2[23]~73\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count_2[23]~73_combout\ = (\one_hz|fpga_cycle_count_2\(23) & (!\one_hz|fpga_cycle_count_2[22]~72\)) # (!\one_hz|fpga_cycle_count_2\(23) & ((\one_hz|fpga_cycle_count_2[22]~72\) # (GND)))
@@ -4563,7 +3147,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count_2[23]~73_combout\,
 	cout => \one_hz|fpga_cycle_count_2[23]~74\);
 
--- Location: FF_X57_Y45_N21
+-- Location: FF_X67_Y47_N21
 \one_hz|fpga_cycle_count_2[23]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4578,7 +3162,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count_2\(23));
 
--- Location: LCCOMB_X57_Y45_N22
+-- Location: LCCOMB_X67_Y47_N22
 \one_hz|fpga_cycle_count_2[24]~75\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count_2[24]~75_combout\ = (\one_hz|fpga_cycle_count_2\(24) & (\one_hz|fpga_cycle_count_2[23]~74\ $ (GND))) # (!\one_hz|fpga_cycle_count_2\(24) & (!\one_hz|fpga_cycle_count_2[23]~74\ & VCC))
@@ -4596,7 +3180,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count_2[24]~75_combout\,
 	cout => \one_hz|fpga_cycle_count_2[24]~76\);
 
--- Location: FF_X57_Y45_N23
+-- Location: FF_X67_Y47_N23
 \one_hz|fpga_cycle_count_2[24]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4611,7 +3195,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count_2\(24));
 
--- Location: LCCOMB_X57_Y45_N24
+-- Location: LCCOMB_X67_Y47_N24
 \one_hz|fpga_cycle_count_2[25]~77\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count_2[25]~77_combout\ = (\one_hz|fpga_cycle_count_2\(25) & (!\one_hz|fpga_cycle_count_2[24]~76\)) # (!\one_hz|fpga_cycle_count_2\(25) & ((\one_hz|fpga_cycle_count_2[24]~76\) # (GND)))
@@ -4629,7 +3213,7 @@ PORT MAP (
 	combout => \one_hz|fpga_cycle_count_2[25]~77_combout\,
 	cout => \one_hz|fpga_cycle_count_2[25]~78\);
 
--- Location: FF_X57_Y45_N25
+-- Location: FF_X67_Y47_N25
 \one_hz|fpga_cycle_count_2[25]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4644,7 +3228,7 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count_2\(25));
 
--- Location: LCCOMB_X57_Y45_N26
+-- Location: LCCOMB_X67_Y47_N26
 \one_hz|fpga_cycle_count_2[26]~79\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|fpga_cycle_count_2[26]~79_combout\ = \one_hz|fpga_cycle_count_2\(26) $ (!\one_hz|fpga_cycle_count_2[25]~78\)
@@ -4659,7 +3243,7 @@ PORT MAP (
 	cin => \one_hz|fpga_cycle_count_2[25]~78\,
 	combout => \one_hz|fpga_cycle_count_2[26]~79_combout\);
 
--- Location: FF_X57_Y45_N27
+-- Location: FF_X67_Y47_N27
 \one_hz|fpga_cycle_count_2[26]\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4674,10 +3258,10 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|fpga_cycle_count_2\(26));
 
--- Location: LCCOMB_X57_Y45_N30
+-- Location: LCCOMB_X66_Y48_N30
 \one_hz|LessThan1~5\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \one_hz|LessThan1~5_combout\ = ((!\one_hz|fpga_cycle_count_2\(22)) # (!\one_hz|fpga_cycle_count_2\(20))) # (!\one_hz|fpga_cycle_count_2\(21))
+-- \one_hz|LessThan1~5_combout\ = ((!\one_hz|fpga_cycle_count_2\(20)) # (!\one_hz|fpga_cycle_count_2\(22))) # (!\one_hz|fpga_cycle_count_2\(21))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -4686,48 +3270,48 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	datab => \one_hz|fpga_cycle_count_2\(21),
-	datac => \one_hz|fpga_cycle_count_2\(20),
-	datad => \one_hz|fpga_cycle_count_2\(22),
+	datac => \one_hz|fpga_cycle_count_2\(22),
+	datad => \one_hz|fpga_cycle_count_2\(20),
 	combout => \one_hz|LessThan1~5_combout\);
 
--- Location: LCCOMB_X57_Y46_N0
+-- Location: LCCOMB_X66_Y48_N28
 \one_hz|LessThan1~4\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \one_hz|LessThan1~4_combout\ = (((!\one_hz|fpga_cycle_count_2\(17) & !\one_hz|fpga_cycle_count_2\(16))) # (!\one_hz|fpga_cycle_count_2\(19))) # (!\one_hz|fpga_cycle_count_2\(18))
+-- \one_hz|LessThan1~4_combout\ = (((!\one_hz|fpga_cycle_count_2\(16) & !\one_hz|fpga_cycle_count_2\(17))) # (!\one_hz|fpga_cycle_count_2\(19))) # (!\one_hz|fpga_cycle_count_2\(18))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0101011111111111",
+	lut_mask => "0101111101111111",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \one_hz|fpga_cycle_count_2\(18),
-	datab => \one_hz|fpga_cycle_count_2\(17),
-	datac => \one_hz|fpga_cycle_count_2\(16),
-	datad => \one_hz|fpga_cycle_count_2\(19),
+	datab => \one_hz|fpga_cycle_count_2\(16),
+	datac => \one_hz|fpga_cycle_count_2\(19),
+	datad => \one_hz|fpga_cycle_count_2\(17),
 	combout => \one_hz|LessThan1~4_combout\);
 
--- Location: LCCOMB_X57_Y46_N4
+-- Location: LCCOMB_X66_Y48_N4
 \one_hz|LessThan1~6\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|LessThan1~6_combout\ = ((!\one_hz|fpga_cycle_count_2\(23) & ((\one_hz|LessThan1~5_combout\) # (\one_hz|LessThan1~4_combout\)))) # (!\one_hz|fpga_cycle_count_2\(24))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0101111101001111",
+	lut_mask => "0111011101110101",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \one_hz|fpga_cycle_count_2\(23),
-	datab => \one_hz|LessThan1~5_combout\,
-	datac => \one_hz|fpga_cycle_count_2\(24),
+	dataa => \one_hz|fpga_cycle_count_2\(24),
+	datab => \one_hz|fpga_cycle_count_2\(23),
+	datac => \one_hz|LessThan1~5_combout\,
 	datad => \one_hz|LessThan1~4_combout\,
 	combout => \one_hz|LessThan1~6_combout\);
 
--- Location: LCCOMB_X56_Y46_N28
+-- Location: LCCOMB_X67_Y48_N4
 \one_hz|LessThan1~2\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \one_hz|LessThan1~2_combout\ = (!\one_hz|fpga_cycle_count_2\(8) & (!\one_hz|fpga_cycle_count_2\(6) & (!\one_hz|fpga_cycle_count_2\(7) & !\one_hz|fpga_cycle_count_2\(9))))
+-- \one_hz|LessThan1~2_combout\ = (!\one_hz|fpga_cycle_count_2\(7) & (!\one_hz|fpga_cycle_count_2\(6) & (!\one_hz|fpga_cycle_count_2\(8) & !\one_hz|fpga_cycle_count_2\(9))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -4735,16 +3319,16 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \one_hz|fpga_cycle_count_2\(8),
+	dataa => \one_hz|fpga_cycle_count_2\(7),
 	datab => \one_hz|fpga_cycle_count_2\(6),
-	datac => \one_hz|fpga_cycle_count_2\(7),
+	datac => \one_hz|fpga_cycle_count_2\(8),
 	datad => \one_hz|fpga_cycle_count_2\(9),
 	combout => \one_hz|LessThan1~2_combout\);
 
--- Location: LCCOMB_X57_Y45_N28
+-- Location: LCCOMB_X67_Y47_N28
 \one_hz|LessThan1~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \one_hz|LessThan1~0_combout\ = (!\one_hz|fpga_cycle_count_2\(23) & (!\one_hz|fpga_cycle_count_2\(17) & !\one_hz|fpga_cycle_count_2\(15)))
+-- \one_hz|LessThan1~0_combout\ = (!\one_hz|fpga_cycle_count_2\(15) & (!\one_hz|fpga_cycle_count_2\(17) & !\one_hz|fpga_cycle_count_2\(23)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -4752,15 +3336,15 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datab => \one_hz|fpga_cycle_count_2\(23),
+	datab => \one_hz|fpga_cycle_count_2\(15),
 	datac => \one_hz|fpga_cycle_count_2\(17),
-	datad => \one_hz|fpga_cycle_count_2\(15),
+	datad => \one_hz|fpga_cycle_count_2\(23),
 	combout => \one_hz|LessThan1~0_combout\);
 
--- Location: LCCOMB_X56_Y46_N30
+-- Location: LCCOMB_X67_Y47_N30
 \one_hz|LessThan1~1\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \one_hz|LessThan1~1_combout\ = (((!\one_hz|fpga_cycle_count_2\(11)) # (!\one_hz|fpga_cycle_count_2\(13))) # (!\one_hz|fpga_cycle_count_2\(14))) # (!\one_hz|fpga_cycle_count_2\(12))
+-- \one_hz|LessThan1~1_combout\ = (((!\one_hz|fpga_cycle_count_2\(13)) # (!\one_hz|fpga_cycle_count_2\(12))) # (!\one_hz|fpga_cycle_count_2\(14))) # (!\one_hz|fpga_cycle_count_2\(11))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -4768,13 +3352,13 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \one_hz|fpga_cycle_count_2\(12),
+	dataa => \one_hz|fpga_cycle_count_2\(11),
 	datab => \one_hz|fpga_cycle_count_2\(14),
-	datac => \one_hz|fpga_cycle_count_2\(13),
-	datad => \one_hz|fpga_cycle_count_2\(11),
+	datac => \one_hz|fpga_cycle_count_2\(12),
+	datad => \one_hz|fpga_cycle_count_2\(13),
 	combout => \one_hz|LessThan1~1_combout\);
 
--- Location: LCCOMB_X56_Y46_N14
+-- Location: LCCOMB_X67_Y48_N0
 \one_hz|LessThan1~3\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \one_hz|LessThan1~3_combout\ = (\one_hz|LessThan1~0_combout\ & ((\one_hz|LessThan1~1_combout\) # ((!\one_hz|fpga_cycle_count_2\(10) & \one_hz|LessThan1~2_combout\))))
@@ -4791,10 +3375,10 @@ PORT MAP (
 	datad => \one_hz|LessThan1~1_combout\,
 	combout => \one_hz|LessThan1~3_combout\);
 
--- Location: LCCOMB_X57_Y46_N2
+-- Location: LCCOMB_X67_Y48_N2
 \one_hz|LessThan1~7\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \one_hz|LessThan1~7_combout\ = (\one_hz|fpga_cycle_count_2\(26)) # ((\one_hz|fpga_cycle_count_2\(25)) # ((!\one_hz|LessThan1~6_combout\ & !\one_hz|LessThan1~3_combout\)))
+-- \one_hz|LessThan1~7_combout\ = (\one_hz|fpga_cycle_count_2\(25)) # ((\one_hz|fpga_cycle_count_2\(26)) # ((!\one_hz|LessThan1~6_combout\ & !\one_hz|LessThan1~3_combout\)))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -4802,13 +3386,13 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \one_hz|fpga_cycle_count_2\(26),
-	datab => \one_hz|fpga_cycle_count_2\(25),
+	dataa => \one_hz|fpga_cycle_count_2\(25),
+	datab => \one_hz|fpga_cycle_count_2\(26),
 	datac => \one_hz|LessThan1~6_combout\,
 	datad => \one_hz|LessThan1~3_combout\,
 	combout => \one_hz|LessThan1~7_combout\);
 
--- Location: FF_X57_Y46_N3
+-- Location: FF_X67_Y48_N3
 \one_hz|two_hz_clk_out\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4822,7 +3406,1457 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \one_hz|two_hz_clk_out~q\);
 
--- Location: LCCOMB_X58_Y46_N24
+-- Location: IOIBUF_X46_Y54_N29
+\KEY_0~input\ : fiftyfivenm_io_ibuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	listen_to_nsleep_signal => "false",
+	simulate_z_as => "z")
+-- pragma translate_on
+PORT MAP (
+	i => ww_KEY_0,
+	o => \KEY_0~input_o\);
+
+-- Location: IOIBUF_X49_Y54_N29
+\KEY_1~input\ : fiftyfivenm_io_ibuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	listen_to_nsleep_signal => "false",
+	simulate_z_as => "z")
+-- pragma translate_on
+PORT MAP (
+	i => ww_KEY_1,
+	o => \KEY_1~input_o\);
+
+-- Location: LCCOMB_X70_Y51_N26
+\increment_minute~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \increment_minute~0_combout\ = (\SW_9~input_o\ & (((\increment_minute~q\)))) # (!\SW_9~input_o\ & (!\KEY_0~input_o\ & ((\KEY_1~input_o\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1101000111000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KEY_0~input_o\,
+	datab => \SW_9~input_o\,
+	datac => \increment_minute~q\,
+	datad => \KEY_1~input_o\,
+	combout => \increment_minute~0_combout\);
+
+-- Location: FF_X70_Y51_N27
+increment_minute : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \one_hz|two_hz_clk_out~q\,
+	d => \increment_minute~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \increment_minute~q\);
+
+-- Location: LCCOMB_X70_Y51_N18
+\t_incrementer|min_clk_in\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|min_clk_in~combout\ = LCELL((\SW_9~input_o\ & (\update_count~q\)) # (!\SW_9~input_o\ & ((\increment_minute~q\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100110011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \update_count~q\,
+	datac => \increment_minute~q\,
+	datad => \SW_9~input_o\,
+	combout => \t_incrementer|min_clk_in~combout\);
+
+-- Location: CLKCTRL_G11
+\t_incrementer|min_clk_in~clkctrl\ : fiftyfivenm_clkctrl
+-- pragma translate_off
+GENERIC MAP (
+	clock_type => "global clock",
+	ena_register_mode => "none")
+-- pragma translate_on
+PORT MAP (
+	inclk => \t_incrementer|min_clk_in~clkctrl_INCLK_bus\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	outclk => \t_incrementer|min_clk_in~clkctrl_outclk\);
+
+-- Location: LCCOMB_X69_Y51_N0
+\t_incrementer|min_controller|min_unit_out[0]~2\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|min_controller|min_unit_out[0]~2_combout\ = !\t_buffer|min_unit_out\(0)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000011111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \t_buffer|min_unit_out\(0),
+	combout => \t_incrementer|min_controller|min_unit_out[0]~2_combout\);
+
+-- Location: LCCOMB_X69_Y51_N30
+\t_incrementer|min_controller|min_unit_out[0]~feeder\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|min_controller|min_unit_out[0]~feeder_combout\ = \t_incrementer|min_controller|min_unit_out[0]~2_combout\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100110011001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \t_incrementer|min_controller|min_unit_out[0]~2_combout\,
+	combout => \t_incrementer|min_controller|min_unit_out[0]~feeder_combout\);
+
+-- Location: FF_X69_Y51_N31
+\t_incrementer|min_controller|min_unit_out[0]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \t_incrementer|min_clk_in~clkctrl_outclk\,
+	d => \t_incrementer|min_controller|min_unit_out[0]~feeder_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_incrementer|min_controller|min_unit_out\(0));
+
+-- Location: FF_X69_Y51_N21
+\t_buffer|min_unit_out[0]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLK_FPGA~inputclkctrl_outclk\,
+	asdata => \t_incrementer|min_controller|min_unit_out\(0),
+	sload => VCC,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_buffer|min_unit_out\(0));
+
+-- Location: LCCOMB_X69_Y51_N18
+\t_incrementer|min_controller|Add0~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|min_controller|Add0~0_combout\ = \t_buffer|min_unit_out\(2) $ (((\t_buffer|min_unit_out\(1) & \t_buffer|min_unit_out\(0))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0101101011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|min_unit_out\(1),
+	datac => \t_buffer|min_unit_out\(2),
+	datad => \t_buffer|min_unit_out\(0),
+	combout => \t_incrementer|min_controller|Add0~0_combout\);
+
+-- Location: LCCOMB_X69_Y51_N4
+\t_incrementer|min_controller|min_unit_out[2]~feeder\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|min_controller|min_unit_out[2]~feeder_combout\ = \t_incrementer|min_controller|Add0~0_combout\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100110011001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \t_incrementer|min_controller|Add0~0_combout\,
+	combout => \t_incrementer|min_controller|min_unit_out[2]~feeder_combout\);
+
+-- Location: FF_X69_Y51_N5
+\t_incrementer|min_controller|min_unit_out[2]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \t_incrementer|min_clk_in~clkctrl_outclk\,
+	d => \t_incrementer|min_controller|min_unit_out[2]~feeder_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_incrementer|min_controller|min_unit_out\(2));
+
+-- Location: FF_X69_Y51_N17
+\t_buffer|min_unit_out[2]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLK_FPGA~inputclkctrl_outclk\,
+	asdata => \t_incrementer|min_controller|min_unit_out\(2),
+	sload => VCC,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_buffer|min_unit_out\(2));
+
+-- Location: LCCOMB_X69_Y51_N12
+\t_incrementer|min_controller|min_unit_out~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|min_controller|min_unit_out~0_combout\ = (\t_buffer|min_unit_out\(1) & (!\t_buffer|min_unit_out\(0))) # (!\t_buffer|min_unit_out\(1) & (\t_buffer|min_unit_out\(0) & ((\t_buffer|min_unit_out\(2)) # (!\t_buffer|min_unit_out\(3)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0110001001100110",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|min_unit_out\(1),
+	datab => \t_buffer|min_unit_out\(0),
+	datac => \t_buffer|min_unit_out\(2),
+	datad => \t_buffer|min_unit_out\(3),
+	combout => \t_incrementer|min_controller|min_unit_out~0_combout\);
+
+-- Location: LCCOMB_X69_Y51_N14
+\t_incrementer|min_controller|min_unit_out[1]~feeder\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|min_controller|min_unit_out[1]~feeder_combout\ = \t_incrementer|min_controller|min_unit_out~0_combout\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \t_incrementer|min_controller|min_unit_out~0_combout\,
+	combout => \t_incrementer|min_controller|min_unit_out[1]~feeder_combout\);
+
+-- Location: FF_X69_Y51_N15
+\t_incrementer|min_controller|min_unit_out[1]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \t_incrementer|min_clk_in~clkctrl_outclk\,
+	d => \t_incrementer|min_controller|min_unit_out[1]~feeder_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_incrementer|min_controller|min_unit_out\(1));
+
+-- Location: FF_X69_Y51_N9
+\t_buffer|min_unit_out[1]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLK_FPGA~inputclkctrl_outclk\,
+	asdata => \t_incrementer|min_controller|min_unit_out\(1),
+	sload => VCC,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_buffer|min_unit_out\(1));
+
+-- Location: LCCOMB_X69_Y51_N10
+\t_incrementer|min_controller|min_unit_out~1\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|min_controller|min_unit_out~1_combout\ = (\t_buffer|min_unit_out\(1) & (\t_buffer|min_unit_out\(3) $ (((\t_buffer|min_unit_out\(2) & \t_buffer|min_unit_out\(0)))))) # (!\t_buffer|min_unit_out\(1) & (\t_buffer|min_unit_out\(3) & 
+-- ((\t_buffer|min_unit_out\(2)) # (!\t_buffer|min_unit_out\(0)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0110100011001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|min_unit_out\(1),
+	datab => \t_buffer|min_unit_out\(3),
+	datac => \t_buffer|min_unit_out\(2),
+	datad => \t_buffer|min_unit_out\(0),
+	combout => \t_incrementer|min_controller|min_unit_out~1_combout\);
+
+-- Location: LCCOMB_X69_Y51_N22
+\t_incrementer|min_controller|min_unit_out[3]~feeder\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|min_controller|min_unit_out[3]~feeder_combout\ = \t_incrementer|min_controller|min_unit_out~1_combout\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \t_incrementer|min_controller|min_unit_out~1_combout\,
+	combout => \t_incrementer|min_controller|min_unit_out[3]~feeder_combout\);
+
+-- Location: FF_X69_Y51_N23
+\t_incrementer|min_controller|min_unit_out[3]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \t_incrementer|min_clk_in~clkctrl_outclk\,
+	d => \t_incrementer|min_controller|min_unit_out[3]~feeder_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_incrementer|min_controller|min_unit_out\(3));
+
+-- Location: FF_X69_Y51_N27
+\t_buffer|min_unit_out[3]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLK_FPGA~inputclkctrl_outclk\,
+	asdata => \t_incrementer|min_controller|min_unit_out\(3),
+	sload => VCC,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_buffer|min_unit_out\(3));
+
+-- Location: LCCOMB_X69_Y51_N6
+\t_incrementer|min_controller|Equal0~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|min_controller|Equal0~0_combout\ = (\t_buffer|min_unit_out\(3) & (!\t_buffer|min_unit_out\(2) & (!\t_buffer|min_unit_out\(1) & \t_buffer|min_unit_out\(0))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000001000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|min_unit_out\(3),
+	datab => \t_buffer|min_unit_out\(2),
+	datac => \t_buffer|min_unit_out\(1),
+	datad => \t_buffer|min_unit_out\(0),
+	combout => \t_incrementer|min_controller|Equal0~0_combout\);
+
+-- Location: LCCOMB_X71_Y51_N10
+\t_incrementer|min_controller|min_tens_out[0]~2\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|min_controller|min_tens_out[0]~2_combout\ = !\t_buffer|min_tens_out\(0)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000111100001111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \t_buffer|min_tens_out\(0),
+	combout => \t_incrementer|min_controller|min_tens_out[0]~2_combout\);
+
+-- Location: LCCOMB_X71_Y51_N14
+\t_incrementer|min_controller|min_tens_out[0]~feeder\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|min_controller|min_tens_out[0]~feeder_combout\ = \t_incrementer|min_controller|min_tens_out[0]~2_combout\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010101010101010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_incrementer|min_controller|min_tens_out[0]~2_combout\,
+	combout => \t_incrementer|min_controller|min_tens_out[0]~feeder_combout\);
+
+-- Location: FF_X71_Y51_N15
+\t_incrementer|min_controller|min_tens_out[0]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \t_incrementer|min_clk_in~clkctrl_outclk\,
+	d => \t_incrementer|min_controller|min_tens_out[0]~feeder_combout\,
+	ena => \t_incrementer|min_controller|Equal0~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_incrementer|min_controller|min_tens_out\(0));
+
+-- Location: FF_X71_Y51_N25
+\t_buffer|min_tens_out[0]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLK_FPGA~inputclkctrl_outclk\,
+	asdata => \t_incrementer|min_controller|min_tens_out\(0),
+	sload => VCC,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_buffer|min_tens_out\(0));
+
+-- Location: LCCOMB_X71_Y51_N6
+\t_incrementer|min_controller|min_tens_out~1\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|min_controller|min_tens_out~1_combout\ = (\t_buffer|min_tens_out\(0) & ((\t_buffer|min_tens_out\(1) & ((!\t_buffer|min_tens_out\(2)))) # (!\t_buffer|min_tens_out\(1) & (\t_buffer|min_tens_out\(3) & \t_buffer|min_tens_out\(2))))) # 
+-- (!\t_buffer|min_tens_out\(0) & (((\t_buffer|min_tens_out\(2)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0111010110001000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|min_tens_out\(0),
+	datab => \t_buffer|min_tens_out\(1),
+	datac => \t_buffer|min_tens_out\(3),
+	datad => \t_buffer|min_tens_out\(2),
+	combout => \t_incrementer|min_controller|min_tens_out~1_combout\);
+
+-- Location: LCCOMB_X71_Y51_N22
+\t_incrementer|min_controller|min_tens_out[2]~feeder\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|min_controller|min_tens_out[2]~feeder_combout\ = \t_incrementer|min_controller|min_tens_out~1_combout\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \t_incrementer|min_controller|min_tens_out~1_combout\,
+	combout => \t_incrementer|min_controller|min_tens_out[2]~feeder_combout\);
+
+-- Location: FF_X71_Y51_N23
+\t_incrementer|min_controller|min_tens_out[2]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \t_incrementer|min_clk_in~clkctrl_outclk\,
+	d => \t_incrementer|min_controller|min_tens_out[2]~feeder_combout\,
+	ena => \t_incrementer|min_controller|Equal0~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_incrementer|min_controller|min_tens_out\(2));
+
+-- Location: FF_X71_Y51_N3
+\t_buffer|min_tens_out[2]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLK_FPGA~inputclkctrl_outclk\,
+	asdata => \t_incrementer|min_controller|min_tens_out\(2),
+	sload => VCC,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_buffer|min_tens_out\(2));
+
+-- Location: LCCOMB_X71_Y51_N18
+\t_incrementer|min_controller|Add1~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|min_controller|Add1~0_combout\ = \t_buffer|min_tens_out\(3) $ (((\t_buffer|min_tens_out\(0) & (\t_buffer|min_tens_out\(1) & \t_buffer|min_tens_out\(2)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0111100011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|min_tens_out\(0),
+	datab => \t_buffer|min_tens_out\(1),
+	datac => \t_buffer|min_tens_out\(3),
+	datad => \t_buffer|min_tens_out\(2),
+	combout => \t_incrementer|min_controller|Add1~0_combout\);
+
+-- Location: LCCOMB_X71_Y51_N4
+\t_incrementer|min_controller|min_tens_out[3]~feeder\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|min_controller|min_tens_out[3]~feeder_combout\ = \t_incrementer|min_controller|Add1~0_combout\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100110011001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datab => \t_incrementer|min_controller|Add1~0_combout\,
+	combout => \t_incrementer|min_controller|min_tens_out[3]~feeder_combout\);
+
+-- Location: FF_X71_Y51_N5
+\t_incrementer|min_controller|min_tens_out[3]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \t_incrementer|min_clk_in~clkctrl_outclk\,
+	d => \t_incrementer|min_controller|min_tens_out[3]~feeder_combout\,
+	ena => \t_incrementer|min_controller|Equal0~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_incrementer|min_controller|min_tens_out\(3));
+
+-- Location: FF_X71_Y51_N9
+\t_buffer|min_tens_out[3]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLK_FPGA~inputclkctrl_outclk\,
+	asdata => \t_incrementer|min_controller|min_tens_out\(3),
+	sload => VCC,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_buffer|min_tens_out\(3));
+
+-- Location: LCCOMB_X71_Y51_N0
+\t_incrementer|min_controller|min_tens_out~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|min_controller|min_tens_out~0_combout\ = (\t_buffer|min_tens_out\(0) & (!\t_buffer|min_tens_out\(1) & ((\t_buffer|min_tens_out\(3)) # (!\t_buffer|min_tens_out\(2))))) # (!\t_buffer|min_tens_out\(0) & (\t_buffer|min_tens_out\(1)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0110010001100110",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|min_tens_out\(0),
+	datab => \t_buffer|min_tens_out\(1),
+	datac => \t_buffer|min_tens_out\(3),
+	datad => \t_buffer|min_tens_out\(2),
+	combout => \t_incrementer|min_controller|min_tens_out~0_combout\);
+
+-- Location: LCCOMB_X71_Y51_N26
+\t_incrementer|min_controller|min_tens_out[1]~feeder\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|min_controller|min_tens_out[1]~feeder_combout\ = \t_incrementer|min_controller|min_tens_out~0_combout\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010101010101010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_incrementer|min_controller|min_tens_out~0_combout\,
+	combout => \t_incrementer|min_controller|min_tens_out[1]~feeder_combout\);
+
+-- Location: FF_X71_Y51_N27
+\t_incrementer|min_controller|min_tens_out[1]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \t_incrementer|min_clk_in~clkctrl_outclk\,
+	d => \t_incrementer|min_controller|min_tens_out[1]~feeder_combout\,
+	ena => \t_incrementer|min_controller|Equal0~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_incrementer|min_controller|min_tens_out\(1));
+
+-- Location: FF_X71_Y51_N31
+\t_buffer|min_tens_out[1]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLK_FPGA~inputclkctrl_outclk\,
+	asdata => \t_incrementer|min_controller|min_tens_out\(1),
+	sload => VCC,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_buffer|min_tens_out\(1));
+
+-- Location: LCCOMB_X71_Y51_N16
+\t_incrementer|min_controller|Equal1~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|min_controller|Equal1~0_combout\ = (!\t_buffer|min_tens_out\(1) & (\t_buffer|min_tens_out\(2) & (!\t_buffer|min_tens_out\(3) & \t_buffer|min_tens_out\(0))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000010000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|min_tens_out\(1),
+	datab => \t_buffer|min_tens_out\(2),
+	datac => \t_buffer|min_tens_out\(3),
+	datad => \t_buffer|min_tens_out\(0),
+	combout => \t_incrementer|min_controller|Equal1~0_combout\);
+
+-- Location: LCCOMB_X70_Y51_N6
+\t_incrementer|min_controller|incr_hour~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|min_controller|incr_hour~0_combout\ = (\t_incrementer|min_controller|Equal0~0_combout\ & \t_incrementer|min_controller|Equal1~0_combout\)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \t_incrementer|min_controller|Equal0~0_combout\,
+	datad => \t_incrementer|min_controller|Equal1~0_combout\,
+	combout => \t_incrementer|min_controller|incr_hour~0_combout\);
+
+-- Location: FF_X70_Y51_N7
+\t_incrementer|min_controller|incr_hour\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \t_incrementer|min_clk_in~combout\,
+	d => \t_incrementer|min_controller|incr_hour~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_incrementer|min_controller|incr_hour~q\);
+
+-- Location: LCCOMB_X70_Y51_N22
+\increment_hour~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \increment_hour~0_combout\ = (\SW_9~input_o\ & (((\increment_hour~q\)))) # (!\SW_9~input_o\ & (\KEY_0~input_o\ & ((!\KEY_1~input_o\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1100000011100010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \KEY_0~input_o\,
+	datab => \SW_9~input_o\,
+	datac => \increment_hour~q\,
+	datad => \KEY_1~input_o\,
+	combout => \increment_hour~0_combout\);
+
+-- Location: FF_X70_Y51_N23
+increment_hour : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \one_hz|two_hz_clk_out~q\,
+	d => \increment_hour~0_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \increment_hour~q\);
+
+-- Location: LCCOMB_X70_Y51_N30
+\t_incrementer|hour_clk_in\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|hour_clk_in~combout\ = LCELL((\SW_9~input_o\ & (\t_incrementer|min_controller|incr_hour~q\)) # (!\SW_9~input_o\ & ((\increment_hour~q\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010101011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_incrementer|min_controller|incr_hour~q\,
+	datac => \increment_hour~q\,
+	datad => \SW_9~input_o\,
+	combout => \t_incrementer|hour_clk_in~combout\);
+
+-- Location: CLKCTRL_G13
+\t_incrementer|hour_clk_in~clkctrl\ : fiftyfivenm_clkctrl
+-- pragma translate_off
+GENERIC MAP (
+	clock_type => "global clock",
+	ena_register_mode => "none")
+-- pragma translate_on
+PORT MAP (
+	inclk => \t_incrementer|hour_clk_in~clkctrl_INCLK_bus\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	outclk => \t_incrementer|hour_clk_in~clkctrl_outclk\);
+
+-- Location: LCCOMB_X76_Y38_N20
+\t_incrementer|hr_controller|Add0~1\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|hr_controller|Add0~1_combout\ = \t_buffer|hour_tens_out\(3) $ (((\t_buffer|hour_tens_out\(2) & (\t_buffer|hour_tens_out\(0) & \t_buffer|hour_tens_out\(1)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0111100011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|hour_tens_out\(2),
+	datab => \t_buffer|hour_tens_out\(0),
+	datac => \t_buffer|hour_tens_out\(3),
+	datad => \t_buffer|hour_tens_out\(1),
+	combout => \t_incrementer|hr_controller|Add0~1_combout\);
+
+-- Location: LCCOMB_X76_Y38_N30
+\t_incrementer|hr_controller|hr_tens_out[3]~feeder\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|hr_controller|hr_tens_out[3]~feeder_combout\ = \t_incrementer|hr_controller|Add0~1_combout\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \t_incrementer|hr_controller|Add0~1_combout\,
+	combout => \t_incrementer|hr_controller|hr_tens_out[3]~feeder_combout\);
+
+-- Location: LCCOMB_X77_Y38_N12
+\t_incrementer|hr_controller|hr_unit_out[0]~7\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|hr_controller|hr_unit_out[0]~7_combout\ = !\t_buffer|hour_unit_out\(0)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000011111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \t_buffer|hour_unit_out\(0),
+	combout => \t_incrementer|hr_controller|hr_unit_out[0]~7_combout\);
+
+-- Location: LCCOMB_X77_Y38_N8
+\t_incrementer|hr_controller|hr_unit_out[0]~feeder\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|hr_controller|hr_unit_out[0]~feeder_combout\ = \t_incrementer|hr_controller|hr_unit_out[0]~7_combout\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \t_incrementer|hr_controller|hr_unit_out[0]~7_combout\,
+	combout => \t_incrementer|hr_controller|hr_unit_out[0]~feeder_combout\);
+
+-- Location: FF_X77_Y38_N9
+\t_incrementer|hr_controller|hr_unit_out[0]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \t_incrementer|hour_clk_in~clkctrl_outclk\,
+	d => \t_incrementer|hr_controller|hr_unit_out[0]~feeder_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_incrementer|hr_controller|hr_unit_out\(0));
+
+-- Location: FF_X77_Y38_N3
+\t_buffer|hour_unit_out[0]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLK_FPGA~inputclkctrl_outclk\,
+	asdata => \t_incrementer|hr_controller|hr_unit_out\(0),
+	sload => VCC,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_buffer|hour_unit_out\(0));
+
+-- Location: LCCOMB_X76_Y38_N6
+\t_incrementer|hr_controller|hr_tens_out~1\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|hr_controller|hr_tens_out~1_combout\ = (\t_buffer|hour_tens_out\(3)) # ((\t_buffer|hour_tens_out\(2)) # ((\t_buffer|hour_tens_out\(0)) # (!\t_buffer|hour_tens_out\(1))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111011111111",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|hour_tens_out\(3),
+	datab => \t_buffer|hour_tens_out\(2),
+	datac => \t_buffer|hour_tens_out\(0),
+	datad => \t_buffer|hour_tens_out\(1),
+	combout => \t_incrementer|hr_controller|hr_tens_out~1_combout\);
+
+-- Location: LCCOMB_X77_Y38_N18
+\t_incrementer|hr_controller|hr_unit_out~5\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|hr_controller|hr_unit_out~5_combout\ = (\t_buffer|hour_unit_out\(1) & (((!\t_buffer|hour_unit_out\(0))))) # (!\t_buffer|hour_unit_out\(1) & (\t_buffer|hour_unit_out\(0) & ((!\t_incrementer|hr_controller|hr_tens_out~1_combout\) # 
+-- (!\t_incrementer|hr_controller|hr_tens_out~2_combout\))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0001010110101010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|hour_unit_out\(1),
+	datab => \t_incrementer|hr_controller|hr_tens_out~2_combout\,
+	datac => \t_incrementer|hr_controller|hr_tens_out~1_combout\,
+	datad => \t_buffer|hour_unit_out\(0),
+	combout => \t_incrementer|hr_controller|hr_unit_out~5_combout\);
+
+-- Location: LCCOMB_X77_Y38_N22
+\t_incrementer|hr_controller|hr_unit_out[1]~feeder\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|hr_controller|hr_unit_out[1]~feeder_combout\ = \t_incrementer|hr_controller|hr_unit_out~5_combout\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010101010101010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_incrementer|hr_controller|hr_unit_out~5_combout\,
+	combout => \t_incrementer|hr_controller|hr_unit_out[1]~feeder_combout\);
+
+-- Location: FF_X77_Y38_N23
+\t_incrementer|hr_controller|hr_unit_out[1]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \t_incrementer|hour_clk_in~clkctrl_outclk\,
+	d => \t_incrementer|hr_controller|hr_unit_out[1]~feeder_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_incrementer|hr_controller|hr_unit_out\(1));
+
+-- Location: FF_X77_Y38_N13
+\t_buffer|hour_unit_out[1]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLK_FPGA~inputclkctrl_outclk\,
+	asdata => \t_incrementer|hr_controller|hr_unit_out\(1),
+	sload => VCC,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_buffer|hour_unit_out\(1));
+
+-- Location: LCCOMB_X77_Y38_N14
+\t_incrementer|hr_controller|hr_unit_out~6\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|hr_controller|hr_unit_out~6_combout\ = (!\t_incrementer|hr_controller|hr_tens_out~3_combout\ & (\t_buffer|hour_unit_out\(2) $ (((\t_buffer|hour_unit_out\(1) & \t_buffer|hour_unit_out\(0))))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0001001100100000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|hour_unit_out\(1),
+	datab => \t_incrementer|hr_controller|hr_tens_out~3_combout\,
+	datac => \t_buffer|hour_unit_out\(0),
+	datad => \t_buffer|hour_unit_out\(2),
+	combout => \t_incrementer|hr_controller|hr_unit_out~6_combout\);
+
+-- Location: FF_X77_Y38_N15
+\t_incrementer|hr_controller|hr_unit_out[2]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \t_incrementer|hour_clk_in~clkctrl_outclk\,
+	d => \t_incrementer|hr_controller|hr_unit_out~6_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_incrementer|hr_controller|hr_unit_out\(2));
+
+-- Location: FF_X77_Y38_N21
+\t_buffer|hour_unit_out[2]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLK_FPGA~inputclkctrl_outclk\,
+	asdata => \t_incrementer|hr_controller|hr_unit_out\(2),
+	sload => VCC,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_buffer|hour_unit_out\(2));
+
+-- Location: LCCOMB_X77_Y38_N20
+\t_incrementer|hr_controller|Add1~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|hr_controller|Add1~0_combout\ = (\t_buffer|hour_unit_out\(0) & \t_buffer|hour_unit_out\(1))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010101000000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|hour_unit_out\(0),
+	datad => \t_buffer|hour_unit_out\(1),
+	combout => \t_incrementer|hr_controller|Add1~0_combout\);
+
+-- Location: LCCOMB_X77_Y38_N10
+\t_incrementer|hr_controller|hr_unit_out~4\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|hr_controller|hr_unit_out~4_combout\ = (!\t_incrementer|hr_controller|hr_tens_out~3_combout\ & (\t_buffer|hour_unit_out\(3) $ (((\t_incrementer|hr_controller|Add1~0_combout\ & \t_buffer|hour_unit_out\(2))))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0001001000110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_incrementer|hr_controller|Add1~0_combout\,
+	datab => \t_incrementer|hr_controller|hr_tens_out~3_combout\,
+	datac => \t_buffer|hour_unit_out\(3),
+	datad => \t_buffer|hour_unit_out\(2),
+	combout => \t_incrementer|hr_controller|hr_unit_out~4_combout\);
+
+-- Location: FF_X77_Y38_N11
+\t_incrementer|hr_controller|hr_unit_out[3]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \t_incrementer|hour_clk_in~clkctrl_outclk\,
+	d => \t_incrementer|hr_controller|hr_unit_out~4_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_incrementer|hr_controller|hr_unit_out\(3));
+
+-- Location: LCCOMB_X77_Y38_N26
+\t_buffer|hour_unit_out[3]~feeder\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_buffer|hour_unit_out[3]~feeder_combout\ = \t_incrementer|hr_controller|hr_unit_out\(3)
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111100000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datad => \t_incrementer|hr_controller|hr_unit_out\(3),
+	combout => \t_buffer|hour_unit_out[3]~feeder_combout\);
+
+-- Location: FF_X77_Y38_N27
+\t_buffer|hour_unit_out[3]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLK_FPGA~inputclkctrl_outclk\,
+	d => \t_buffer|hour_unit_out[3]~feeder_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_buffer|hour_unit_out\(3));
+
+-- Location: LCCOMB_X77_Y38_N28
+\t_incrementer|hr_controller|hr_tens_out~2\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|hr_controller|hr_tens_out~2_combout\ = (!\t_buffer|hour_unit_out\(2) & (\t_buffer|hour_unit_out\(1) $ (\t_buffer|hour_unit_out\(3))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000010101010000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|hour_unit_out\(2),
+	datac => \t_buffer|hour_unit_out\(1),
+	datad => \t_buffer|hour_unit_out\(3),
+	combout => \t_incrementer|hr_controller|hr_tens_out~2_combout\);
+
+-- Location: LCCOMB_X76_Y38_N12
+\t_incrementer|hr_controller|hr_tens_out~3\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|hr_controller|hr_tens_out~3_combout\ = (\t_buffer|hour_unit_out\(0) & (\t_incrementer|hr_controller|hr_tens_out~2_combout\ & (\t_incrementer|hr_controller|hr_tens_out~1_combout\ $ (\t_buffer|hour_unit_out\(1)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000100010000000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|hour_unit_out\(0),
+	datab => \t_incrementer|hr_controller|hr_tens_out~2_combout\,
+	datac => \t_incrementer|hr_controller|hr_tens_out~1_combout\,
+	datad => \t_buffer|hour_unit_out\(1),
+	combout => \t_incrementer|hr_controller|hr_tens_out~3_combout\);
+
+-- Location: FF_X76_Y38_N31
+\t_incrementer|hr_controller|hr_tens_out[3]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \t_incrementer|hour_clk_in~clkctrl_outclk\,
+	d => \t_incrementer|hr_controller|hr_tens_out[3]~feeder_combout\,
+	ena => \t_incrementer|hr_controller|hr_tens_out~3_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_incrementer|hr_controller|hr_tens_out\(3));
+
+-- Location: FF_X76_Y38_N3
+\t_buffer|hour_tens_out[3]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLK_FPGA~inputclkctrl_outclk\,
+	asdata => \t_incrementer|hr_controller|hr_tens_out\(3),
+	sload => VCC,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_buffer|hour_tens_out\(3));
+
+-- Location: LCCOMB_X76_Y38_N24
+\t_incrementer|hr_controller|hr_tens_out~4\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|hr_controller|hr_tens_out~4_combout\ = (\t_buffer|hour_tens_out\(0) & (((!\t_buffer|hour_tens_out\(1))))) # (!\t_buffer|hour_tens_out\(0) & (\t_buffer|hour_tens_out\(1) & ((\t_buffer|hour_tens_out\(2)) # (\t_buffer|hour_tens_out\(3)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0011001011001100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|hour_tens_out\(2),
+	datab => \t_buffer|hour_tens_out\(0),
+	datac => \t_buffer|hour_tens_out\(3),
+	datad => \t_buffer|hour_tens_out\(1),
+	combout => \t_incrementer|hr_controller|hr_tens_out~4_combout\);
+
+-- Location: FF_X76_Y38_N15
+\t_incrementer|hr_controller|hr_tens_out[1]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \t_incrementer|hour_clk_in~clkctrl_outclk\,
+	asdata => \t_incrementer|hr_controller|hr_tens_out~4_combout\,
+	sload => VCC,
+	ena => \t_incrementer|hr_controller|hr_tens_out~3_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_incrementer|hr_controller|hr_tens_out\(1));
+
+-- Location: FF_X76_Y38_N19
+\t_buffer|hour_tens_out[1]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLK_FPGA~inputclkctrl_outclk\,
+	asdata => \t_incrementer|hr_controller|hr_tens_out\(1),
+	sload => VCC,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_buffer|hour_tens_out\(1));
+
+-- Location: LCCOMB_X76_Y38_N26
+\t_incrementer|hr_controller|hr_tens_out~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|hr_controller|hr_tens_out~0_combout\ = (!\t_buffer|hour_tens_out\(0) & ((\t_buffer|hour_tens_out\(2)) # ((\t_buffer|hour_tens_out\(3)) # (!\t_buffer|hour_tens_out\(1)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000011111011",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|hour_tens_out\(2),
+	datab => \t_buffer|hour_tens_out\(1),
+	datac => \t_buffer|hour_tens_out\(3),
+	datad => \t_buffer|hour_tens_out\(0),
+	combout => \t_incrementer|hr_controller|hr_tens_out~0_combout\);
+
+-- Location: LCCOMB_X76_Y38_N8
+\t_incrementer|hr_controller|hr_tens_out[0]~feeder\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|hr_controller|hr_tens_out[0]~feeder_combout\ = \t_incrementer|hr_controller|hr_tens_out~0_combout\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111000011110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	datac => \t_incrementer|hr_controller|hr_tens_out~0_combout\,
+	combout => \t_incrementer|hr_controller|hr_tens_out[0]~feeder_combout\);
+
+-- Location: FF_X76_Y38_N9
+\t_incrementer|hr_controller|hr_tens_out[0]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \t_incrementer|hour_clk_in~clkctrl_outclk\,
+	d => \t_incrementer|hr_controller|hr_tens_out[0]~feeder_combout\,
+	ena => \t_incrementer|hr_controller|hr_tens_out~3_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_incrementer|hr_controller|hr_tens_out\(0));
+
+-- Location: FF_X76_Y38_N11
+\t_buffer|hour_tens_out[0]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLK_FPGA~inputclkctrl_outclk\,
+	asdata => \t_incrementer|hr_controller|hr_tens_out\(0),
+	sload => VCC,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_buffer|hour_tens_out\(0));
+
+-- Location: LCCOMB_X76_Y38_N2
+\t_incrementer|hr_controller|Add0~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|hr_controller|Add0~0_combout\ = \t_buffer|hour_tens_out\(2) $ (((\t_buffer|hour_tens_out\(0) & \t_buffer|hour_tens_out\(1))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0110011010101010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|hour_tens_out\(2),
+	datab => \t_buffer|hour_tens_out\(0),
+	datad => \t_buffer|hour_tens_out\(1),
+	combout => \t_incrementer|hr_controller|Add0~0_combout\);
+
+-- Location: LCCOMB_X76_Y38_N22
+\t_incrementer|hr_controller|hr_tens_out[2]~feeder\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \t_incrementer|hr_controller|hr_tens_out[2]~feeder_combout\ = \t_incrementer|hr_controller|Add0~0_combout\
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010101010101010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_incrementer|hr_controller|Add0~0_combout\,
+	combout => \t_incrementer|hr_controller|hr_tens_out[2]~feeder_combout\);
+
+-- Location: FF_X76_Y38_N23
+\t_incrementer|hr_controller|hr_tens_out[2]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \t_incrementer|hour_clk_in~clkctrl_outclk\,
+	d => \t_incrementer|hr_controller|hr_tens_out[2]~feeder_combout\,
+	ena => \t_incrementer|hr_controller|hr_tens_out~3_combout\,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_incrementer|hr_controller|hr_tens_out\(2));
+
+-- Location: FF_X76_Y38_N1
+\t_buffer|hour_tens_out[2]\ : dffeas
+-- pragma translate_off
+GENERIC MAP (
+	is_wysiwyg => "true",
+	power_up => "low")
+-- pragma translate_on
+PORT MAP (
+	clk => \CLK_FPGA~inputclkctrl_outclk\,
+	asdata => \t_incrementer|hr_controller|hr_tens_out\(2),
+	sload => VCC,
+	devclrn => ww_devclrn,
+	devpor => ww_devpor,
+	q => \t_buffer|hour_tens_out\(2));
+
+-- Location: LCCOMB_X76_Y38_N16
+\hour_tens_seg|Mux6~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \hour_tens_seg|Mux6~0_combout\ = (!\t_buffer|hour_tens_out\(1) & (!\t_buffer|hour_tens_out\(3) & (\t_buffer|hour_tens_out\(2) $ (\t_buffer|hour_tens_out\(0)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000010010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|hour_tens_out\(2),
+	datab => \t_buffer|hour_tens_out\(1),
+	datac => \t_buffer|hour_tens_out\(0),
+	datad => \t_buffer|hour_tens_out\(3),
+	combout => \hour_tens_seg|Mux6~0_combout\);
+
+-- Location: LCCOMB_X76_Y38_N4
+\hour_tens_seg|Mux5~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \hour_tens_seg|Mux5~0_combout\ = (\t_buffer|hour_tens_out\(2) & ((\t_buffer|hour_tens_out\(3)) # (\t_buffer|hour_tens_out\(1) $ (\t_buffer|hour_tens_out\(0))))) # (!\t_buffer|hour_tens_out\(2) & (\t_buffer|hour_tens_out\(1) & 
+-- ((\t_buffer|hour_tens_out\(3)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110111000101000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|hour_tens_out\(2),
+	datab => \t_buffer|hour_tens_out\(1),
+	datac => \t_buffer|hour_tens_out\(0),
+	datad => \t_buffer|hour_tens_out\(3),
+	combout => \hour_tens_seg|Mux5~0_combout\);
+
+-- Location: LCCOMB_X75_Y38_N4
+\hour_tens_seg|Mux4~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \hour_tens_seg|Mux4~0_combout\ = (\t_buffer|hour_tens_out\(2) & (\t_buffer|hour_tens_out\(3))) # (!\t_buffer|hour_tens_out\(2) & (\t_buffer|hour_tens_out\(1) & ((\t_buffer|hour_tens_out\(3)) # (!\t_buffer|hour_tens_out\(0)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1010100010101100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|hour_tens_out\(3),
+	datab => \t_buffer|hour_tens_out\(1),
+	datac => \t_buffer|hour_tens_out\(2),
+	datad => \t_buffer|hour_tens_out\(0),
+	combout => \hour_tens_seg|Mux4~0_combout\);
+
+-- Location: LCCOMB_X76_Y38_N10
+\hour_tens_seg|Mux3~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \hour_tens_seg|Mux3~0_combout\ = (\t_buffer|hour_tens_out\(2) & (!\t_buffer|hour_tens_out\(3) & (\t_buffer|hour_tens_out\(1) $ (!\t_buffer|hour_tens_out\(0))))) # (!\t_buffer|hour_tens_out\(2) & (((!\t_buffer|hour_tens_out\(1) & 
+-- \t_buffer|hour_tens_out\(0)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0100000100110000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|hour_tens_out\(3),
+	datab => \t_buffer|hour_tens_out\(1),
+	datac => \t_buffer|hour_tens_out\(0),
+	datad => \t_buffer|hour_tens_out\(2),
+	combout => \hour_tens_seg|Mux3~0_combout\);
+
+-- Location: LCCOMB_X76_Y38_N28
+\hour_tens_seg|Mux2~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \hour_tens_seg|Mux2~0_combout\ = (\t_buffer|hour_tens_out\(1) & (((\t_buffer|hour_tens_out\(0) & !\t_buffer|hour_tens_out\(3))))) # (!\t_buffer|hour_tens_out\(1) & ((\t_buffer|hour_tens_out\(2) & ((!\t_buffer|hour_tens_out\(3)))) # 
+-- (!\t_buffer|hour_tens_out\(2) & (\t_buffer|hour_tens_out\(0)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0001000011110010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|hour_tens_out\(2),
+	datab => \t_buffer|hour_tens_out\(1),
+	datac => \t_buffer|hour_tens_out\(0),
+	datad => \t_buffer|hour_tens_out\(3),
+	combout => \hour_tens_seg|Mux2~0_combout\);
+
+-- Location: LCCOMB_X76_Y38_N0
+\hour_tens_seg|Mux1~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \hour_tens_seg|Mux1~0_combout\ = (!\t_buffer|hour_tens_out\(3) & ((\t_buffer|hour_tens_out\(0) & ((\t_buffer|hour_tens_out\(1)) # (!\t_buffer|hour_tens_out\(2)))) # (!\t_buffer|hour_tens_out\(0) & (!\t_buffer|hour_tens_out\(2) & 
+-- \t_buffer|hour_tens_out\(1)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0100010100000100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|hour_tens_out\(3),
+	datab => \t_buffer|hour_tens_out\(0),
+	datac => \t_buffer|hour_tens_out\(2),
+	datad => \t_buffer|hour_tens_out\(1),
+	combout => \hour_tens_seg|Mux1~0_combout\);
+
+-- Location: LCCOMB_X76_Y38_N18
+\hour_tens_seg|Mux0~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \hour_tens_seg|Mux0~0_combout\ = (\t_buffer|hour_tens_out\(3)) # ((\t_buffer|hour_tens_out\(1) & ((!\t_buffer|hour_tens_out\(2)) # (!\t_buffer|hour_tens_out\(0)))) # (!\t_buffer|hour_tens_out\(1) & ((\t_buffer|hour_tens_out\(2)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1011111111111010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|hour_tens_out\(3),
+	datab => \t_buffer|hour_tens_out\(0),
+	datac => \t_buffer|hour_tens_out\(1),
+	datad => \t_buffer|hour_tens_out\(2),
+	combout => \hour_tens_seg|Mux0~0_combout\);
+
+-- Location: LCCOMB_X77_Y38_N2
+\hour_unit_seg|Mux6~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \hour_unit_seg|Mux6~0_combout\ = (!\t_buffer|hour_unit_out\(1) & (!\t_buffer|hour_unit_out\(3) & (\t_buffer|hour_unit_out\(2) $ (\t_buffer|hour_unit_out\(0)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000000010010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|hour_unit_out\(2),
+	datab => \t_buffer|hour_unit_out\(1),
+	datac => \t_buffer|hour_unit_out\(0),
+	datad => \t_buffer|hour_unit_out\(3),
+	combout => \hour_unit_seg|Mux6~0_combout\);
+
+-- Location: LCCOMB_X77_Y38_N6
+\hour_unit_seg|Mux5~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \hour_unit_seg|Mux5~0_combout\ = (\t_buffer|hour_unit_out\(2) & ((\t_buffer|hour_unit_out\(3)) # (\t_buffer|hour_unit_out\(1) $ (\t_buffer|hour_unit_out\(0))))) # (!\t_buffer|hour_unit_out\(2) & (\t_buffer|hour_unit_out\(1) & 
+-- ((\t_buffer|hour_unit_out\(3)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110111000101000",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|hour_unit_out\(2),
+	datab => \t_buffer|hour_unit_out\(1),
+	datac => \t_buffer|hour_unit_out\(0),
+	datad => \t_buffer|hour_unit_out\(3),
+	combout => \hour_unit_seg|Mux5~0_combout\);
+
+-- Location: LCCOMB_X77_Y38_N24
+\hour_unit_seg|Mux4~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \hour_unit_seg|Mux4~0_combout\ = (\t_buffer|hour_unit_out\(2) & (((\t_buffer|hour_unit_out\(3))))) # (!\t_buffer|hour_unit_out\(2) & (\t_buffer|hour_unit_out\(1) & ((\t_buffer|hour_unit_out\(3)) # (!\t_buffer|hour_unit_out\(0)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1110111000000100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|hour_unit_out\(2),
+	datab => \t_buffer|hour_unit_out\(1),
+	datac => \t_buffer|hour_unit_out\(0),
+	datad => \t_buffer|hour_unit_out\(3),
+	combout => \hour_unit_seg|Mux4~0_combout\);
+
+-- Location: LCCOMB_X77_Y38_N30
+\hour_unit_seg|Mux3~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \hour_unit_seg|Mux3~0_combout\ = (\t_buffer|hour_unit_out\(2) & (!\t_buffer|hour_unit_out\(3) & (\t_buffer|hour_unit_out\(1) $ (!\t_buffer|hour_unit_out\(0))))) # (!\t_buffer|hour_unit_out\(2) & (!\t_buffer|hour_unit_out\(1) & 
+-- (\t_buffer|hour_unit_out\(0))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0001000010010010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|hour_unit_out\(2),
+	datab => \t_buffer|hour_unit_out\(1),
+	datac => \t_buffer|hour_unit_out\(0),
+	datad => \t_buffer|hour_unit_out\(3),
+	combout => \hour_unit_seg|Mux3~0_combout\);
+
+-- Location: LCCOMB_X77_Y38_N16
+\hour_unit_seg|Mux2~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \hour_unit_seg|Mux2~0_combout\ = (\t_buffer|hour_unit_out\(1) & (((\t_buffer|hour_unit_out\(0) & !\t_buffer|hour_unit_out\(3))))) # (!\t_buffer|hour_unit_out\(1) & ((\t_buffer|hour_unit_out\(2) & ((!\t_buffer|hour_unit_out\(3)))) # 
+-- (!\t_buffer|hour_unit_out\(2) & (\t_buffer|hour_unit_out\(0)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0001000011110010",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|hour_unit_out\(2),
+	datab => \t_buffer|hour_unit_out\(1),
+	datac => \t_buffer|hour_unit_out\(0),
+	datad => \t_buffer|hour_unit_out\(3),
+	combout => \hour_unit_seg|Mux2~0_combout\);
+
+-- Location: LCCOMB_X77_Y38_N0
+\hour_unit_seg|Mux1~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \hour_unit_seg|Mux1~0_combout\ = (!\t_buffer|hour_unit_out\(3) & ((\t_buffer|hour_unit_out\(2) & (\t_buffer|hour_unit_out\(1) & \t_buffer|hour_unit_out\(0))) # (!\t_buffer|hour_unit_out\(2) & ((\t_buffer|hour_unit_out\(1)) # 
+-- (\t_buffer|hour_unit_out\(0))))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000011010100",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|hour_unit_out\(2),
+	datab => \t_buffer|hour_unit_out\(1),
+	datac => \t_buffer|hour_unit_out\(0),
+	datad => \t_buffer|hour_unit_out\(3),
+	combout => \hour_unit_seg|Mux1~0_combout\);
+
+-- Location: LCCOMB_X77_Y38_N4
+\hour_unit_seg|Mux0~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \hour_unit_seg|Mux0~0_combout\ = (\t_buffer|hour_unit_out\(3)) # ((\t_buffer|hour_unit_out\(2) & ((!\t_buffer|hour_unit_out\(0)) # (!\t_buffer|hour_unit_out\(1)))) # (!\t_buffer|hour_unit_out\(2) & (\t_buffer|hour_unit_out\(1))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "1111111101101110",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|hour_unit_out\(2),
+	datab => \t_buffer|hour_unit_out\(1),
+	datac => \t_buffer|hour_unit_out\(0),
+	datad => \t_buffer|hour_unit_out\(3),
+	combout => \hour_unit_seg|Mux0~0_combout\);
+
+-- Location: LCCOMB_X70_Y51_N0
 \s_ind|point~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \s_ind|point~0_combout\ = (!\SW_9~input_o\) # (!\s_ind|point~q\)
@@ -4837,7 +4871,7 @@ PORT MAP (
 	datad => \SW_9~input_o\,
 	combout => \s_ind|point~0_combout\);
 
--- Location: FF_X58_Y46_N25
+-- Location: FF_X70_Y51_N1
 \s_ind|point\ : dffeas
 -- pragma translate_off
 GENERIC MAP (
@@ -4851,110 +4885,110 @@ PORT MAP (
 	devpor => ww_devpor,
 	q => \s_ind|point~q\);
 
--- Location: LCCOMB_X56_Y50_N28
+-- Location: LCCOMB_X71_Y51_N12
 \min_tens_seg|Mux6~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \min_tens_seg|Mux6~0_combout\ = (!\t_buffer|min_tens_out\(3) & (!\t_buffer|min_tens_out\(1) & (\t_buffer|min_tens_out\(2) $ (\t_buffer|min_tens_out\(0)))))
+-- \min_tens_seg|Mux6~0_combout\ = (!\t_buffer|min_tens_out\(3) & (!\t_buffer|min_tens_out\(1) & (\t_buffer|min_tens_out\(0) $ (\t_buffer|min_tens_out\(2)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000000000010010",
+	lut_mask => "0000000000000110",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \t_buffer|min_tens_out\(2),
-	datab => \t_buffer|min_tens_out\(3),
-	datac => \t_buffer|min_tens_out\(0),
+	dataa => \t_buffer|min_tens_out\(0),
+	datab => \t_buffer|min_tens_out\(2),
+	datac => \t_buffer|min_tens_out\(3),
 	datad => \t_buffer|min_tens_out\(1),
 	combout => \min_tens_seg|Mux6~0_combout\);
 
--- Location: LCCOMB_X56_Y50_N20
+-- Location: LCCOMB_X71_Y51_N28
 \min_tens_seg|Mux5~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \min_tens_seg|Mux5~0_combout\ = (\t_buffer|min_tens_out\(2) & ((\t_buffer|min_tens_out\(3)) # (\t_buffer|min_tens_out\(0) $ (\t_buffer|min_tens_out\(1))))) # (!\t_buffer|min_tens_out\(2) & (\t_buffer|min_tens_out\(3) & ((\t_buffer|min_tens_out\(1)))))
+-- \min_tens_seg|Mux5~0_combout\ = (\t_buffer|min_tens_out\(2) & ((\t_buffer|min_tens_out\(3)) # (\t_buffer|min_tens_out\(0) $ (\t_buffer|min_tens_out\(1))))) # (!\t_buffer|min_tens_out\(2) & (((\t_buffer|min_tens_out\(3) & \t_buffer|min_tens_out\(1)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1100111010101000",
+	lut_mask => "1111010011001000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \t_buffer|min_tens_out\(2),
-	datab => \t_buffer|min_tens_out\(3),
-	datac => \t_buffer|min_tens_out\(0),
+	dataa => \t_buffer|min_tens_out\(0),
+	datab => \t_buffer|min_tens_out\(2),
+	datac => \t_buffer|min_tens_out\(3),
 	datad => \t_buffer|min_tens_out\(1),
 	combout => \min_tens_seg|Mux5~0_combout\);
 
--- Location: LCCOMB_X56_Y50_N14
+-- Location: LCCOMB_X71_Y51_N20
 \min_tens_seg|Mux4~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \min_tens_seg|Mux4~0_combout\ = (\t_buffer|min_tens_out\(2) & (\t_buffer|min_tens_out\(3))) # (!\t_buffer|min_tens_out\(2) & (\t_buffer|min_tens_out\(1) & ((\t_buffer|min_tens_out\(3)) # (!\t_buffer|min_tens_out\(0)))))
+-- \min_tens_seg|Mux4~0_combout\ = (\t_buffer|min_tens_out\(2) & (((\t_buffer|min_tens_out\(3))))) # (!\t_buffer|min_tens_out\(2) & (\t_buffer|min_tens_out\(1) & ((\t_buffer|min_tens_out\(3)) # (!\t_buffer|min_tens_out\(0)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1100110110001000",
+	lut_mask => "1111000111000000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \t_buffer|min_tens_out\(2),
-	datab => \t_buffer|min_tens_out\(3),
-	datac => \t_buffer|min_tens_out\(0),
+	dataa => \t_buffer|min_tens_out\(0),
+	datab => \t_buffer|min_tens_out\(2),
+	datac => \t_buffer|min_tens_out\(3),
 	datad => \t_buffer|min_tens_out\(1),
 	combout => \min_tens_seg|Mux4~0_combout\);
 
--- Location: LCCOMB_X56_Y50_N6
+-- Location: LCCOMB_X71_Y51_N24
 \min_tens_seg|Mux3~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \min_tens_seg|Mux3~0_combout\ = (\t_buffer|min_tens_out\(2) & (!\t_buffer|min_tens_out\(3) & (\t_buffer|min_tens_out\(0) $ (!\t_buffer|min_tens_out\(1))))) # (!\t_buffer|min_tens_out\(2) & (((\t_buffer|min_tens_out\(0) & !\t_buffer|min_tens_out\(1)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0010000001010010",
+	lut_mask => "0100000000110100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \t_buffer|min_tens_out\(2),
-	datab => \t_buffer|min_tens_out\(3),
+	dataa => \t_buffer|min_tens_out\(3),
+	datab => \t_buffer|min_tens_out\(2),
 	datac => \t_buffer|min_tens_out\(0),
 	datad => \t_buffer|min_tens_out\(1),
 	combout => \min_tens_seg|Mux3~0_combout\);
 
--- Location: LCCOMB_X56_Y50_N0
+-- Location: LCCOMB_X71_Y51_N30
 \min_tens_seg|Mux2~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \min_tens_seg|Mux2~0_combout\ = (\t_buffer|min_tens_out\(1) & (\t_buffer|min_tens_out\(0) & (!\t_buffer|min_tens_out\(3)))) # (!\t_buffer|min_tens_out\(1) & ((\t_buffer|min_tens_out\(2) & ((!\t_buffer|min_tens_out\(3)))) # (!\t_buffer|min_tens_out\(2) & 
--- (\t_buffer|min_tens_out\(0)))))
+-- \min_tens_seg|Mux2~0_combout\ = (\t_buffer|min_tens_out\(1) & (!\t_buffer|min_tens_out\(3) & (\t_buffer|min_tens_out\(0)))) # (!\t_buffer|min_tens_out\(1) & ((\t_buffer|min_tens_out\(2) & (!\t_buffer|min_tens_out\(3))) # (!\t_buffer|min_tens_out\(2) & 
+-- ((\t_buffer|min_tens_out\(0))))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0010001100101010",
+	lut_mask => "0100010101001100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \t_buffer|min_tens_out\(0),
-	datab => \t_buffer|min_tens_out\(3),
+	dataa => \t_buffer|min_tens_out\(3),
+	datab => \t_buffer|min_tens_out\(0),
 	datac => \t_buffer|min_tens_out\(1),
 	datad => \t_buffer|min_tens_out\(2),
 	combout => \min_tens_seg|Mux2~0_combout\);
 
--- Location: LCCOMB_X56_Y50_N24
+-- Location: LCCOMB_X71_Y51_N2
 \min_tens_seg|Mux1~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \min_tens_seg|Mux1~0_combout\ = (!\t_buffer|min_tens_out\(3) & ((\t_buffer|min_tens_out\(0) & ((\t_buffer|min_tens_out\(1)) # (!\t_buffer|min_tens_out\(2)))) # (!\t_buffer|min_tens_out\(0) & (!\t_buffer|min_tens_out\(2) & \t_buffer|min_tens_out\(1)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0010001100000010",
+	lut_mask => "0100010100000100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \t_buffer|min_tens_out\(0),
-	datab => \t_buffer|min_tens_out\(3),
+	dataa => \t_buffer|min_tens_out\(3),
+	datab => \t_buffer|min_tens_out\(0),
 	datac => \t_buffer|min_tens_out\(2),
 	datad => \t_buffer|min_tens_out\(1),
 	combout => \min_tens_seg|Mux1~0_combout\);
 
--- Location: LCCOMB_X56_Y50_N16
+-- Location: LCCOMB_X71_Y51_N8
 \min_tens_seg|Mux0~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \min_tens_seg|Mux0~0_combout\ = (\t_buffer|min_tens_out\(3)) # ((\t_buffer|min_tens_out\(2) & ((!\t_buffer|min_tens_out\(1)) # (!\t_buffer|min_tens_out\(0)))) # (!\t_buffer|min_tens_out\(2) & ((\t_buffer|min_tens_out\(1)))))
@@ -4971,7 +5005,7 @@ PORT MAP (
 	datad => \t_buffer|min_tens_out\(1),
 	combout => \min_tens_seg|Mux0~0_combout\);
 
--- Location: LCCOMB_X58_Y50_N20
+-- Location: LCCOMB_X69_Y51_N2
 \min_unit_seg|Mux6~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \min_unit_seg|Mux6~0_combout\ = (!\t_buffer|min_unit_out\(3) & (!\t_buffer|min_unit_out\(1) & (\t_buffer|min_unit_out\(2) $ (\t_buffer|min_unit_out\(0)))))
@@ -4988,7 +5022,7 @@ PORT MAP (
 	datad => \t_buffer|min_unit_out\(1),
 	combout => \min_unit_seg|Mux6~0_combout\);
 
--- Location: LCCOMB_X58_Y50_N10
+-- Location: LCCOMB_X69_Y51_N24
 \min_unit_seg|Mux5~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
 -- \min_unit_seg|Mux5~0_combout\ = (\t_buffer|min_unit_out\(2) & ((\t_buffer|min_unit_out\(3)) # (\t_buffer|min_unit_out\(0) $ (\t_buffer|min_unit_out\(1))))) # (!\t_buffer|min_unit_out\(2) & (\t_buffer|min_unit_out\(3) & ((\t_buffer|min_unit_out\(1)))))
@@ -5005,79 +5039,79 @@ PORT MAP (
 	datad => \t_buffer|min_unit_out\(1),
 	combout => \min_unit_seg|Mux5~0_combout\);
 
--- Location: LCCOMB_X58_Y50_N22
+-- Location: LCCOMB_X69_Y51_N28
 \min_unit_seg|Mux4~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \min_unit_seg|Mux4~0_combout\ = (\t_buffer|min_unit_out\(2) & (\t_buffer|min_unit_out\(3))) # (!\t_buffer|min_unit_out\(2) & (\t_buffer|min_unit_out\(1) & ((\t_buffer|min_unit_out\(3)) # (!\t_buffer|min_unit_out\(0)))))
+-- \min_unit_seg|Mux4~0_combout\ = (\t_buffer|min_unit_out\(2) & (((\t_buffer|min_unit_out\(3))))) # (!\t_buffer|min_unit_out\(2) & (\t_buffer|min_unit_out\(1) & ((\t_buffer|min_unit_out\(3)) # (!\t_buffer|min_unit_out\(0)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1100110110001000",
+	lut_mask => "1111000010100010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \t_buffer|min_unit_out\(2),
-	datab => \t_buffer|min_unit_out\(3),
-	datac => \t_buffer|min_unit_out\(0),
-	datad => \t_buffer|min_unit_out\(1),
+	dataa => \t_buffer|min_unit_out\(1),
+	datab => \t_buffer|min_unit_out\(0),
+	datac => \t_buffer|min_unit_out\(3),
+	datad => \t_buffer|min_unit_out\(2),
 	combout => \min_unit_seg|Mux4~0_combout\);
 
--- Location: LCCOMB_X58_Y50_N28
+-- Location: LCCOMB_X69_Y51_N20
 \min_unit_seg|Mux3~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \min_unit_seg|Mux3~0_combout\ = (\t_buffer|min_unit_out\(2) & (!\t_buffer|min_unit_out\(3) & (\t_buffer|min_unit_out\(0) $ (!\t_buffer|min_unit_out\(1))))) # (!\t_buffer|min_unit_out\(2) & (((\t_buffer|min_unit_out\(0) & !\t_buffer|min_unit_out\(1)))))
+-- \min_unit_seg|Mux3~0_combout\ = (\t_buffer|min_unit_out\(2) & (!\t_buffer|min_unit_out\(3) & (\t_buffer|min_unit_out\(1) $ (!\t_buffer|min_unit_out\(0))))) # (!\t_buffer|min_unit_out\(2) & (!\t_buffer|min_unit_out\(1) & ((\t_buffer|min_unit_out\(0)))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0010000001010010",
+	lut_mask => "0010000101010000",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \t_buffer|min_unit_out\(2),
+	dataa => \t_buffer|min_unit_out\(1),
 	datab => \t_buffer|min_unit_out\(3),
 	datac => \t_buffer|min_unit_out\(0),
-	datad => \t_buffer|min_unit_out\(1),
+	datad => \t_buffer|min_unit_out\(2),
 	combout => \min_unit_seg|Mux3~0_combout\);
 
--- Location: LCCOMB_X58_Y50_N12
+-- Location: LCCOMB_X69_Y51_N8
 \min_unit_seg|Mux2~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \min_unit_seg|Mux2~0_combout\ = (\t_buffer|min_unit_out\(1) & (((\t_buffer|min_unit_out\(0) & !\t_buffer|min_unit_out\(3))))) # (!\t_buffer|min_unit_out\(1) & ((\t_buffer|min_unit_out\(2) & ((!\t_buffer|min_unit_out\(3)))) # (!\t_buffer|min_unit_out\(2) & 
--- (\t_buffer|min_unit_out\(0)))))
+-- \min_unit_seg|Mux2~0_combout\ = (\t_buffer|min_unit_out\(1) & (!\t_buffer|min_unit_out\(3) & (\t_buffer|min_unit_out\(0)))) # (!\t_buffer|min_unit_out\(1) & ((\t_buffer|min_unit_out\(2) & (!\t_buffer|min_unit_out\(3))) # (!\t_buffer|min_unit_out\(2) & 
+-- ((\t_buffer|min_unit_out\(0))))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0000010011001110",
-	sum_lutc_input => "datac")
--- pragma translate_on
-PORT MAP (
-	dataa => \t_buffer|min_unit_out\(2),
-	datab => \t_buffer|min_unit_out\(0),
-	datac => \t_buffer|min_unit_out\(1),
-	datad => \t_buffer|min_unit_out\(3),
-	combout => \min_unit_seg|Mux2~0_combout\);
-
--- Location: LCCOMB_X58_Y50_N24
-\min_unit_seg|Mux1~0\ : fiftyfivenm_lcell_comb
--- Equation(s):
--- \min_unit_seg|Mux1~0_combout\ = (!\t_buffer|min_unit_out\(3) & ((\t_buffer|min_unit_out\(0) & ((\t_buffer|min_unit_out\(1)) # (!\t_buffer|min_unit_out\(2)))) # (!\t_buffer|min_unit_out\(0) & (!\t_buffer|min_unit_out\(2) & \t_buffer|min_unit_out\(1)))))
-
--- pragma translate_off
-GENERIC MAP (
-	lut_mask => "0100010100000100",
+	lut_mask => "0100010101001100",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => \t_buffer|min_unit_out\(3),
 	datab => \t_buffer|min_unit_out\(0),
+	datac => \t_buffer|min_unit_out\(1),
+	datad => \t_buffer|min_unit_out\(2),
+	combout => \min_unit_seg|Mux2~0_combout\);
+
+-- Location: LCCOMB_X69_Y51_N16
+\min_unit_seg|Mux1~0\ : fiftyfivenm_lcell_comb
+-- Equation(s):
+-- \min_unit_seg|Mux1~0_combout\ = (!\t_buffer|min_unit_out\(3) & ((\t_buffer|min_unit_out\(1) & ((\t_buffer|min_unit_out\(0)) # (!\t_buffer|min_unit_out\(2)))) # (!\t_buffer|min_unit_out\(1) & (\t_buffer|min_unit_out\(0) & !\t_buffer|min_unit_out\(2)))))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0000000010001110",
+	sum_lutc_input => "datac")
+-- pragma translate_on
+PORT MAP (
+	dataa => \t_buffer|min_unit_out\(1),
+	datab => \t_buffer|min_unit_out\(0),
 	datac => \t_buffer|min_unit_out\(2),
-	datad => \t_buffer|min_unit_out\(1),
+	datad => \t_buffer|min_unit_out\(3),
 	combout => \min_unit_seg|Mux1~0_combout\);
 
--- Location: LCCOMB_X58_Y50_N16
+-- Location: LCCOMB_X69_Y51_N26
 \min_unit_seg|Mux0~0\ : fiftyfivenm_lcell_comb
 -- Equation(s):
--- \min_unit_seg|Mux0~0_combout\ = (\t_buffer|min_unit_out\(3)) # ((\t_buffer|min_unit_out\(2) & ((!\t_buffer|min_unit_out\(1)) # (!\t_buffer|min_unit_out\(0)))) # (!\t_buffer|min_unit_out\(2) & ((\t_buffer|min_unit_out\(1)))))
+-- \min_unit_seg|Mux0~0_combout\ = (\t_buffer|min_unit_out\(3)) # ((\t_buffer|min_unit_out\(1) & ((!\t_buffer|min_unit_out\(2)) # (!\t_buffer|min_unit_out\(0)))) # (!\t_buffer|min_unit_out\(1) & ((\t_buffer|min_unit_out\(2)))))
 
 -- pragma translate_off
 GENERIC MAP (
@@ -5085,10 +5119,10 @@ GENERIC MAP (
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	dataa => \t_buffer|min_unit_out\(2),
+	dataa => \t_buffer|min_unit_out\(1),
 	datab => \t_buffer|min_unit_out\(0),
 	datac => \t_buffer|min_unit_out\(3),
-	datad => \t_buffer|min_unit_out\(1),
+	datad => \t_buffer|min_unit_out\(2),
 	combout => \min_unit_seg|Mux0~0_combout\);
 
 -- Location: UNVM_X0_Y40_N40

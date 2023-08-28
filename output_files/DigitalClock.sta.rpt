@@ -1,5 +1,5 @@
 Timing Analyzer report for DigitalClock
-Mon Aug 28 21:33:06 2023
+Mon Aug 28 21:47:51 2023
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -92,12 +92,12 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
-; Average used               ; 1.06        ;
+; Average used               ; 1.05        ;
 ; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   6.1%      ;
+;     Processor 2            ;   4.9%      ;
 +----------------------------+-------------+
 
 
@@ -109,8 +109,7 @@ https://fpgasoftware.intel.com/eula.
 ; CLK_FPGA                                ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { CLK_FPGA }                                ;
 ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out } ;
 ; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out } ;
-; KEY_0                                   ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { KEY_0 }                                   ;
-; KEY_1                                   ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { KEY_1 }                                   ;
+; SW_9                                    ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { SW_9 }                                    ;
 +-----------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------------------------------------+
 
 
@@ -119,8 +118,8 @@ https://fpgasoftware.intel.com/eula.
 +------------+-----------------+-----------------------------------------+------------------------------------------------+
 ; Fmax       ; Restricted Fmax ; Clock Name                              ; Note                                           ;
 +------------+-----------------+-----------------------------------------+------------------------------------------------+
-; 248.08 MHz ; 248.08 MHz      ; CLK_FPGA                                ;                                                ;
-; 284.25 MHz ; 284.25 MHz      ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ;                                                ;
+; 216.12 MHz ; 216.12 MHz      ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ;                                                ;
+; 236.63 MHz ; 236.63 MHz      ; CLK_FPGA                                ;                                                ;
 ; 1424.5 MHz ; 416.15 MHz      ; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; limit due to minimum period restriction (tmin) ;
 +------------+-----------------+-----------------------------------------+------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
@@ -131,11 +130,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------------------------------+--------+---------------+
 ; Clock                                   ; Slack  ; End Point TNS ;
 +-----------------------------------------+--------+---------------+
-; CLK_FPGA                                ; -3.358 ; -202.606      ;
-; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ; -2.518 ; -15.429       ;
-; KEY_1                                   ; -1.151 ; -6.504        ;
-; KEY_0                                   ; -0.683 ; -4.659        ;
-; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; 0.298  ; 0.000         ;
+; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ; -3.627 ; -18.755       ;
+; CLK_FPGA                                ; -3.226 ; -194.311      ;
+; SW_9                                    ; -1.281 ; -14.658       ;
+; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; -1.114 ; -3.102        ;
 +-----------------------------------------+--------+---------------+
 
 
@@ -144,11 +142,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------------------------------+-------+---------------+
 ; Clock                                   ; Slack ; End Point TNS ;
 +-----------------------------------------+-------+---------------+
-; KEY_0                                   ; 0.065 ; 0.000         ;
+; SW_9                                    ; 0.377 ; 0.000         ;
 ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ; 0.378 ; 0.000         ;
-; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; 0.393 ; 0.000         ;
-; KEY_1                                   ; 0.412 ; 0.000         ;
-; CLK_FPGA                                ; 0.629 ; 0.000         ;
+; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; 0.378 ; 0.000         ;
+; CLK_FPGA                                ; 0.505 ; 0.000         ;
 +-----------------------------------------+-------+---------------+
 
 
@@ -170,10 +167,9 @@ No paths to report.
 ; Clock                                   ; Slack  ; End Point TNS ;
 +-----------------------------------------+--------+---------------+
 ; CLK_FPGA                                ; -3.000 ; -104.016      ;
-; KEY_0                                   ; -3.000 ; -15.627       ;
-; KEY_1                                   ; -3.000 ; -14.224       ;
+; SW_9                                    ; -3.000 ; -26.851       ;
 ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ; -1.403 ; -9.821        ;
-; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; -1.403 ; -1.403        ;
+; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; -1.403 ; -4.209        ;
 +-----------------------------------------+--------+---------------+
 
 
@@ -188,8 +184,8 @@ No synchronizer chains to report.
 +------------+-----------------+-----------------------------------------+---------------------------------------------------------------+
 ; Fmax       ; Restricted Fmax ; Clock Name                              ; Note                                                          ;
 +------------+-----------------+-----------------------------------------+---------------------------------------------------------------+
-; 269.18 MHz ; 250.0 MHz       ; CLK_FPGA                                ; limit due to minimum period restriction (max I/O toggle rate) ;
-; 316.56 MHz ; 316.56 MHz      ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ;                                                               ;
+; 238.44 MHz ; 238.44 MHz      ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ;                                                               ;
+; 256.02 MHz ; 250.0 MHz       ; CLK_FPGA                                ; limit due to minimum period restriction (max I/O toggle rate) ;
 ; 1567.4 MHz ; 416.15 MHz      ; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; limit due to minimum period restriction (tmin)                ;
 +------------+-----------------+-----------------------------------------+---------------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
@@ -200,25 +196,23 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------------------------------+--------+---------------+
 ; Clock                                   ; Slack  ; End Point TNS ;
 +-----------------------------------------+--------+---------------+
-; CLK_FPGA                                ; -3.114 ; -182.630      ;
-; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ; -2.159 ; -13.413       ;
-; KEY_1                                   ; -0.937 ; -5.048        ;
-; KEY_0                                   ; -0.515 ; -3.176        ;
-; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; 0.362  ; 0.000         ;
+; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ; -3.194 ; -16.465       ;
+; CLK_FPGA                                ; -2.906 ; -174.792      ;
+; SW_9                                    ; -1.083 ; -11.129       ;
+; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; -1.000 ; -2.772        ;
 +-----------------------------------------+--------+---------------+
 
 
-+------------------------------------------------------------------+
-; Slow 1200mV 0C Model Hold Summary                                ;
-+-----------------------------------------+--------+---------------+
-; Clock                                   ; Slack  ; End Point TNS ;
-+-----------------------------------------+--------+---------------+
-; KEY_0                                   ; -0.093 ; -0.093        ;
-; KEY_1                                   ; 0.245  ; 0.000         ;
-; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ; 0.339  ; 0.000         ;
-; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; 0.355  ; 0.000         ;
-; CLK_FPGA                                ; 0.581  ; 0.000         ;
-+-----------------------------------------+--------+---------------+
++-----------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold Summary                               ;
++-----------------------------------------+-------+---------------+
+; Clock                                   ; Slack ; End Point TNS ;
++-----------------------------------------+-------+---------------+
+; SW_9                                    ; 0.249 ; 0.000         ;
+; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ; 0.339 ; 0.000         ;
+; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; 0.339 ; 0.000         ;
+; CLK_FPGA                                ; 0.455 ; 0.000         ;
++-----------------------------------------+-------+---------------+
 
 
 -----------------------------------------
@@ -239,10 +233,9 @@ No paths to report.
 ; Clock                                   ; Slack  ; End Point TNS ;
 +-----------------------------------------+--------+---------------+
 ; CLK_FPGA                                ; -3.000 ; -104.016      ;
-; KEY_0                                   ; -3.000 ; -15.627       ;
-; KEY_1                                   ; -3.000 ; -14.224       ;
+; SW_9                                    ; -3.000 ; -26.851       ;
 ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ; -1.403 ; -9.821        ;
-; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; -1.403 ; -1.403        ;
+; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; -1.403 ; -4.209        ;
 +-----------------------------------------+--------+---------------+
 
 
@@ -257,11 +250,10 @@ No synchronizer chains to report.
 +-----------------------------------------+--------+---------------+
 ; Clock                                   ; Slack  ; End Point TNS ;
 +-----------------------------------------+--------+---------------+
-; CLK_FPGA                                ; -0.781 ; -40.768       ;
-; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ; -0.604 ; -2.225        ;
-; KEY_1                                   ; -0.243 ; -0.785        ;
-; KEY_0                                   ; -0.051 ; -0.156        ;
-; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; 0.694  ; 0.000         ;
+; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ; -1.105 ; -7.688        ;
+; CLK_FPGA                                ; -0.768 ; -38.389       ;
+; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; -0.497 ; -1.405        ;
+; SW_9                                    ; -0.273 ; -1.413        ;
 +-----------------------------------------+--------+---------------+
 
 
@@ -271,10 +263,9 @@ No synchronizer chains to report.
 ; Clock                                   ; Slack ; End Point TNS ;
 +-----------------------------------------+-------+---------------+
 ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ; 0.166 ; 0.000         ;
-; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; 0.170 ; 0.000         ;
-; KEY_0                                   ; 0.216 ; 0.000         ;
-; CLK_FPGA                                ; 0.243 ; 0.000         ;
-; KEY_1                                   ; 0.246 ; 0.000         ;
+; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; 0.166 ; 0.000         ;
+; CLK_FPGA                                ; 0.178 ; 0.000         ;
+; SW_9                                    ; 0.263 ; 0.000         ;
 +-----------------------------------------+-------+---------------+
 
 
@@ -295,11 +286,10 @@ No paths to report.
 +-----------------------------------------+--------+---------------+
 ; Clock                                   ; Slack  ; End Point TNS ;
 +-----------------------------------------+--------+---------------+
-; CLK_FPGA                                ; -3.000 ; -87.343       ;
-; KEY_0                                   ; -3.000 ; -16.891       ;
-; KEY_1                                   ; -3.000 ; -15.029       ;
+; CLK_FPGA                                ; -3.000 ; -87.593       ;
+; SW_9                                    ; -3.000 ; -26.839       ;
 ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ; -1.000 ; -7.000        ;
-; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; -1.000 ; -1.000        ;
+; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; -1.000 ; -3.000        ;
 +-----------------------------------------+--------+---------------+
 
 
@@ -309,24 +299,22 @@ No paths to report.
 No synchronizer chains to report.
 
 
-+---------------------------------------------------------------------------------------------------------+
-; Multicorner Timing Analysis Summary                                                                     ;
-+------------------------------------------+----------+--------+----------+---------+---------------------+
-; Clock                                    ; Setup    ; Hold   ; Recovery ; Removal ; Minimum Pulse Width ;
-+------------------------------------------+----------+--------+----------+---------+---------------------+
-; Worst-case Slack                         ; -3.358   ; -0.093 ; N/A      ; N/A     ; -3.000              ;
-;  CLK_FPGA                                ; -3.358   ; 0.243  ; N/A      ; N/A     ; -3.000              ;
-;  KEY_0                                   ; -0.683   ; -0.093 ; N/A      ; N/A     ; -3.000              ;
-;  KEY_1                                   ; -1.151   ; 0.245  ; N/A      ; N/A     ; -3.000              ;
-;  fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ; -2.518   ; 0.166  ; N/A      ; N/A     ; -1.403              ;
-;  fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; 0.298    ; 0.170  ; N/A      ; N/A     ; -1.403              ;
-; Design-wide TNS                          ; -229.198 ; -0.093 ; 0.0      ; 0.0     ; -145.091            ;
-;  CLK_FPGA                                ; -202.606 ; 0.000  ; N/A      ; N/A     ; -104.016            ;
-;  KEY_0                                   ; -4.659   ; -0.093 ; N/A      ; N/A     ; -16.891             ;
-;  KEY_1                                   ; -6.504   ; 0.000  ; N/A      ; N/A     ; -15.029             ;
-;  fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ; -15.429  ; 0.000  ; N/A      ; N/A     ; -9.821              ;
-;  fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; 0.000    ; 0.000  ; N/A      ; N/A     ; -1.403              ;
-+------------------------------------------+----------+--------+----------+---------+---------------------+
++--------------------------------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                                                    ;
++------------------------------------------+----------+-------+----------+---------+---------------------+
+; Clock                                    ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------------------------------+----------+-------+----------+---------+---------------------+
+; Worst-case Slack                         ; -3.627   ; 0.166 ; N/A      ; N/A     ; -3.000              ;
+;  CLK_FPGA                                ; -3.226   ; 0.178 ; N/A      ; N/A     ; -3.000              ;
+;  SW_9                                    ; -1.281   ; 0.249 ; N/A      ; N/A     ; -3.000              ;
+;  fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ; -3.627   ; 0.166 ; N/A      ; N/A     ; -1.403              ;
+;  fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; -1.114   ; 0.166 ; N/A      ; N/A     ; -1.403              ;
+; Design-wide TNS                          ; -230.826 ; 0.0   ; 0.0      ; 0.0     ; -144.897            ;
+;  CLK_FPGA                                ; -194.311 ; 0.000 ; N/A      ; N/A     ; -104.016            ;
+;  SW_9                                    ; -14.658  ; 0.000 ; N/A      ; N/A     ; -26.851             ;
+;  fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ; -18.755  ; 0.000 ; N/A      ; N/A     ; -9.821              ;
+;  fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; -3.102   ; 0.000 ; N/A      ; N/A     ; -4.209              ;
++------------------------------------------+----------+-------+----------+---------+---------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -380,8 +368,8 @@ No synchronizer chains to report.
 +---------------------+-----------------------+-----------------+-----------------+
 ; CLK_FPGA            ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
 ; SW_9                ; 3.3-V LVTTL           ; 2640 ps         ; 2640 ps         ;
-; KEY_1               ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
 ; KEY_0               ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
+; KEY_1               ; 3.3 V Schmitt Trigger ; 2640 ps         ; 2640 ps         ;
 ; ~ALTERA_TMS~        ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
 ; ~ALTERA_TCK~        ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
 ; ~ALTERA_TDI~        ; 2.5 V Schmitt Trigger ; 2000 ps         ; 2000 ps         ;
@@ -530,12 +518,12 @@ No synchronizer chains to report.
 ; From Clock                              ; To Clock                                ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +-----------------------------------------+-----------------------------------------+----------+----------+----------+----------+
 ; CLK_FPGA                                ; CLK_FPGA                                ; 2016     ; 0        ; 0        ; 0        ;
-; KEY_0                                   ; CLK_FPGA                                ; 8        ; 0        ; 0        ; 0        ;
-; KEY_1                                   ; CLK_FPGA                                ; 8        ; 0        ; 0        ; 0        ;
+; SW_9                                    ; CLK_FPGA                                ; 16       ; 0        ; 0        ; 0        ;
 ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ; 190      ; 0        ; 0        ; 0        ;
-; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; 1        ; 0        ; 0        ; 0        ;
-; CLK_FPGA                                ; KEY_0                                   ; 49       ; 0        ; 0        ; 0        ;
-; CLK_FPGA                                ; KEY_1                                   ; 86       ; 0        ; 0        ; 0        ;
+; SW_9                                    ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ; 7        ; 7        ; 0        ; 0        ;
+; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; 3        ; 0        ; 0        ; 0        ;
+; SW_9                                    ; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; 3        ; 3        ; 0        ; 0        ;
+; CLK_FPGA                                ; SW_9                                    ; 135      ; 0        ; 0        ; 0        ;
 +-----------------------------------------+-----------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -546,12 +534,12 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 ; From Clock                              ; To Clock                                ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +-----------------------------------------+-----------------------------------------+----------+----------+----------+----------+
 ; CLK_FPGA                                ; CLK_FPGA                                ; 2016     ; 0        ; 0        ; 0        ;
-; KEY_0                                   ; CLK_FPGA                                ; 8        ; 0        ; 0        ; 0        ;
-; KEY_1                                   ; CLK_FPGA                                ; 8        ; 0        ; 0        ; 0        ;
+; SW_9                                    ; CLK_FPGA                                ; 16       ; 0        ; 0        ; 0        ;
 ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ; 190      ; 0        ; 0        ; 0        ;
-; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; 1        ; 0        ; 0        ; 0        ;
-; CLK_FPGA                                ; KEY_0                                   ; 49       ; 0        ; 0        ; 0        ;
-; CLK_FPGA                                ; KEY_1                                   ; 86       ; 0        ; 0        ; 0        ;
+; SW_9                                    ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ; 7        ; 7        ; 0        ; 0        ;
+; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; 3        ; 0        ; 0        ; 0        ;
+; SW_9                                    ; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; 3        ; 3        ; 0        ; 0        ;
+; CLK_FPGA                                ; SW_9                                    ; 135      ; 0        ; 0        ; 0        ;
 +-----------------------------------------+-----------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -575,8 +563,8 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 1     ; 1    ;
-; Unconstrained Input Port Paths  ; 8     ; 8    ;
+; Unconstrained Input Ports       ; 2     ; 2    ;
+; Unconstrained Input Port Paths  ; 4     ; 4    ;
 ; Unconstrained Output Ports      ; 29    ; 29   ;
 ; Unconstrained Output Port Paths ; 113   ; 113  ;
 +---------------------------------+-------+------+
@@ -588,8 +576,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Target                                  ; Clock                                   ; Type ; Status      ;
 +-----------------------------------------+-----------------------------------------+------+-------------+
 ; CLK_FPGA                                ; CLK_FPGA                                ; Base ; Constrained ;
-; KEY_0                                   ; KEY_0                                   ; Base ; Constrained ;
-; KEY_1                                   ; KEY_1                                   ; Base ; Constrained ;
+; SW_9                                    ; SW_9                                    ; Base ; Constrained ;
 ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ; fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out ; Base ; Constrained ;
 ; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out ; Base ; Constrained ;
 +-----------------------------------------+-----------------------------------------+------+-------------+
@@ -600,7 +587,8 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +------------+--------------------------------------------------------------------------------------+
 ; Input Port ; Comment                                                                              ;
 +------------+--------------------------------------------------------------------------------------+
-; SW_9       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; KEY_0      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; KEY_1      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +------------+--------------------------------------------------------------------------------------+
 
 
@@ -646,7 +634,8 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +------------+--------------------------------------------------------------------------------------+
 ; Input Port ; Comment                                                                              ;
 +------------+--------------------------------------------------------------------------------------+
-; SW_9       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; KEY_0      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; KEY_1      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +------------+--------------------------------------------------------------------------------------+
 
 
@@ -693,7 +682,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Mon Aug 28 21:33:02 2023
+    Info: Processing started: Mon Aug 28 21:47:48 2023
 Info: Command: quartus_sta DigitalClock -c DigitalClock
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -705,107 +694,106 @@ Info (332142): No user constrained base clocks found in the design. Calling "der
 Info (332105): Deriving Clocks
     Info (332105): create_clock -period 1.000 -name CLK_FPGA CLK_FPGA
     Info (332105): create_clock -period 1.000 -name fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out
-    Info (332105): create_clock -period 1.000 -name KEY_1 KEY_1
-    Info (332105): create_clock -period 1.000 -name KEY_0 KEY_0
+    Info (332105): create_clock -period 1.000 -name SW_9 SW_9
     Info (332105): create_clock -period 1.000 -name fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out
+Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+    Info (332098): Cell: t_incrementer|hour_clk_in  from: datad  to: combout
+    Info (332098): Cell: t_incrementer|min_clk_in  from: datad  to: combout
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -3.358
+Info (332146): Worst-case setup slack is -3.627
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.358            -202.606 CLK_FPGA 
-    Info (332119):    -2.518             -15.429 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
-    Info (332119):    -1.151              -6.504 KEY_1 
-    Info (332119):    -0.683              -4.659 KEY_0 
-    Info (332119):     0.298               0.000 fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out 
-Info (332146): Worst-case hold slack is 0.065
+    Info (332119):    -3.627             -18.755 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
+    Info (332119):    -3.226            -194.311 CLK_FPGA 
+    Info (332119):    -1.281             -14.658 SW_9 
+    Info (332119):    -1.114              -3.102 fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out 
+Info (332146): Worst-case hold slack is 0.377
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.065               0.000 KEY_0 
+    Info (332119):     0.377               0.000 SW_9 
     Info (332119):     0.378               0.000 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
-    Info (332119):     0.393               0.000 fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out 
-    Info (332119):     0.412               0.000 KEY_1 
-    Info (332119):     0.629               0.000 CLK_FPGA 
+    Info (332119):     0.378               0.000 fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out 
+    Info (332119):     0.505               0.000 CLK_FPGA 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):    -3.000            -104.016 CLK_FPGA 
-    Info (332119):    -3.000             -15.627 KEY_0 
-    Info (332119):    -3.000             -14.224 KEY_1 
+    Info (332119):    -3.000             -26.851 SW_9 
     Info (332119):    -1.403              -9.821 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
-    Info (332119):    -1.403              -1.403 fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out 
+    Info (332119):    -1.403              -4.209 fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out 
 Info: Analyzing Slow 1200mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
+Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+    Info (332098): Cell: t_incrementer|hour_clk_in  from: datad  to: combout
+    Info (332098): Cell: t_incrementer|min_clk_in  from: datad  to: combout
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -3.114
+Info (332146): Worst-case setup slack is -3.194
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.114            -182.630 CLK_FPGA 
-    Info (332119):    -2.159             -13.413 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
-    Info (332119):    -0.937              -5.048 KEY_1 
-    Info (332119):    -0.515              -3.176 KEY_0 
-    Info (332119):     0.362               0.000 fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out 
-Info (332146): Worst-case hold slack is -0.093
+    Info (332119):    -3.194             -16.465 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
+    Info (332119):    -2.906            -174.792 CLK_FPGA 
+    Info (332119):    -1.083             -11.129 SW_9 
+    Info (332119):    -1.000              -2.772 fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out 
+Info (332146): Worst-case hold slack is 0.249
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.093              -0.093 KEY_0 
-    Info (332119):     0.245               0.000 KEY_1 
+    Info (332119):     0.249               0.000 SW_9 
     Info (332119):     0.339               0.000 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
-    Info (332119):     0.355               0.000 fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out 
-    Info (332119):     0.581               0.000 CLK_FPGA 
+    Info (332119):     0.339               0.000 fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out 
+    Info (332119):     0.455               0.000 CLK_FPGA 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):    -3.000            -104.016 CLK_FPGA 
-    Info (332119):    -3.000             -15.627 KEY_0 
-    Info (332119):    -3.000             -14.224 KEY_1 
+    Info (332119):    -3.000             -26.851 SW_9 
     Info (332119):    -1.403              -9.821 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
-    Info (332119):    -1.403              -1.403 fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out 
+    Info (332119):    -1.403              -4.209 fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out 
 Info: Analyzing Fast 1200mV 0C Model
+Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+    Info (332098): Cell: t_incrementer|hour_clk_in  from: datad  to: combout
+    Info (332098): Cell: t_incrementer|min_clk_in  from: datad  to: combout
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -0.781
+Info (332146): Worst-case setup slack is -1.105
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.781             -40.768 CLK_FPGA 
-    Info (332119):    -0.604              -2.225 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
-    Info (332119):    -0.243              -0.785 KEY_1 
-    Info (332119):    -0.051              -0.156 KEY_0 
-    Info (332119):     0.694               0.000 fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out 
+    Info (332119):    -1.105              -7.688 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
+    Info (332119):    -0.768             -38.389 CLK_FPGA 
+    Info (332119):    -0.497              -1.405 fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out 
+    Info (332119):    -0.273              -1.413 SW_9 
 Info (332146): Worst-case hold slack is 0.166
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     0.166               0.000 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
-    Info (332119):     0.170               0.000 fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out 
-    Info (332119):     0.216               0.000 KEY_0 
-    Info (332119):     0.243               0.000 CLK_FPGA 
-    Info (332119):     0.246               0.000 KEY_1 
+    Info (332119):     0.166               0.000 fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out 
+    Info (332119):     0.178               0.000 CLK_FPGA 
+    Info (332119):     0.263               0.000 SW_9 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -87.343 CLK_FPGA 
-    Info (332119):    -3.000             -16.891 KEY_0 
-    Info (332119):    -3.000             -15.029 KEY_1 
+    Info (332119):    -3.000             -87.593 CLK_FPGA 
+    Info (332119):    -3.000             -26.839 SW_9 
     Info (332119):    -1.000              -7.000 fifty_mhz_1hz_2hz:one_hz|one_hz_clk_out 
-    Info (332119):    -1.000              -1.000 fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out 
+    Info (332119):    -1.000              -3.000 fifty_mhz_1hz_2hz:one_hz|two_hz_clk_out 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4819 megabytes
-    Info: Processing ended: Mon Aug 28 21:33:06 2023
-    Info: Elapsed time: 00:00:04
+    Info: Peak virtual memory: 4815 megabytes
+    Info: Processing ended: Mon Aug 28 21:47:51 2023
+    Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:03
 
 

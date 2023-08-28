@@ -59,6 +59,8 @@ architecture logic of DigitalClock is
   signal t_incr_min_tens, t_incr_min_unit, t_incr_hour_tens, t_incr_hour_unit : std_logic_vector(3 downto 0);
 
   signal s_min_tens, s_min_unit, s_hour_tens, s_hour_unit, s_blinker : std_logic_vector(6 downto 0);
+
+  signal increment_hour, increment_minute, ignore : std_logic;
 begin
   incr_min <= KEY_0;
   incr_hr <= KEY_1;
@@ -83,8 +85,8 @@ begin
 
   t_incrementer : time_incrementer port map(
     clk_selector => SW_9,
-    btn_min_clk => incr_min,
-    btn_hour_clk => incr_hr,
+    btn_min_clk => increment_minute,
+    btn_hour_clk => increment_hour,
     minute_clk => update_count,
     t_min_unit_in => minute_unit,
     t_min_tens_in => minute_tens, 
@@ -108,7 +110,7 @@ begin
     hour_tens_out => hour_tens
   );
 
-  process(one_hz_clk, SW_9)
+  process(one_hz_clk, SW_9, incr_hr, incr_min)
     variable seconds : integer range 0 to 100 := 0;
   begin
     if rising_edge(one_hz_clk) then
@@ -123,6 +125,24 @@ begin
         end if;
       elsif SW_9 = '0' then
         seconds := 0;
+      end if;
+    end if;
+
+    if rising_edge(two_hz_clk) then
+      if SW_9 = '0' then
+        increment_hour <= '0';
+        increment_minute <= '0';
+
+        if incr_hr = '0' and incr_min = '0' then
+          -- hour_unit <= (others => '0');
+          -- hour_tens <= (others => '0');
+          -- minute_unit <= (others => '0');
+          -- minute_tens <= (others => '0');
+        elsif incr_hr = '0' then
+          increment_hour <= '1';
+        elsif incr_min = '0' then
+          increment_minute <= '1';
+        end if;
       end if;
     end if;
   end process;

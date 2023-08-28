@@ -128,11 +128,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "KEY_1",
+					"name" : "KEY_0",
 					"strict" : false
 				},
 				{
-					"name" : "KEY_0",
+					"name" : "KEY_1",
 					"strict" : false
 				}
 			]

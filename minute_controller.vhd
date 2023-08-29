@@ -7,7 +7,7 @@ use ieee.numeric_std.all;
 entity minute_controller is
   port(
     min_clk_in                  : in std_logic;
-    should_decrement, hr_grt_0  : in boolean;
+    should_decrement, hr_grt_0_in  : in boolean;
     min_tens_in, min_unit_in    : in std_logic_vector(3 downto 0);
     min_tens_out, min_unit_out  : out std_logic_vector(min_tens_in'range);
     hour_clk_out                : out std_logic
@@ -45,16 +45,16 @@ begin
       elsif should_decrement then
         if min_unit_int > 0 then
           min_unit_out <= std_logic_vector(unsigned(min_unit_in) - 1);
-        else
-          if min_tens_int > 0 then
-            min_tens_out <= std_logic_vector(unsigned(min_tens_in) - 1);
-            min_unit_out <= "1001";
-          elsif hr_grt_0 then -- e.g 10:00 --> 9:59
+
+          if min_tens_int = 0 and min_unit_int = 1 then
             min_tens_out <= "0101";
             min_unit_out <= "1001";
 
             hour_clk_out <= '1';
           end if;
+        else
+          min_tens_out <= std_logic_vector(unsigned(min_tens_in) - 1);
+          min_unit_out <= "1001";
         end if;
       end if;
     end if;

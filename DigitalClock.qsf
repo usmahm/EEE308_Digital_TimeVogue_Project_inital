@@ -171,7 +171,9 @@ set_location_assignment PIN_A7 -to KEY_1
 # SW
 #============================================================
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW_9
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW_8
 set_location_assignment PIN_F15 -to SW_9
+set_location_assignment PIN_B14 -to SW_8
 
 #============================================================
 # CLOCK

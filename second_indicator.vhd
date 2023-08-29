@@ -15,7 +15,7 @@ begin
     variable point : std_logic := '0';
   begin
     if rising_edge(clk) then
-      if is_on = '1' then
+      if is_on = '0' then
         point := not point;
       else
         point := '1';

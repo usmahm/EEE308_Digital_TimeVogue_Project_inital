@@ -15,10 +15,10 @@ architecture logic of time_incrementer is
   -- Controls incrementing hour count
   component hour_controller is
     port(
-      hour_clk_in               : in std_logic;
-      should_decrement          : in boolean;
-      hr_tens_in, hr_unit_in    : in std_logic_vector(3 downto 0);
-      hr_tens_out, hr_unit_out  : out std_logic_vector(hr_tens_in'range)
+      hour_clk_in                        : in std_logic;
+      should_decrement, is_stop_watch    : in boolean;
+      hr_tens_in, hr_unit_in             : in std_logic_vector(3 downto 0);
+      hr_tens_out, hr_unit_out           : out std_logic_vector(hr_tens_in'range)
     );
   end component;
 
@@ -39,6 +39,7 @@ begin
   hr_controller : hour_controller port map(
     hour_clk_in => hour_clk,
     should_decrement => false,
+    is_stop_watch => is_stop_watch_in,
     hr_tens_in => t_hour_tens_in,
     hr_unit_in => t_hour_unit_in,
     hr_tens_out => new_hour_tens_out,

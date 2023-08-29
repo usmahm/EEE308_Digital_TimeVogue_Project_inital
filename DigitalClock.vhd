@@ -5,7 +5,8 @@ use ieee.numeric_std.all;
 entity DigitalClock is
   port (
     KEY_0, KEY_1, SW_9, SW_8, CLK_FPGA : in std_logic;
-    HEX_5, HEX_4, HEX_3, HEX_2, HEX_1  : out std_logic_vector(6 downto 0)
+    HEX_5, HEX_4, HEX_3, HEX_2, HEX_1  : out std_logic_vector(6 downto 0);
+    LEDR                               : out std_logic_vector(9 downto 0)
   );
 end entity;
 
@@ -33,6 +34,15 @@ architecture logic of DigitalClock is
       seven  : out std_logic_vector(6 downto 0)
     );
   end component seven_seg;
+
+  component ledr_flash is
+    port(
+      clk_fpga_in, reset                                           : in std_logic;
+      l_st_min_unit, l_st_min_tens, l_st_hour_tens, l_st_hour_unit : in std_logic_vector(3 downto 0);
+      ledr_val_in                                                  : in std_logic_vector(9 downto 0);
+      ledr_val_out                                                 : out std_logic_vector(ledr_val_in'range)
+    );
+  end component;
 
   -- Selects what to pass to the output(7 segment display)
   component mux_select is
@@ -72,6 +82,8 @@ architecture logic of DigitalClock is
   signal st_min_tens, st_min_unit, st_hour_tens, st_hour_unit : std_logic_vector(3 downto 0);
 
   signal s_min_tens, s_min_unit, s_hour_tens, s_hour_unit, s_blinker : std_logic_vector(6 downto 0);
+  signal ledr_val : std_logic_vector(LEDR'range) := "0000000000";
+  -- signal blinker_on 
 begin
   incr_min <= KEY_0;
   incr_hr <= KEY_1;
@@ -121,9 +133,9 @@ begin
     st_min_tens_in => st_min_tens, 
     st_hour_unit_in => st_hour_unit,
     st_hour_tens_in => st_hour_tens, 
-    st_min_unit_out => st_min_unit,
     is_stop_watch_in => is_stop_watch,
-
+    
+    st_min_unit_out => st_min_unit,
     st_min_tens_out => st_min_tens,
     st_hour_unit_out => st_hour_unit,
     st_hour_tens_out => st_hour_tens
@@ -144,6 +156,17 @@ begin
     hr_tens_out => hour_tens,
     min_unit_out =>minute_unit ,
     min_tens_out => minute_tens
+  );
+
+  ledr_fl : ledr_flash port map(
+    clk_fpga_in => CLK_FPGA,
+    reset => KEY_0,
+    l_st_min_unit => st_min_unit,
+    l_st_min_tens => st_min_tens,
+    l_st_hour_tens => st_hour_tens,
+    l_st_hour_unit => st_hour_unit,
+    ledr_val_in => ledr_val,
+    ledr_val_out => ledr_val
   );
 
   process(clk_selector, one_hz_clk, two_hz_clk, incr_min, incr_hr)
@@ -190,4 +213,5 @@ begin
   HEX_2 <= s_min_tens;
   HEX_1 <= s_min_unit;
   HEX_3 <= s_blinker;
+  LEDR <= ledr_val;
 end architecture;

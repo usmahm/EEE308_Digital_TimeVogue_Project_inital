@@ -46,13 +46,13 @@ begin
         if min_unit_int > 0 then
           min_unit_out <= std_logic_vector(unsigned(min_unit_in) - 1);
 
-          if min_tens_int = 0 and min_unit_int = 1 then
+          if min_tens_int = 0 and min_unit_int = 1 and hr_grt_0_in then
             min_tens_out <= "0101";
             min_unit_out <= "1001";
 
             hour_clk_out <= '1';
           end if;
-        else
+        elsif min_tens_int > 0 then
           min_tens_out <= std_logic_vector(unsigned(min_tens_in) - 1);
           min_unit_out <= "1001";
         end if;

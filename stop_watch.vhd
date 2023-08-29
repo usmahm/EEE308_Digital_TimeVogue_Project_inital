@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity time_incrementer is
+entity stop_watch is
   port(
     clk_selector_in, normal_min_clk_in, btn_min_clk_in, btn_hour_clk_in      : in std_logic;
     t_min_unit_in, t_min_tens_in, t_hour_tens_in, t_hour_unit_in             : in std_logic_vector(3 downto 0);
@@ -10,7 +10,7 @@ entity time_incrementer is
   );
 end entity;
 
-architecture logic of time_incrementer is
+architecture logic of stop_watch is
   -- Controls incrementing hour count
   component hour_controller is
     port(
